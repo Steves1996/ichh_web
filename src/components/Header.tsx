@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { MenuIcon, XIcon } from 'lucide-react';
+import { useRegistrationDialog } from './RegistrationDialog';
 import { useSite } from '../content/SiteContentProvider';
 
 const navItems = [
@@ -13,6 +14,7 @@ const navItems = [
 
 export function Header() {
   const { event } = useSite();
+  const registrationDialog = useRegistrationDialog();
   const [open, setOpen] = useState(false);
   const location = useLocation();
 
@@ -58,12 +60,13 @@ export function Header() {
           </nav>
 
           <div className="hidden lg:block">
-            <Link
-              to="/programme"
+            <button
+              type="button"
+              onClick={registrationDialog.open}
               className="inline-flex items-center bg-ember px-5 py-2.5 text-sm font-medium text-white transition-colors duration-150 ease-expo hover:bg-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-sand">
-              
+
               S’inscrire
-            </Link>
+            </button>
           </div>
 
           <button
@@ -94,12 +97,13 @@ export function Header() {
               </li>
           )}
           </ul>
-          <Link
-          to="/programme"
-          className="mt-3 block bg-ember px-5 py-3 text-center text-sm font-medium text-white">
-          
+          <button
+          type="button"
+          onClick={registrationDialog.open}
+          className="mt-3 block w-full bg-ember px-5 py-3 text-center text-sm font-medium text-white">
+
             S’inscrire
-          </Link>
+          </button>
         </nav>
       }
     </header>);

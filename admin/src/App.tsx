@@ -10,6 +10,7 @@ import { SingletonPage } from './pages/SingletonPage';
 import { CollectionPage } from './pages/CollectionPage';
 import { MediaPage } from './pages/MediaPage';
 import { PartnerRequestsPage } from './pages/PartnerRequestsPage';
+import { RegistrationsPage } from './pages/RegistrationsPage';
 import { SubscribersPage } from './pages/SubscribersPage';
 
 export function App() {
@@ -39,6 +40,7 @@ export function App() {
         <Route path="/login" element={<Navigate to="/" replace />} />
         <Route path="/" element={<Dashboard defs={defs} />} />
         <Route path="/media" element={<MediaPage />} />
+        <Route path="/inscriptions" element={<RegistrationsPage />} />
         <Route path="/partenariats" element={<PartnerRequestsPage />} />
         <Route path="/abonnes" element={<SubscribersPage />} />
         <Route path="/c/:key" element={<CollectionPage defs={defs} />} />

@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { PartnerDialogProvider } from './components/PartnerDialog';
+import { RegistrationDialogProvider } from './components/RegistrationDialog';
 import { Home } from './pages/Home';
 import { About } from './pages/About';
 import { Mahola } from './pages/Mahola';
@@ -23,6 +24,7 @@ export function App() {
     <SiteContentProvider>
     <BrowserRouter>
       <PartnerDialogProvider>
+      <RegistrationDialogProvider>
       <div className="flex min-h-screen w-full flex-col bg-sand">
         <a
           href="#contenu"
@@ -44,6 +46,7 @@ export function App() {
         </div>
         <Footer />
       </div>
+      </RegistrationDialogProvider>
       </PartnerDialogProvider>
     </BrowserRouter>
     </SiteContentProvider>);

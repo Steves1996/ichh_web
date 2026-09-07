@@ -35,6 +35,12 @@ export function Dashboard({ defs }: { defs: ContentDef[] }) {
         </div>
       ))}
       <div className="card">
+        <h2>Inscriptions à la conférence</h2>
+        <p className="muted">
+          Formulaires « S’inscrire » reçus depuis le site vitrine. <Link to="/inscriptions">Ouvrir</Link>
+        </p>
+      </div>
+      <div className="card">
         <h2>Demandes de partenariat</h2>
         <p className="muted">
           Formulaires « Devenir partenaire » reçus depuis le site vitrine. <Link to="/partenariats">Ouvrir</Link>

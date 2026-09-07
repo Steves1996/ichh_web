@@ -64,6 +64,10 @@ npm run seed:snapshot
 | `PUT` | `/api/admin/collections/:key/reorder` | JWT | `{ ids: [...] }` réordonne |
 | `GET/POST` | `/api/admin/media` | JWT | lister / téléverser une image (`multipart`, champ `file`) |
 | `DELETE` | `/api/admin/media/:id` | JWT | supprimer un média |
+| `POST` | `/api/registrations` | public | inscription « S'inscrire » du site (`{ fullName, phone, city, email }`) |
+| `GET` | `/api/admin/registrations` | JWT | lister les inscriptions à la conférence |
+| `PUT` | `/api/admin/registrations/:id` | JWT | changer le statut (`{ status }` : `nouveau` / `confirme` / `annule`) |
+| `DELETE` | `/api/admin/registrations/:id` | JWT | supprimer une inscription |
 | `POST` | `/api/partner-requests` | public | demande « Devenir partenaire » du site (`{ name, phone, email, message }`) |
 | `GET` | `/api/admin/partner-requests` | JWT | lister les demandes de partenariat |
 | `PUT` | `/api/admin/partner-requests/:id` | JWT | changer le statut (`{ status }` : `nouveau` / `en_cours` / `traite`) |
@@ -91,6 +95,7 @@ npm run seed:snapshot
 - `singletons(key, data jsonb)` — objets uniques
 - `content_entries(id, collection, position, data jsonb)` — listes ordonnées
 - `media_assets(...)` — fichiers téléversés
+- `registrations(id, fullName, phone, city, email, status, createdAt)` — inscriptions à la conférence reçues du site
 - `partner_requests(id, name, phone, email, message, status, createdAt)` — demandes de partenariat reçues du site
 - `subscribers(id, email, notified, createdAt)` — abonnés à la lettre d'information
 - `admin_users(...)` — comptes du back-office

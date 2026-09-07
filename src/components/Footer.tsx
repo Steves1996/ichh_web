@@ -2,11 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { InstagramIcon, LinkedinIcon, MailIcon, MapPinIcon, PhoneIcon } from 'lucide-react';
 import { usePartnerDialog } from './PartnerDialog';
+import { useRegistrationDialog } from './RegistrationDialog';
 import { useSite } from '../content/SiteContentProvider';
 
 export function Footer() {
   const { event, footerLinks, maholaContact } = useSite();
   const partnerDialog = usePartnerDialog();
+  const registrationDialog = useRegistrationDialog();
+
+  const dialogFor = (label: string) =>
+    label === 'Devenir partenaire' ? partnerDialog.open : label === 'S’inscrire' ? registrationDialog.open : null;
   return (
     <footer className="bg-ink text-sand">
       <div className="mx-auto max-w-page px-5 sm:px-8 py-14">
@@ -54,25 +59,28 @@ export function Footer() {
           <div key={group.title}>
               <h2 className="text-[11px] uppercase tracking-[0.18em] text-sand/50">{group.title}</h2>
               <ul className="mt-4 space-y-2.5">
-                {group.links.map((link) =>
-              <li key={link.label}>
-                    {link.label === 'Devenir partenaire' ?
-                <button
-                  type="button"
-                  onClick={partnerDialog.open}
-                  className="text-left text-sm text-sand/85 hover:text-ember-soft transition-colors duration-150 ease-expo">
-                      {link.label}
-                    </button> :
+                {group.links.map((link) => {
+                  const openDialog = dialogFor(link.label);
+                  return (
+                    <li key={link.label}>
+                      {openDialog ?
+                  <button
+                    type="button"
+                    onClick={openDialog}
+                    className="text-left text-sm text-sand/85 hover:text-ember-soft transition-colors duration-150 ease-expo">
+                        {link.label}
+                      </button> :
 
-                <Link
-                  to={link.to}
-                  className="text-sm text-sand/85 hover:text-ember-soft transition-colors duration-150 ease-expo">
+                  <Link
+                    to={link.to}
+                    className="text-sm text-sand/85 hover:text-ember-soft transition-colors duration-150 ease-expo">
 
-                      {link.label}
-                    </Link>
-                }
-                  </li>
-              )}
+                        {link.label}
+                      </Link>
+                  }
+                    </li>);
+
+                })}
               </ul>
             </div>
           )}

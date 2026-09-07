@@ -50,6 +50,19 @@ export interface PartnerRequest {
   updatedAt: string;
 }
 
+export type RegistrationStatus = 'nouveau' | 'confirme' | 'annule';
+
+export interface Registration {
+  id: string;
+  fullName: string;
+  phone: string;
+  city: string;
+  email: string;
+  status: RegistrationStatus;
+  createdAt: string;
+  updatedAt: string;
+}
+
 export interface Subscriber {
   id: string;
   email: string;

@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { DownloadIcon, PlayIcon, XIcon } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Countdown } from '../Countdown';
 import { usePartnerDialog } from '../PartnerDialog';
+import { useRegistrationDialog } from '../RegistrationDialog';
 import { useSite } from '../../content/SiteContentProvider';
 
 export function Hero() {
   const { event } = useSite();
   const partnerDialog = usePartnerDialog();
+  const registrationDialog = useRegistrationDialog();
   const [videoOpen, setVideoOpen] = useState(false);
 
   return (
@@ -46,12 +47,13 @@ export function Hero() {
             </p>
 
             <div className="mt-9 flex flex-wrap gap-3">
-              <Link
-                to="/programme"
+              <button
+                type="button"
+                onClick={registrationDialog.open}
                 className="bg-ember px-7 py-3.5 text-sm font-medium text-white transition-colors duration-150 ease-expo hover:bg-white hover:text-ink">
-                
+
                 S’inscrire
-              </Link>
+              </button>
               <button
                 type="button"
                 onClick={partnerDialog.open}
