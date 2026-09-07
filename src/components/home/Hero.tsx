@@ -60,11 +60,12 @@ export function Hero() {
                 Devenir partenaire
               </button>
               <a
-                href="#"
+                href="/brochure-ichh-yaounde-2026.pdf"
+                download
                 className="inline-flex items-center gap-2 px-2 py-3.5 text-sm font-medium text-sand/80 transition-colors duration-150 ease-expo hover:text-white">
-                
+
                 <DownloadIcon className="h-4 w-4" aria-hidden="true" />
-                Télécharger la brochure (PDF, 3,2 Mo)
+                Télécharger la brochure (PDF, 7,4 Mo)
               </a>
             </div>
           </div>
