@@ -27,8 +27,10 @@ async function bootstrap() {
     .build();
   SwaggerModule.setup('api/docs', app, SwaggerModule.createDocument(app, swagger));
 
-  // Crée l'administrateur par défaut au premier démarrage
-  await app.get(SeedService).ensureAdminUser();
+  // Au premier démarrage : compte administrateur + contenu de référence si la base est vide
+  const seed = app.get(SeedService);
+  await seed.ensureAdminUser();
+  await seed.ensureContentSeeded();
 
   const port = Number(process.env.PORT ?? 3001);
   await app.listen(port);

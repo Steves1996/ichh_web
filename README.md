@@ -33,9 +33,12 @@ Créez une base PostgreSQL (par ex. via **pgAdmin**), nommée `ichh`.
 cd api
 npm install
 cp .env.example .env          # renseignez DB_HOST/DB_PORT/DB_USER/DB_PASSWORD/DB_NAME, JWT_SECRET, ADMIN_*
-npm run start:dev             # crée les tables (DB_SYNCHRONIZE=true) + le compte admin
-npm run seed                  # charge le contenu actuel du site dans la base
+npm run start:dev             # crée les tables + le compte admin + charge le contenu si la base est vide
 ```
+
+> Le contenu de référence (`api/src/seed/snapshot.json`) est chargé
+> automatiquement au 1ᵉʳ démarrage sur une base vide. `npm run seed -- --force`
+> le recharge à tout moment.
 
 API : http://localhost:3001/api — documentation Swagger : http://localhost:3001/api/docs
 

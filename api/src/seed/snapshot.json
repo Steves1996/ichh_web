@@ -1,0 +1,867 @@
+{
+  "event": {
+    "name": "ICHH Yaoundé 2026",
+    "shortName": "ICHH 2026",
+    "fullName": "International Conference on Humanitarian Health",
+    "fullNameFr": "Conférence Internationale sur la Santé Humanitaire",
+    "edition": "10 ans de la Mahola Health Foundation",
+    "theme": "Bâtir une santé résiliente pour les populations vulnérables en Afrique",
+    "themeEn": "Building Resilient Health for Vulnerable Populations in Africa",
+    "slogan": "Deux jours pour bâtir une santé résiliente au service des populations vulnérables d’Afrique.",
+    "city": "Yaoundé",
+    "country": "Cameroun",
+    "venue": "Hôtel Hilton de Yaoundé",
+    "dates": "12 – 13 novembre 2026",
+    "startIso": "2026-11-12T08:30:00",
+    "expectedParticipants": "500"
+  },
+  "president": {
+    "name": "Dr Mathilde Mbouck",
+    "role": "Présidente, Mahola Health Foundation"
+  },
+  "keyFigures": [
+    {
+      "value": "10",
+      "label": "ans de solidarité",
+      "detail": "Mahola Health Foundation, depuis 2016"
+    },
+    {
+      "value": "500",
+      "label": "participants attendus",
+      "detail": "Décideurs, experts, société civile"
+    },
+    {
+      "value": "8",
+      "label": "panels de haut niveau",
+      "detail": "Sur deux jours"
+    },
+    {
+      "value": "7",
+      "label": "pays d’Afrique centrale",
+      "detail": "Zone CEMAC-CEEAC"
+    },
+    {
+      "value": "12",
+      "label": "missions médicales Mahola",
+      "detail": "8 700 consultations"
+    }
+  ],
+  "reasons": [
+    {
+      "title": "Décideurs réunis",
+      "text": "États de la zone CEMAC-CEEAC, MINSANTE, institutions internationales (OMS, ONUSIDA, BAD, BDEAC), ordres professionnels et corps diplomatique autour d’une même table."
+    },
+    {
+      "title": "Salon Expo santé",
+      "text": "Un salon expo numérique de la santé : ONG, pharmacies, start-ups, laboratoires, banques et assurances présentent leurs solutions et dispositifs."
+    },
+    {
+      "title": "Opportunités d’affaires",
+      "text": "Des sessions B2B dédiées pour nouer des partenariats entre entreprises, bailleurs, institutions et porteurs de projets de santé."
+    },
+    {
+      "title": "Prix de l’innovation",
+      "text": "Les Awards ICHH 2026 et le prix spécial de l’innovation en santé récompensent des dispositifs déjà déployés sur le terrain."
+    },
+    {
+      "title": "Déclaration de Yaoundé",
+      "text": "Les travaux des huit panels alimentent le rapport final et une déclaration d’engagements portée par les délégations."
+    }
+  ],
+  "objectives": [
+    {
+      "text": "Faire un état des lieux des missions médicales et de la santé mobile en milieu rural, ainsi que de leur régulation au Cameroun."
+    },
+    {
+      "text": "Proposer des solutions aux enjeux de souveraineté sanitaire des États africains, en particulier de la zone CEMAC-CEEAC."
+    },
+    {
+      "text": "Formuler des recommandations pour la construction et le développement d’infrastructures mobiles de santé prioritaire."
+    },
+    {
+      "text": "Contribuer au Plan National Santé et à la Stratégie Sectorielle de Santé 2020-2030 (SND30), ainsi qu’à une stratégie sous-régionale de santé en milieu rural."
+    },
+    {
+      "text": "Promouvoir l’éducation à la santé préventive, notamment en milieu jeune, et le leadership des femmes dans le secteur."
+    },
+    {
+      "text": "Identifier et mobiliser les stratégies de financement de la santé communautaire et du volontariat."
+    }
+  ],
+  "audiences": [
+    {
+      "title": "États et ministères",
+      "text": "MINSANTE, MINFI et ministères sectoriels du Cameroun et des pays de la zone CEMAC-CEEAC."
+    },
+    {
+      "title": "Institutions internationales",
+      "text": "OMS, ONUSIDA, ONU, Union Africaine, CEA, BAD, BDEAC, GIZ, USAID, Synergies Africaines."
+    },
+    {
+      "title": "Structures de santé",
+      "text": "Hôpitaux de référence et régionaux, laboratoires, pharmacies, CENAME, ordres nationaux et cliniques."
+    },
+    {
+      "title": "Société civile",
+      "text": "ONG, associations, associations de consommateurs, syndicats et acteurs communautaires."
+    },
+    {
+      "title": "Secteur privé et financeurs",
+      "text": "Entreprises, banques, assurances, industries pharmaceutiques, start-ups santé et partenaires au développement."
+    }
+  ],
+  "outcomes": [
+    {
+      "label": "Cartographie réglementaire",
+      "text": "Un état des lieux des outils réglementaires de la santé en milieu rural et de l’impact de la convergence des acteurs."
+    },
+    {
+      "label": "Document-cadre des missions médicales",
+      "text": "Les conditions de déploiement des missions médicales : technologies, encadrement, data centres mobiles, énergies alternatives."
+    },
+    {
+      "label": "Cadre de concertation",
+      "text": "Un dispositif national et multinational de concertation des missions médicales et de synergies d’action collective."
+    },
+    {
+      "label": "Déclaration de Yaoundé",
+      "text": "Des recommandations sur la souveraineté sanitaire, la santé numérique, la santé des jeunes et le leadership des femmes, adossées au rapport final de la conférence."
+    }
+  ],
+  "panels": [
+    {
+      "n": 1,
+      "title": "Infrastructures et équipements sanitaires en Afrique",
+      "summary": "Évaluer les plateaux techniques africains face aux standards internationaux et identifier les solutions."
+    },
+    {
+      "n": 2,
+      "title": "La médecine du volontariat dans les villes et les villages",
+      "summary": "Contribution du volontariat et de la RSE à l’accès aux soins des populations vulnérables — alternative ou complément à la CSU ?"
+    },
+    {
+      "n": 3,
+      "title": "La Couverture Santé Universelle dans le développement des pays africains",
+      "summary": "Le cas du Cameroun, l’exemple de la CNAMGS au Gabon, le rôle des banques et des assurances, le financement du chèque santé."
+    },
+    {
+      "n": 4,
+      "title": "Médecine communautaire en milieu rural et lutte contre les déserts médicaux",
+      "summary": "Missions médicales, hôpitaux mobiles, campagnes de soins gratuits, télémédecine et digitalisation des soins primaires."
+    },
+    {
+      "n": 5,
+      "title": "Solutions globales face aux crises sanitaires : COVID, Ebola, VIH/SIDA",
+      "summary": "Veille sanitaire mondiale, synergie face aux menaces globales, place des solutions africaines."
+    },
+    {
+      "n": 6,
+      "title": "Accès aux médicaments et produits de première nécessité",
+      "summary": "Production pharmaceutique locale, entrepreneuriat, subvention et accès au médicament pour tous."
+    },
+    {
+      "n": 7,
+      "title": "Intelligence artificielle et diagnostic intelligent",
+      "summary": "Télémédecine, formation à distance, mise en réseau des compétences, données numériques et souveraineté sanitaire."
+    },
+    {
+      "n": 8,
+      "title": "Leadership des femmes dans le secteur de la santé",
+      "summary": "Promotion du genre et des jeunes dans les politiques publiques de santé."
+    }
+  ],
+  "conferenceFormats": [
+    {
+      "title": "Panels de haut niveau",
+      "text": "Huit panels en présentiel et en visioconférence sur les grandes thématiques retenues par le comité scientifique."
+    },
+    {
+      "title": "Salon Expo numérique santé",
+      "text": "Acteurs, ONG, pharmacies, start-ups santé, banques et assurances : un espace d’exposition et de démonstration."
+    },
+    {
+      "title": "Sessions B2B",
+      "text": "Rencontres d’affaires et de partenariat entre entreprises, institutions et porteurs de projets."
+    },
+    {
+      "title": "Mission médicale",
+      "text": "Une mission d’assistance médicale gratuite organisée à l’Hôpital Général de Yaoundé pendant la conférence."
+    },
+    {
+      "title": "Causeries éducatives",
+      "text": "Séances d’échange et de formation des jeunes à la santé préventive et à l’inclusion sanitaire."
+    },
+    {
+      "title": "Soirée de gala des 10 ans",
+      "text": "Remise des Awards ICHH 2026, distinction des Ambassadeurs de la Mahola Health Foundation et prix spéciaux du jury."
+    }
+  ],
+  "sponsorOffers": [
+    {
+      "tier": "Co-partenaire",
+      "amount": "80 000 000 FCFA"
+    },
+    {
+      "tier": "Sponsor Gold",
+      "amount": "50 000 000 FCFA"
+    },
+    {
+      "tier": "Sponsor Bronze",
+      "amount": "40 000 000 FCFA"
+    },
+    {
+      "tier": "Sponsor Argent",
+      "amount": "20 000 000 FCFA"
+    },
+    {
+      "tier": "Participation à la carte",
+      "amount": "5 000 000 FCFA"
+    }
+  ],
+  "sponsors": [
+    {
+      "name": "MINSANTE — République du Cameroun",
+      "tier": "Platine",
+      "origin": "Supervision générale"
+    },
+    {
+      "name": "Mahola Health Foundation",
+      "tier": "Platine",
+      "origin": "Coordination"
+    },
+    {
+      "name": "All Access Agency",
+      "tier": "Platine",
+      "origin": "Commissariat général"
+    },
+    {
+      "name": "Organisation mondiale de la Santé",
+      "tier": "Or",
+      "origin": "Partenaire technique"
+    },
+    {
+      "name": "Banque africaine de développement",
+      "tier": "Or",
+      "origin": "Partenaire financier"
+    },
+    {
+      "name": "BDEAC",
+      "tier": "Or",
+      "origin": "Afrique centrale"
+    },
+    {
+      "name": "ONUSIDA · UNICEF · GIZ",
+      "tier": "Argent",
+      "origin": "Partenaires internationaux"
+    },
+    {
+      "name": "Synergies Africaines",
+      "tier": "Argent",
+      "origin": "Société civile"
+    }
+  ],
+  "organizers": [
+    {
+      "role": "Supervision générale",
+      "name": "Ministère de la Santé Publique (MINSANTE)",
+      "detail": "République du Cameroun"
+    },
+    {
+      "role": "Coordination",
+      "name": "Mahola Health Foundation",
+      "detail": "Depuis 2016"
+    },
+    {
+      "role": "Commissariat général",
+      "name": "All Access Agency",
+      "detail": "Ingénierie événementielle, Paris"
+    }
+  ],
+  "organizingCommittee": [
+    {
+      "name": "Ministère de la Santé Publique (MINSANTE)",
+      "role": "Supervision générale",
+      "organization": "République du Cameroun"
+    },
+    {
+      "name": "Dr Mathilde Mbouck",
+      "role": "Présidente — coordination",
+      "organization": "Mahola Health Foundation"
+    },
+    {
+      "name": "All Access Agency",
+      "role": "Commissariat général et maîtrise d’œuvre",
+      "organization": "Paris"
+    },
+    {
+      "name": "Comité de coordination MINSANTE",
+      "role": "Pilotage de la phase préparatoire et secrétariat technique",
+      "organization": "MINSANTE"
+    },
+    {
+      "name": "Comité interministériel",
+      "role": "Supervision de l’organisation",
+      "organization": "Gouvernement du Cameroun"
+    }
+  ],
+  "scientificCommittee": [
+    {
+      "name": "Président du comité scientifique",
+      "role": "Leçon inaugurale et synthèse finale des travaux",
+      "organization": "À désigner"
+    },
+    {
+      "name": "Rapporteurs des huit panels",
+      "role": "Termes de référence, animation et restitution",
+      "organization": "Experts et universitaires"
+    },
+    {
+      "name": "Secrétariat technique",
+      "role": "Collecte des données et rédaction du rapport final",
+      "organization": "MINSANTE · All Access · Mahola"
+    }
+  ],
+  "news": [
+    {
+      "id": "n1",
+      "date": "15 septembre 2026",
+      "category": "Programme",
+      "title": "Les huit panels de haut niveau sont dévoilés",
+      "excerpt": "Infrastructures sanitaires, couverture santé universelle, médecine communautaire, intelligence artificielle, leadership des femmes : le programme des deux jours au Hilton de Yaoundé est en ligne."
+    },
+    {
+      "id": "n2",
+      "date": "1 septembre 2026",
+      "category": "Partenariats",
+      "title": "Le dossier d’offre de participation est ouvert",
+      "excerpt": "Co-partenaire, sponsor, stand au Salon Expo santé ou table au gala des 10 ans : les formules de participation à l’ICHH Yaoundé 2026 sont disponibles sur demande."
+    },
+    {
+      "id": "n3",
+      "date": "20 août 2026",
+      "category": "Mahola",
+      "title": "Dix ans de la Mahola Health Foundation",
+      "excerpt": "12 missions médicales, 8 700 consultations, 200 interventions chirurgicales, 25 accouchements assistés et plus de 150 000 € mobilisés depuis 2016."
+    },
+    {
+      "id": "n4",
+      "date": "5 août 2026",
+      "category": "Mission médicale",
+      "title": "Une mission médicale à l’Hôpital Général de Yaoundé",
+      "excerpt": "Pendant la conférence, une mission d’assistance médicale gratuite sera organisée dans la capitale camerounaise, dans la continuité de l’action de terrain de Mahola."
+    }
+  ],
+  "footer": {
+    "groups": [
+      {
+        "title": "Conférence",
+        "links": [
+          {
+            "label": "À propos",
+            "to": "/a-propos"
+          },
+          {
+            "label": "Programme",
+            "to": "/programme"
+          },
+          {
+            "label": "Speakers",
+            "to": "/speakers"
+          },
+          {
+            "label": "Les 10 ans de Mahola",
+            "to": "/mahola"
+          }
+        ]
+      },
+      {
+        "title": "Participer",
+        "links": [
+          {
+            "label": "S’inscrire",
+            "to": "/programme"
+          },
+          {
+            "label": "Devenir partenaire",
+            "to": "/a-propos"
+          },
+          {
+            "label": "Salon Expo santé",
+            "to": "/a-propos"
+          },
+          {
+            "label": "Awards ICHH 2026",
+            "to": "/a-propos"
+          }
+        ]
+      },
+      {
+        "title": "Pratique",
+        "links": [
+          {
+            "label": "Lieu et accès",
+            "to": "/a-propos"
+          },
+          {
+            "label": "Hébergement",
+            "to": "/a-propos"
+          },
+          {
+            "label": "Visas et invitations",
+            "to": "/a-propos"
+          },
+          {
+            "label": "Presse",
+            "to": "/a-propos"
+          }
+        ]
+      }
+    ]
+  },
+  "days": [
+    {
+      "day": 1,
+      "date": "12 novembre 2026",
+      "label": "Jour 1",
+      "theme": "Ouverture & premiers panels"
+    },
+    {
+      "day": 2,
+      "date": "13 novembre 2026",
+      "label": "Jour 2",
+      "theme": "Panels, mission médicale & clôture"
+    }
+  ],
+  "sessions": [
+    {
+      "id": "s101",
+      "day": 1,
+      "start": "08:30",
+      "end": "10:00",
+      "title": "Accueil des délégations et remise des kits",
+      "description": "Enregistrement des participants, remise des kits de conférence et orientation dans l’Hôtel Hilton de Yaoundé. Un espace café est ouvert dans le hall principal.",
+      "room": "Hall du Hilton",
+      "track": "Logistique",
+      "type": "Networking",
+      "speakerIds": []
+    },
+    {
+      "id": "s102",
+      "day": 1,
+      "start": "10:00",
+      "end": "12:00",
+      "title": "Cérémonie officielle d’ouverture",
+      "description": "Exécution de l’hymne national du Cameroun, mot de bienvenue du comité d’organisation, leçon inaugurale du président du comité scientifique, discours du Ministre de la Santé Publique et discours d’ouverture du représentant du gouvernement.",
+      "room": "Salle plénière",
+      "track": "Plénière",
+      "type": "Cérémonie",
+      "speakerIds": [
+        "sp-mbouck"
+      ]
+    },
+    {
+      "id": "s103",
+      "day": 1,
+      "start": "12:30",
+      "end": "13:30",
+      "title": "Ouverture du Salon Expo numérique santé",
+      "description": "Coupure du ruban du Salon Expo : ONG, pharmacies, start-ups santé, laboratoires, banques et assurances présentent leurs solutions. Cocktail sur invitation.",
+      "room": "Salon Expo",
+      "track": "Innovation",
+      "type": "Exposition",
+      "speakerIds": []
+    },
+    {
+      "id": "s104",
+      "day": 1,
+      "start": "14:00",
+      "end": "15:30",
+      "title": "Panel 1 — Infrastructures et équipements sanitaires en Afrique",
+      "description": "Évaluer les plateaux techniques africains face aux standards internationaux et envisager les solutions. Avec MINSANTE, MINEPAT, constructeurs, équipementiers, OMS, UNICEF, GIZ, BAD, BDEAC et la CEMAC.",
+      "room": "Salle plénière",
+      "track": "Infrastructures & équipements",
+      "type": "Panel",
+      "speakerIds": [
+        "sp-etoa"
+      ]
+    },
+    {
+      "id": "s105",
+      "day": 1,
+      "start": "16:00",
+      "end": "17:30",
+      "title": "Panel 2 — La médecine du volontariat dans les villes et villages",
+      "description": "Contribution du volontariat et de la RSE à l’accès aux soins des populations vulnérables : action pérenne ou transitoire ? Alternative ou complément à la Couverture Santé Universelle ?",
+      "room": "Salle plénière",
+      "track": "Médecine du volontariat",
+      "type": "Panel",
+      "speakerIds": [
+        "sp-mbouck",
+        "sp-nkolo"
+      ]
+    },
+    {
+      "id": "s106",
+      "day": 1,
+      "start": "17:45",
+      "end": "19:00",
+      "title": "Panel 3 — La Couverture Santé Universelle dans le développement des pays africains",
+      "description": "Le cas du Cameroun, l’exemple de la CNAMGS au Gabon, le rôle des banques et des assurances, le financement du chèque santé et les références internationales.",
+      "room": "Salle des panels",
+      "track": "Couverture Santé Universelle",
+      "type": "Panel",
+      "speakerIds": [
+        "sp-abena"
+      ]
+    },
+    {
+      "id": "s107",
+      "day": 1,
+      "start": "19:00",
+      "end": "21:00",
+      "title": "1re soirée B2B — réseautage et promotion des entreprises",
+      "description": "Rencontres d’affaires et de partenariat entre entreprises, institutions, bailleurs et porteurs de projets de santé, autour du Salon Expo.",
+      "room": "Jardin du Hilton",
+      "track": "Networking",
+      "type": "Networking",
+      "speakerIds": []
+    },
+    {
+      "id": "s201",
+      "day": 2,
+      "start": "09:00",
+      "end": "10:15",
+      "title": "Panel 4 — Médecine communautaire en milieu rural et déserts médicaux",
+      "description": "Rôle des missions médicales en milieu rural, promotion de la médecine de proximité et des hôpitaux mobiles, campagnes de soins gratuits, accélération de la télémédecine et de la digitalisation des soins primaires.",
+      "room": "Salle plénière",
+      "track": "Santé communautaire",
+      "type": "Panel",
+      "speakerIds": [
+        "sp-mbouck",
+        "sp-nkolo"
+      ]
+    },
+    {
+      "id": "s202",
+      "day": 2,
+      "start": "10:30",
+      "end": "12:00",
+      "title": "Panel 5 — Solutions globales face aux crises sanitaires : COVID, Ebola, VIH/SIDA",
+      "description": "Problématique de la veille sanitaire mondiale, mutualisation face aux menaces globales, développement des nouvelles technologies de recherche et prise en compte des solutions africaines.",
+      "room": "Salle plénière",
+      "track": "Sécurité sanitaire mondiale",
+      "type": "Panel",
+      "speakerIds": [
+        "sp-abena"
+      ]
+    },
+    {
+      "id": "s203",
+      "day": 2,
+      "start": "10:00",
+      "end": "17:00",
+      "title": "Mission médicale — Hôpital Général de Yaoundé",
+      "description": "Mission d’assistance médicale gratuite organisée pendant la conférence, dans la continuité de l’action de terrain de la Mahola Health Foundation. Consultations, chirurgie et suivi mère-enfant.",
+      "room": "Hôpital Général de Yaoundé",
+      "track": "Santé communautaire",
+      "type": "Atelier",
+      "speakerIds": []
+    },
+    {
+      "id": "s204",
+      "day": 2,
+      "start": "12:00",
+      "end": "13:00",
+      "title": "Panel 6 — Accès aux médicaments et produits de première nécessité",
+      "description": "Nécessité de la production pharmaceutique locale, rôle de la pharmacie industrielle, promotion de l’entrepreneuriat, subvention et accès au médicament pour tous.",
+      "room": "Salle des panels",
+      "track": "Accès aux médicaments",
+      "type": "Panel",
+      "speakerIds": []
+    },
+    {
+      "id": "s205",
+      "day": 2,
+      "start": "14:00",
+      "end": "15:15",
+      "title": "Panel 7 — Intelligence artificielle et diagnostic intelligent",
+      "description": "Développement de la télémédecine et des outils de diagnostic intelligents, formation à distance, mise en réseau des compétences médicales, gestion des données numériques et souveraineté sanitaire de l’État.",
+      "room": "Salle plénière",
+      "track": "Santé numérique & IA",
+      "type": "Panel",
+      "speakerIds": [
+        "sp-fotso"
+      ]
+    },
+    {
+      "id": "s206",
+      "day": 2,
+      "start": "15:30",
+      "end": "16:30",
+      "title": "Panel 8 — Leadership des femmes dans le secteur de la santé",
+      "description": "Promotion du genre et des jeunes dans le secteur de la santé, et prise en compte de la composante genre et jeunesse dans les politiques publiques de gestion du système de santé.",
+      "room": "Salle plénière",
+      "track": "Genre & jeunesse",
+      "type": "Panel",
+      "speakerIds": [
+        "sp-atangana"
+      ]
+    },
+    {
+      "id": "s207",
+      "day": 2,
+      "start": "16:45",
+      "end": "18:00",
+      "title": "Cérémonie officielle de clôture — Déclaration de Yaoundé",
+      "description": "Lecture du rapport final de la conférence, message de remerciements aux autorités camerounaises, remise des attestations de participation et adoption de la Déclaration de Yaoundé.",
+      "room": "Salle plénière",
+      "track": "Plénière",
+      "type": "Cérémonie",
+      "speakerIds": [
+        "sp-mbouck"
+      ]
+    },
+    {
+      "id": "s208",
+      "day": 2,
+      "start": "19:00",
+      "end": "23:00",
+      "title": "Soirée de gala des 10 ans de la Mahola Health Foundation",
+      "description": "Prises de parole, animations artistiques, remise des Awards ICHH 2026 et des prix spéciaux du jury, et distinction des Ambassadeurs de la Mahola Health Foundation 2026.",
+      "room": "Jardin du Hilton",
+      "track": "Networking",
+      "type": "Networking",
+      "speakerIds": []
+    }
+  ],
+  "speakers": [
+    {
+      "id": "sp-mbouck",
+      "name": "Dr Mathilde Mbouck",
+      "role": "Présidente",
+      "organization": "Mahola Health Foundation",
+      "country": "Cameroun",
+      "domain": "Santé communautaire",
+      "image": "/02737108-f365-45eb-aaa5-70bc8003a298.jpg",
+      "bio": "Médecin et fondatrice de la Mahola Health Foundation en 2016, le Dr Mathilde Mbouck coordonne l’ICHH Yaoundé 2026. En dix ans, elle a conduit douze missions médicales au Cameroun et en Afrique centrale — plus de 8 700 consultations, 200 interventions chirurgicales et 25 accouchements assistés — en s’appuyant sur des équipes de bénévoles pluridisciplinaires et un modèle de dispensaire éphémère.",
+      "keynote": true,
+      "email": "drmathilde@mahola-health.org",
+      "linkedin": "linkedin.com/company/mahola-health",
+      "x": "@mahola_health",
+      "publications": [
+        "Dix ans de missions médicales au Cameroun : bilan et méthode (2026)",
+        "Le dispensaire éphémère comme réponse aux déserts médicaux (2024)"
+      ]
+    },
+    {
+      "id": "sp-etoa",
+      "name": "Intervenant — MINSANTE",
+      "role": "Direction des infrastructures et équipements sanitaires",
+      "organization": "Ministère de la Santé Publique (Cameroun)",
+      "country": "Cameroun",
+      "domain": "Infrastructures & équipements",
+      "image": "/8674b7e7-0d74-4cab-a7d1-18b94ed73a3b.jpg",
+      "bio": "Représentant du Ministère de la Santé Publique sur le Panel 1, consacré à l’évaluation des plateaux techniques africains face aux standards internationaux et aux solutions de modernisation des infrastructures, dans le cadre de la Stratégie Sectorielle de Santé 2020-2030.",
+      "keynote": false,
+      "email": "contact@minsante.cm",
+      "linkedin": "",
+      "x": "",
+      "publications": []
+    },
+    {
+      "id": "sp-nkolo",
+      "name": "Intervenant — Médecine communautaire",
+      "role": "Coordination des missions médicales en milieu rural",
+      "organization": "Réseau des acteurs de santé communautaire",
+      "country": "Cameroun",
+      "domain": "Santé communautaire",
+      "image": "/041648e7-b1b8-478c-8c50-4e268238a909.jpg",
+      "bio": "Praticien de la médecine de proximité, cet intervenant partagera un retour d’expérience sur les hôpitaux mobiles, les campagnes de soins gratuits et la digitalisation des soins de santé primaire en zone rurale (Panels 2 et 4).",
+      "keynote": false,
+      "email": "",
+      "linkedin": "",
+      "x": "",
+      "publications": []
+    },
+    {
+      "id": "sp-abena",
+      "name": "Intervenant — Couverture Santé Universelle",
+      "role": "Financement de la santé et assurance maladie",
+      "organization": "Institutions financières et assurances (zone CEMAC)",
+      "country": "Afrique centrale",
+      "domain": "Couverture Santé Universelle",
+      "image": "/f4dab6ee-92e3-447c-bf42-052774b951f9.jpg",
+      "bio": "Spécialiste du financement de la santé, cet intervenant traitera de la mise en place de la CSU dans les pays africains : le cas du Cameroun, l’exemple de la CNAMGS au Gabon, le rôle des banques et des assurances et le financement du chèque santé (Panels 3 et 5).",
+      "keynote": false,
+      "email": "",
+      "linkedin": "",
+      "x": "",
+      "publications": []
+    },
+    {
+      "id": "sp-fotso",
+      "name": "Intervenant — Santé numérique",
+      "role": "Intelligence artificielle et diagnostic intelligent",
+      "organization": "Écosystème santé numérique (ANTIC, universités, start-ups)",
+      "country": "Cameroun",
+      "domain": "Santé numérique & IA",
+      "image": "/5133f875-89d0-4f1c-afb4-4cd0469a884a.jpg",
+      "bio": "Cet intervenant abordera le rôle de l’intelligence artificielle et des outils de diagnostic intelligents dans le développement des services de santé prioritaire : télémédecine, formation à distance, mise en réseau des compétences et souveraineté des données sanitaires (Panel 7).",
+      "keynote": false,
+      "email": "",
+      "linkedin": "",
+      "x": "",
+      "publications": []
+    },
+    {
+      "id": "sp-atangana",
+      "name": "Intervenante — Leadership et genre",
+      "role": "Promotion du leadership des femmes en santé",
+      "organization": "MINPROFF · ONU Femmes · associations de femmes",
+      "country": "Cameroun",
+      "domain": "Genre & jeunesse",
+      "image": "/cfbcf2b4-17b2-4be0-bb00-fd42d0bcdbe3.jpg",
+      "bio": "Cette intervenante portera le Panel 8 sur la promotion et le développement du leadership des femmes dans le secteur de la santé, et la prise en compte du genre et de la jeunesse dans les politiques publiques de santé.",
+      "keynote": false,
+      "email": "",
+      "linkedin": "",
+      "x": "",
+      "publications": []
+    }
+  ],
+  "maholaMission": {
+    "text": "Préserver et protéger la santé des populations vivant au Cameroun et en Afrique centrale en leur facilitant l’accès aux soins de santé primaire."
+  },
+  "maholaContact": {
+    "email": "info@mahola-health.org",
+    "emailPresidency": "drmathilde@mahola-health.org",
+    "phoneCameroon": "+237 677 55 77 27",
+    "phoneUk": "+44 7742 522513",
+    "addressCameroon": "Avenue de l’Hippodrome, B.P. 15383, Yaoundé, Cameroun",
+    "addressUk": "26 Carminia Road, London SW17 8AH, Royaume-Uni",
+    "instagram": "https://www.instagram.com/allaccess2026"
+  },
+  "maholaActions": [
+    {
+      "title": "Dispensaires éphémères",
+      "text": "Créer des dispensaires éphémères au Cameroun pour permettre au plus grand nombre l’accès aux soins de santé primaire."
+    },
+    {
+      "title": "Collecte de médicaments",
+      "text": "Collecter des médicaments auprès de partenaires et donateurs, puis les redistribuer aux personnes et aux structures qui en ont le plus besoin."
+    },
+    {
+      "title": "Prévention sanitaire",
+      "text": "Mener des campagnes de sensibilisation sur les bonnes pratiques de santé, la prévention des maladies et l’importance d’un suivi médical régulier."
+    },
+    {
+      "title": "Soutien aux orphelinats",
+      "text": "Prodiguer des soins aux enfants et aux encadrants, financer une couverture santé (avec Onyx Insurance) et réaliser des travaux de rénovation."
+    },
+    {
+      "title": "Renforcement des centres de santé",
+      "text": "Accompagner les centres de santé primaires locaux en transmettant l’expertise et en formant les professionnels de santé."
+    },
+    {
+      "title": "Matériel médical",
+      "text": "Récupérer et redistribuer du matériel médical pour renforcer les capacités des structures de santé locales."
+    }
+  ],
+  "maholaTimeline": [
+    {
+      "year": "2016",
+      "title": "Création de la Mahola Health Foundation",
+      "description": "Sous la présidence du Dr Mathilde Mbouck, un collectif de soignants bénévoles fonde Mahola pour faciliter l’accès aux soins de santé primaire au Cameroun. La première mission médicale ouvre un dispensaire éphémère et assure 899 consultations.",
+      "metric": "899 consultations"
+    },
+    {
+      "year": "2017",
+      "title": "Deuxième mission médicale",
+      "description": "Le format du dispensaire éphémère se consolide : consultations généralistes et spécialisées, distribution de médicaments collectés auprès de partenaires et de donateurs, sensibilisation à la prévention sanitaire.",
+      "metric": "1 345 consultations"
+    },
+    {
+      "year": "2018",
+      "title": "Troisième mission médicale",
+      "description": "La mission élargit la palette de spécialités mobilisées — pédiatrie, gynécologie, ophtalmologie, kinésithérapie — grâce à des équipes de bénévoles pluridisciplinaires.",
+      "metric": "1 520 consultations"
+    },
+    {
+      "year": "2019",
+      "title": "Quatrième mission et soutien aux orphelinats",
+      "description": "En complément des consultations, Mahola engage un soutien durable aux orphelinats (soins, couverture santé avec Onyx Insurance, travaux de rénovation) et aux centres de santé locaux.",
+      "metric": "812 consultations"
+    },
+    {
+      "year": "2021",
+      "title": "Mission de mai et grande collecte de médicaments",
+      "description": "Plus de 400 kg de médicaments sont collectés auprès de partenaires et de donateurs, puis redistribués lors de la mission, aux bénéficiaires du dispensaire comme aux structures de santé partenaires.",
+      "metric": "400+ kg redistribués"
+    },
+    {
+      "year": "2022",
+      "title": "Mission dispensaire et collecte de lunettes",
+      "description": "Du 26 mai au 4 juin, la mission associe consultations, dépistage visuel et distribution de lunettes grâce à la mobilisation d’un opticien bénévole.",
+      "metric": "26 mai – 4 juin"
+    },
+    {
+      "year": "2026",
+      "title": "Dix ans de solidarité et ICHH Yaoundé 2026",
+      "description": "Dix ans après la première mission, Mahola totalise 12 missions médicales, 8 700 consultations, 200 interventions chirurgicales et 25 accouchements assistés. La fondation célèbre cette décennie autour de l’ICHH Yaoundé 2026, au Hilton de Yaoundé.",
+      "metric": "10 ans d’action"
+    }
+  ],
+  "maholaImpact": [
+    {
+      "value": "12",
+      "label": "missions médicales",
+      "detail": "Réalisées depuis 2016"
+    },
+    {
+      "value": "8 700",
+      "label": "consultations médicales",
+      "detail": "Adultes et enfants"
+    },
+    {
+      "value": "200",
+      "label": "interventions chirurgicales",
+      "detail": "En mission"
+    },
+    {
+      "value": "25",
+      "label": "accouchements assistés",
+      "detail": "Suivi mère-enfant"
+    }
+  ],
+  "testimonials": [
+    {
+      "quote": "La mission s’installe plusieurs jours dans la commune et on peut enfin faire examiner les enfants sans partir toute une journée en ville. Beaucoup de familles n’avaient pas vu de médecin depuis des années.",
+      "name": "Épouse R.",
+      "role": "Mère de famille, région du Centre, Cameroun"
+    },
+    {
+      "quote": "Mahola ne débarque pas avec un programme tout fait : l’équipe passe voir le centre de santé, demande ce qui manque, et forme nos infirmiers pendant qu’elle est là.",
+      "name": "Dr N.",
+      "role": "Responsable de centre de santé, Cameroun"
+    },
+    {
+      "quote": "Je suis parti comme ophtalmologue bénévole sur la mission lunettes. En quelques jours, on a dépisté des centaines de personnes et équipé celles qui en avaient besoin.",
+      "name": "Dr M.",
+      "role": "Ophtalmologue bénévole, Mahola"
+    }
+  ],
+  "gallery": [
+    {
+      "src": "/852a801e-42eb-409f-b6cc-eb5305f9f389.jpg",
+      "caption": "Consultation pédiatrique lors d’une mission médicale Mahola, Cameroun"
+    },
+    {
+      "src": "/2960c9bf-fa00-4f3d-a98f-c41b8d2d053f.jpg",
+      "caption": "Dispensaire éphémère et distribution de médicaments, Cameroun"
+    },
+    {
+      "src": "/9c6ef334-5f09-4f35-95c3-39cc504f79ea.jpg",
+      "caption": "Mission d’assistance médicale en milieu communautaire, Cameroun"
+    }
+  ]
+}

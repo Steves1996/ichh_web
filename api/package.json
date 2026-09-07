@@ -9,6 +9,8 @@
     "start:dev": "nest start --watch",
     "start:prod": "node dist/main.js",
     "seed": "tsx src/seed/seed.ts",
+    "seed:prod": "node dist/seed/seed.js",
+    "seed:snapshot": "tsx src/seed/generate-snapshot.ts",
     "migration:generate": "tsx ./node_modules/typeorm/cli.js migration:generate -d src/database/data-source.ts src/database/migrations/Auto",
     "migration:run": "tsx ./node_modules/typeorm/cli.js migration:run -d src/database/data-source.ts",
     "migration:revert": "tsx ./node_modules/typeorm/cli.js migration:revert -d src/database/data-source.ts"

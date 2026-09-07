@@ -22,5 +22,5 @@
     "resolveJsonModule": true
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist", "src/seed/seed.ts"]
+  "exclude": ["node_modules", "dist", "src/seed/generate-snapshot.ts"]
 }

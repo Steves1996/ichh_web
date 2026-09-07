@@ -26,17 +26,28 @@ cp .env.example .env        # renseignez DB_HOST/DB_PORT/DB_USER/DB_PASSWORD/DB_
 npm run start:dev           # http://localhost:3001/api  (Swagger : /api/docs)
 ```
 
-Au premier démarrage, avec `DB_SYNCHRONIZE=true`, les tables sont créées
-automatiquement et le compte administrateur (`ADMIN_EMAIL` / `ADMIN_PASSWORD`)
-est ajouté.
+Au premier démarrage, avec `DB_SYNCHRONIZE=true` :
+- les tables sont créées automatiquement ;
+- le compte administrateur (`ADMIN_EMAIL` / `ADMIN_PASSWORD`) est ajouté ;
+- **si la base de contenu est vide, elle est remplie automatiquement** avec le
+  contenu de référence (`src/seed/snapshot.json`).
 
-## Charger le contenu initial
+L’API est donc autonome : elle peut être déployée seule (sans le dossier `src/`
+du site vitrine).
 
-Reprend les données statiques actuelles du site (`../src/data/*`) :
+## Recharger le contenu manuellement
 
 ```bash
 npm run seed                # remplit les tables vides
-npm run seed -- --force     # réinitialise tout le contenu
+npm run seed -- --force     # réinitialise tout le contenu depuis snapshot.json
+npm run seed:prod           # idem, exécuté depuis dist/ (après npm run build)
+```
+
+`src/seed/snapshot.json` est le contenu de référence embarqué. Pour le
+régénérer à partir des données du site (`src/data/*`), depuis le monorepo :
+
+```bash
+npm run seed:snapshot
 ```
 
 ## Endpoints principaux

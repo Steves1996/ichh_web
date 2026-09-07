@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { DownloadIcon, PlayIcon, QuoteIcon } from 'lucide-react';
+import { DownloadIcon, ExternalLinkIcon, PlayIcon, QuoteIcon } from 'lucide-react';
 import { SectionHeading } from '../components/SectionHeading';
 import { Newsletter } from '../components/Newsletter';
 import { useSite } from '../content/SiteContentProvider';
@@ -16,7 +16,16 @@ export function Mahola() {
         <div className="mx-auto max-w-page px-5 sm:px-8 py-16 lg:py-20">
           <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
             <div>
-              <h1 className="font-display text-[2.6rem] sm:text-6xl leading-[1.03] text-white">
+              <div className="flex items-center gap-4">
+                <img
+                  src="/mahola.png"
+                  alt="Logo de la Mahola Health Foundation"
+                  className="h-16 w-16 shrink-0 sm:h-20 sm:w-20" />
+                <span className="text-[11px] uppercase tracking-[0.22em] text-sand/60">
+                  Mahola Health Foundation
+                </span>
+              </div>
+              <h1 className="mt-6 font-display text-[2.6rem] sm:text-6xl leading-[1.03] text-white">
                 Dix ans de la Mahola Health Foundation
               </h1>
               <p className="mt-5 max-w-xl text-lg leading-relaxed text-sand/75">
@@ -25,13 +34,24 @@ export function Mahola() {
                 assistés au Cameroun et en Afrique centrale.
               </p>
             </div>
-            <a
-              href="#"
-              className="inline-flex items-center gap-3 self-start border border-sand/30 px-6 py-4 text-sm font-medium text-sand transition-colors duration-150 ease-expo hover:bg-sand hover:text-ink lg:self-end">
-              
-              <DownloadIcon className="h-4 w-4" aria-hidden="true" />
-              Rapport d’impact 2016-2026 (PDF, 6,8 Mo)
-            </a>
+            <div className="flex flex-col gap-3 lg:items-end lg:self-end">
+              <a
+                href="https://mahola-health.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 self-start bg-ember px-6 py-4 text-sm font-medium text-white transition-colors duration-150 ease-expo hover:bg-ember-soft hover:text-ink">
+
+                <ExternalLinkIcon className="h-4 w-4" aria-hidden="true" />
+                Visiter le site de Mahola
+              </a>
+              <a
+                href="#"
+                className="inline-flex items-center gap-3 self-start border border-sand/30 px-6 py-4 text-sm font-medium text-sand transition-colors duration-150 ease-expo hover:bg-sand hover:text-ink">
+
+                <DownloadIcon className="h-4 w-4" aria-hidden="true" />
+                Rapport d’impact 2016-2026 (PDF, 6,8 Mo)
+              </a>
+            </div>
           </div>
         </div>
       </section>
