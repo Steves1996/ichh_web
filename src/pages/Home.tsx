@@ -7,12 +7,11 @@ import { Newsletter } from '../components/Newsletter';
 import { SpeakerCard } from '../components/SpeakerCard';
 import { Drawer } from '../components/Drawer';
 import { SpeakerProfile } from '../components/SpeakerProfile';
-import { keyFigures, news, reasons, sponsors } from '../data/site';
-import { speakers } from '../data/speakers';
-import { days, sessions } from '../data/programme';
+import { useSite } from '../content/SiteContentProvider';
 import type { Speaker } from '../types';
 
 export function Home() {
+  const { keyFigures, news, reasons, sponsors, speakers, days, sessions } = useSite();
   const [active, setActive] = useState<Speaker | null>(null);
   const [featured, ...otherFigures] = keyFigures;
 

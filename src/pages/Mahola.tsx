@@ -3,9 +3,10 @@ import { motion } from 'framer-motion';
 import { DownloadIcon, PlayIcon, QuoteIcon } from 'lucide-react';
 import { SectionHeading } from '../components/SectionHeading';
 import { Newsletter } from '../components/Newsletter';
-import { gallery, maholaActions, maholaContact, maholaImpact, maholaMission, maholaTimeline, testimonials } from '../data/site';
+import { useSite } from '../content/SiteContentProvider';
 
 export function Mahola() {
+  const { gallery, maholaActions, maholaContact, maholaImpact, maholaMission, maholaTimeline, testimonials } = useSite();
   const [selectedYear, setSelectedYear] = useState(maholaTimeline[maholaTimeline.length - 1].year);
   const selected = maholaTimeline.find((entry) => entry.year === selectedYear) ?? maholaTimeline[0];
 

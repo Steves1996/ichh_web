@@ -7,6 +7,7 @@ import { About } from './pages/About';
 import { Mahola } from './pages/Mahola';
 import { Programme } from './pages/Programme';
 import { Speakers } from './pages/Speakers';
+import { SiteContentProvider } from './content/SiteContentProvider';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -18,6 +19,7 @@ function ScrollToTop() {
 
 export function App() {
   return (
+    <SiteContentProvider>
     <BrowserRouter>
       <div className="flex min-h-screen w-full flex-col bg-sand">
         <a
@@ -40,6 +42,7 @@ export function App() {
         </div>
         <Footer />
       </div>
-    </BrowserRouter>);
+    </BrowserRouter>
+    </SiteContentProvider>);
 
 }

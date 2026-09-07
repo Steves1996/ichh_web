@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { InstagramIcon, LinkedinIcon, MailIcon, MapPinIcon, PhoneIcon } from 'lucide-react';
-import { event, footerLinks, maholaContact } from '../data/site';
+import { useSite } from '../content/SiteContentProvider';
 
 export function Footer() {
+  const { event, footerLinks, maholaContact } = useSite();
   return (
     <footer className="bg-ink text-sand">
       <div className="mx-auto max-w-page px-5 sm:px-8 py-14">

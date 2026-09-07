@@ -1,7 +1,6 @@
 import React from 'react';
 import { CalendarCheckIcon, CalendarPlusIcon, ClockIcon, MapPinIcon, TagIcon } from 'lucide-react';
-import { getSpeaker } from '../data/speakers';
-import { days } from '../data/programme';
+import { useSite } from '../content/SiteContentProvider';
 import type { Session } from '../types';
 
 interface SessionDetailProps {
@@ -11,6 +10,7 @@ interface SessionDetailProps {
 }
 
 export function SessionDetail({ session, inAgenda, onToggleAgenda }: SessionDetailProps) {
+  const { days, getSpeaker } = useSite();
   const day = days.find((d) => d.day === session.day);
   const sessionSpeakers = session.speakerIds.map(getSpeaker).filter(Boolean);
 

@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import { DownloadIcon, PlayIcon, XIcon } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Countdown } from '../Countdown';
-import { event } from '../../data/site';
+import { useSite } from '../../content/SiteContentProvider';
 
 export function Hero() {
+  const { event } = useSite();
   const [videoOpen, setVideoOpen] = useState(false);
 
   return (

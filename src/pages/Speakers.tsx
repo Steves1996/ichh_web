@@ -5,7 +5,7 @@ import { SpeakerCard } from '../components/SpeakerCard';
 import { Drawer } from '../components/Drawer';
 import { SpeakerProfile } from '../components/SpeakerProfile';
 import { Newsletter } from '../components/Newsletter';
-import { speakerCountries, speakerDomains, speakerOrganizations, speakers } from '../data/speakers';
+import { useSite } from '../content/SiteContentProvider';
 import { useScreenInit } from '../useScreenInit.js';
 import type { Speaker } from '../types';
 
@@ -38,6 +38,7 @@ function SelectFilter({ label, value, options, onChange }: SelectFilterProps) {
 }
 
 export function Speakers() {
+  const { speakers, speakerCountries, speakerOrganizations, speakerDomains } = useSite();
   const screenInit = useScreenInit();
   const [query, setQuery] = useState<string>(screenInit.query ?? '');
   const [country, setCountry] = useState<string>(screenInit.country ?? ALL);
@@ -61,7 +62,7 @@ export function Speakers() {
         domain === ALL || speaker.domain === domain));
 
     });
-  }, [query, country, organization, domain]);
+  }, [query, country, organization, domain, speakers]);
 
   const hasFilters = query !== '' || country !== ALL || organization !== ALL || domain !== ALL;
 

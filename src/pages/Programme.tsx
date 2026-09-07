@@ -4,8 +4,7 @@ import { SectionHeading } from '../components/SectionHeading';
 import { Drawer } from '../components/Drawer';
 import { SessionDetail } from '../components/SessionDetail';
 import { Newsletter } from '../components/Newsletter';
-import { days, rooms, sessions, sessionTypes, tracks } from '../data/programme';
-import { getSpeaker } from '../data/speakers';
+import { useSite } from '../content/SiteContentProvider';
 import { useScreenInit } from '../useScreenInit.js';
 import type { Session } from '../types';
 
@@ -47,6 +46,7 @@ function ChipGroup({ label, value, options, onChange }: ChipGroupProps) {
 }
 
 export function Programme() {
+  const { days, rooms, sessions, sessionTypes, tracks, getSpeaker } = useSite();
   const screenInit = useScreenInit();
   const [day, setDay] = useState<string>(screenInit.day ?? ALL);
   const [room, setRoom] = useState<string>(screenInit.room ?? ALL);
@@ -69,7 +69,7 @@ export function Programme() {
       type === ALL || session.type === type)
     ).
     sort((a, b) => a.day - b.day || a.start.localeCompare(b.start)),
-    [day, room, track, type]
+    [day, room, track, type, sessions]
   );
 
   const hasFilters = day !== ALL || room !== ALL || track !== ALL || type !== ALL;

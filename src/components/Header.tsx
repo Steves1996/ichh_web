@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { MenuIcon, XIcon } from 'lucide-react';
-import { event } from '../data/site';
+import { useSite } from '../content/SiteContentProvider';
 
 const navItems = [
 { label: 'Accueil', to: '/' },
@@ -12,6 +12,7 @@ const navItems = [
 
 
 export function Header() {
+  const { event } = useSite();
   const [open, setOpen] = useState(false);
   const location = useLocation();
 

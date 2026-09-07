@@ -1,0 +1,32 @@
+# Optionnel — si vous n'avez pas déjà une base PostgreSQL.
+#   docker compose up -d
+# PostgreSQL : localhost:5432  (postgres / postgres, base « ichh »)
+# pgAdmin    : http://localhost:5050  (admin@ichh.local / admin)
+#   Dans pgAdmin, ajoutez un serveur pointant sur l'hôte « db », port 5432.
+services:
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: ichh
+    ports:
+      - '5432:5432'
+    volumes:
+      - ichh_pgdata:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4:8
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@ichh.local
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    ports:
+      - '5050:80'
+    depends_on:
+      - db
+
+volumes:
+  ichh_pgdata:

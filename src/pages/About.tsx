@@ -2,14 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { SectionHeading } from '../components/SectionHeading';
 import { Newsletter } from '../components/Newsletter';
-import {
-  audiences,
-  event,
-  objectives,
-  organizingCommittee,
-  outcomes,
-  scientificCommittee } from
-'../data/site';
+import { useSite } from '../content/SiteContentProvider';
 import type { Member } from '../types';
 
 function CommitteeList({ title, members, note }: {title: string;members: Member[];note: string;}) {
@@ -32,6 +25,7 @@ function CommitteeList({ title, members, note }: {title: string;members: Member[
 }
 
 export function About() {
+  const { audiences, event, objectives, organizingCommittee, outcomes, scientificCommittee } = useSite();
   return (
     <main>
       <section className="bg-ink text-sand">

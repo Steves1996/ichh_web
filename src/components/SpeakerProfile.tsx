@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BookOpenIcon, LinkedinIcon, MailIcon, TwitterIcon } from 'lucide-react';
-import { getSessionsForSpeaker } from '../data/programme';
+import { useSite } from '../content/SiteContentProvider';
 import type { Speaker } from '../types';
 
 interface SpeakerProfileProps {
@@ -9,6 +9,7 @@ interface SpeakerProfileProps {
 }
 
 export function SpeakerProfile({ speaker }: SpeakerProfileProps) {
+  const { getSessionsForSpeaker } = useSite();
   const sessions = getSessionsForSpeaker(speaker.id);
 
   return (
