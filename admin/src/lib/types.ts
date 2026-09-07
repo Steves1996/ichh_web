@@ -50,6 +50,13 @@ export interface PartnerRequest {
   updatedAt: string;
 }
 
+export interface Subscriber {
+  id: string;
+  email: string;
+  notified: boolean;
+  createdAt: string;
+}
+
 export interface MediaAsset {
   id: string;
   url: string;

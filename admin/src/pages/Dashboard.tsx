@@ -41,6 +41,12 @@ export function Dashboard({ defs }: { defs: ContentDef[] }) {
         </p>
       </div>
       <div className="card">
+        <h2>Abonnés newsletter</h2>
+        <p className="muted">
+          Adresses e-mail inscrites à la lettre d’information depuis le site. <Link to="/abonnes">Ouvrir</Link>
+        </p>
+      </div>
+      <div className="card">
         <h2>Médiathèque</h2>
         <p className="muted">Images et fichiers téléversés. <Link to="/media">Ouvrir</Link></p>
       </div>

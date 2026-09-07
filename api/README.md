@@ -68,6 +68,9 @@ npm run seed:snapshot
 | `GET` | `/api/admin/partner-requests` | JWT | lister les demandes de partenariat |
 | `PUT` | `/api/admin/partner-requests/:id` | JWT | changer le statut (`{ status }` : `nouveau` / `en_cours` / `traite`) |
 | `DELETE` | `/api/admin/partner-requests/:id` | JWT | supprimer une demande |
+| `POST` | `/api/subscribers` | public | inscription à la lettre d'information (`{ email }`) — envoie un e-mail de confirmation |
+| `GET` | `/api/admin/subscribers` | JWT | lister les abonnés à la lettre d'information |
+| `DELETE` | `/api/admin/subscribers/:id` | JWT | supprimer un abonné |
 | `GET` | `/uploads/*` | public | fichiers téléversés |
 
 ## Variables d’environnement
@@ -80,6 +83,7 @@ npm run seed:snapshot
 | `PUBLIC_URL` | base des URL d’images téléversées |
 | `CORS_ORIGINS` | origines autorisées, séparées par des virgules |
 | `JWT_SECRET` `JWT_EXPIRES_IN` | signature des jetons |
+| `MAIL_HOST` `MAIL_PORT` `MAIL_SECURE` `MAIL_USER` `MAIL_PASSWORD` `MAIL_FROM` | serveur SMTP pour l'e-mail de confirmation d'inscription (laisser `MAIL_HOST` vide pour désactiver l'envoi) |
 | `ADMIN_EMAIL` `ADMIN_PASSWORD` `ADMIN_NAME` | compte créé au 1ᵉʳ démarrage / au seed |
 
 ## Modèle de données
@@ -88,6 +92,7 @@ npm run seed:snapshot
 - `content_entries(id, collection, position, data jsonb)` — listes ordonnées
 - `media_assets(...)` — fichiers téléversés
 - `partner_requests(id, name, phone, email, message, status, createdAt)` — demandes de partenariat reçues du site
+- `subscribers(id, email, notified, createdAt)` — abonnés à la lettre d'information
 - `admin_users(...)` — comptes du back-office
 
 Le fichier `src/content/registry.ts` décrit chaque type de contenu (clé, libellé,
