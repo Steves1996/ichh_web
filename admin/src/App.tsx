@@ -9,6 +9,7 @@ import { Dashboard } from './pages/Dashboard';
 import { SingletonPage } from './pages/SingletonPage';
 import { CollectionPage } from './pages/CollectionPage';
 import { MediaPage } from './pages/MediaPage';
+import { PartnerRequestsPage } from './pages/PartnerRequestsPage';
 
 export function App() {
   const { user, loading } = useAuth();
@@ -37,6 +38,7 @@ export function App() {
         <Route path="/login" element={<Navigate to="/" replace />} />
         <Route path="/" element={<Dashboard defs={defs} />} />
         <Route path="/media" element={<MediaPage />} />
+        <Route path="/partenariats" element={<PartnerRequestsPage />} />
         <Route path="/c/:key" element={<CollectionPage defs={defs} />} />
         <Route path="/s/:key" element={<SingletonPage defs={defs} />} />
         <Route path="*" element={<Navigate to="/" replace />} />

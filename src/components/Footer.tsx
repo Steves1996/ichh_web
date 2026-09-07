@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { InstagramIcon, LinkedinIcon, MailIcon, MapPinIcon, PhoneIcon } from 'lucide-react';
+import { usePartnerDialog } from './PartnerDialog';
 import { useSite } from '../content/SiteContentProvider';
 
 export function Footer() {
   const { event, footerLinks, maholaContact } = useSite();
+  const partnerDialog = usePartnerDialog();
   return (
     <footer className="bg-ink text-sand">
       <div className="mx-auto max-w-page px-5 sm:px-8 py-14">
@@ -54,12 +56,21 @@ export function Footer() {
               <ul className="mt-4 space-y-2.5">
                 {group.links.map((link) =>
               <li key={link.label}>
-                    <Link
+                    {link.label === 'Devenir partenaire' ?
+                <button
+                  type="button"
+                  onClick={partnerDialog.open}
+                  className="text-left text-sm text-sand/85 hover:text-ember-soft transition-colors duration-150 ease-expo">
+                      {link.label}
+                    </button> :
+
+                <Link
                   to={link.to}
                   className="text-sm text-sand/85 hover:text-ember-soft transition-colors duration-150 ease-expo">
-                  
+
                       {link.label}
                     </Link>
+                }
                   </li>
               )}
               </ul>

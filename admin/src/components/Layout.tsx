@@ -16,6 +16,7 @@ export function Layout({ defs, children }: { defs: ContentDef[]; children: React
       <aside className="sidebar">
         <div className="brand">ICHH Yaoundé 2026<br /><span className="muted" style={{ color: '#7da5b8' }}>Administration</span></div>
         <NavLink to="/" end>Tableau de bord</NavLink>
+        <NavLink to="/partenariats">Demandes de partenariat</NavLink>
         <NavLink to="/media">Médiathèque</NavLink>
         {Object.entries(groups).map(([group, items]) => (
           <div key={group}>

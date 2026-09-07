@@ -6,11 +6,13 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
 import { ContentModule } from './content/content.module';
 import { MediaModule } from './media/media.module';
+import { PartnersModule } from './partners/partners.module';
 import { SeedModule } from './seed/seed.module';
 import { UsersModule } from './users/users.module';
 import { Singleton } from './content/entities/singleton.entity';
 import { ContentEntry } from './content/entities/content-entry.entity';
 import { MediaAsset } from './media/media-asset.entity';
+import { PartnerRequest } from './partners/partner-request.entity';
 import { User } from './users/user.entity';
 
 @Module({
@@ -23,7 +25,7 @@ import { User } from './users/user.entity';
       username: process.env.DB_USER ?? 'postgres',
       password: process.env.DB_PASSWORD ?? 'postgres',
       database: process.env.DB_NAME ?? 'ichh',
-      entities: [Singleton, ContentEntry, MediaAsset, User],
+      entities: [Singleton, ContentEntry, MediaAsset, PartnerRequest, User],
       synchronize: (process.env.DB_SYNCHRONIZE ?? 'true') === 'true',
       autoLoadEntities: true,
     }),
@@ -35,6 +37,7 @@ import { User } from './users/user.entity';
     AuthModule,
     ContentModule,
     MediaModule,
+    PartnersModule,
     SeedModule,
   ],
 })

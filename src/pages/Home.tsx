@@ -7,11 +7,13 @@ import { Newsletter } from '../components/Newsletter';
 import { SpeakerCard } from '../components/SpeakerCard';
 import { Drawer } from '../components/Drawer';
 import { SpeakerProfile } from '../components/SpeakerProfile';
+import { usePartnerDialog } from '../components/PartnerDialog';
 import { useSite } from '../content/SiteContentProvider';
 import type { Speaker } from '../types';
 
 export function Home() {
   const { keyFigures, news, reasons, sponsors, speakers, days, sessions } = useSite();
+  const partnerDialog = usePartnerDialog();
   const [active, setActive] = useState<Speaker | null>(null);
   const [featured, ...otherFigures] = keyFigures;
 
@@ -203,12 +205,13 @@ export function Home() {
             )}
           </div>
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <Link
-              to="/a-propos"
+            <button
+              type="button"
+              onClick={partnerDialog.open}
               className="bg-ink px-6 py-3 text-sm font-medium text-sand transition-colors duration-150 ease-expo hover:bg-ember">
-              
+
               Devenir partenaire
-            </Link>
+            </button>
             <p className="text-sm text-ink-muted">
               Co-partenaire, sponsor, stand au Salon Expo santé ou table au gala : dossier d’offre de participation sur
               demande.

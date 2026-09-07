@@ -64,6 +64,10 @@ npm run seed:snapshot
 | `PUT` | `/api/admin/collections/:key/reorder` | JWT | `{ ids: [...] }` réordonne |
 | `GET/POST` | `/api/admin/media` | JWT | lister / téléverser une image (`multipart`, champ `file`) |
 | `DELETE` | `/api/admin/media/:id` | JWT | supprimer un média |
+| `POST` | `/api/partner-requests` | public | demande « Devenir partenaire » du site (`{ name, phone, email, message }`) |
+| `GET` | `/api/admin/partner-requests` | JWT | lister les demandes de partenariat |
+| `PUT` | `/api/admin/partner-requests/:id` | JWT | changer le statut (`{ status }` : `nouveau` / `en_cours` / `traite`) |
+| `DELETE` | `/api/admin/partner-requests/:id` | JWT | supprimer une demande |
 | `GET` | `/uploads/*` | public | fichiers téléversés |
 
 ## Variables d’environnement
@@ -83,6 +87,7 @@ npm run seed:snapshot
 - `singletons(key, data jsonb)` — objets uniques
 - `content_entries(id, collection, position, data jsonb)` — listes ordonnées
 - `media_assets(...)` — fichiers téléversés
+- `partner_requests(id, name, phone, email, message, status, createdAt)` — demandes de partenariat reçues du site
 - `admin_users(...)` — comptes du back-office
 
 Le fichier `src/content/registry.ts` décrit chaque type de contenu (clé, libellé,

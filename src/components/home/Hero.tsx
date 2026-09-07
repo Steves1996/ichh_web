@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 import { DownloadIcon, PlayIcon, XIcon } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Countdown } from '../Countdown';
+import { usePartnerDialog } from '../PartnerDialog';
 import { useSite } from '../../content/SiteContentProvider';
 
 export function Hero() {
   const { event } = useSite();
+  const partnerDialog = usePartnerDialog();
   const [videoOpen, setVideoOpen] = useState(false);
 
   return (
@@ -50,12 +52,13 @@ export function Hero() {
                 
                 S’inscrire
               </Link>
-              <Link
-                to="/a-propos"
+              <button
+                type="button"
+                onClick={partnerDialog.open}
                 className="border border-sand/30 px-7 py-3.5 text-sm font-medium text-sand transition-colors duration-150 ease-expo hover:bg-sand hover:text-ink">
 
                 Devenir partenaire
-              </Link>
+              </button>
               <a
                 href="#"
                 className="inline-flex items-center gap-2 px-2 py-3.5 text-sm font-medium text-sand/80 transition-colors duration-150 ease-expo hover:text-white">

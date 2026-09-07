@@ -37,6 +37,19 @@ export interface Entry {
   updatedAt: string;
 }
 
+export type PartnerRequestStatus = 'nouveau' | 'en_cours' | 'traite';
+
+export interface PartnerRequest {
+  id: string;
+  name: string;
+  phone: string;
+  email: string;
+  message: string;
+  status: PartnerRequestStatus;
+  createdAt: string;
+  updatedAt: string;
+}
+
 export interface MediaAsset {
   id: string;
   url: string;
