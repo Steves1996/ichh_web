@@ -76,6 +76,7 @@ export function SessionDetail({ session, inAgenda, onToggleAgenda }: SessionDeta
       <button
         type="button"
         onClick={() => onToggleAgenda(session.id)}
+        title={inAgenda ? undefined : 'Ajouter à mon agenda et à Google Agenda'}
         className={`mt-8 inline-flex w-full items-center justify-center gap-2 px-6 py-3.5 text-sm font-medium transition-colors duration-150 ease-expo ${
         inAgenda ?
         'bg-moss text-white hover:bg-ink' :

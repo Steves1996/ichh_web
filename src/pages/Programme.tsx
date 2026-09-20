@@ -6,6 +6,7 @@ import { SessionDetail } from '../components/SessionDetail';
 import { Newsletter } from '../components/Newsletter';
 import { useSite } from '../content/SiteContentProvider';
 import { useScreenInit } from '../useScreenInit.js';
+import { buildGoogleCalendarUrl } from '../lib/googleCalendar';
 import type { Session } from '../types';
 
 const ALL = 'Tous';
@@ -46,7 +47,7 @@ function ChipGroup({ label, value, options, onChange }: ChipGroupProps) {
 }
 
 export function Programme() {
-  const { days, rooms, sessions, sessionTypes, tracks, getSpeaker } = useSite();
+  const { days, rooms, sessions, sessionTypes, tracks, getSpeaker, event } = useSite();
   const screenInit = useScreenInit();
   const [day, setDay] = useState<string>(screenInit.day ?? ALL);
   const [room, setRoom] = useState<string>(screenInit.room ?? ALL);
@@ -55,8 +56,18 @@ export function Programme() {
   const [agenda, setAgenda] = useState<string[]>([]);
   const [active, setActive] = useState<Session | null>(null);
 
-  const toggleAgenda = (id: string) =>
-  setAgenda((prev) => prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]);
+  const toggleAgenda = (id: string) => {
+    const alreadyInAgenda = agenda.includes(id);
+    if (!alreadyInAgenda) {
+      const session = sessions.find((s) => s.id === id);
+      const dayInfo = session ? days.find((d) => d.day === session.day) : undefined;
+      const url = session && dayInfo ?
+      buildGoogleCalendarUrl(session, dayInfo, `${session.room}, ${event.venue}`) :
+      null;
+      if (url) window.open(url, '_blank', 'noopener,noreferrer');
+    }
+    setAgenda((prev) => alreadyInAgenda ? prev.filter((x) => x !== id) : [...prev, id]);
+  };
 
   const filtered = useMemo(
     () =>
@@ -206,12 +217,13 @@ export function Programme() {
                           type="button"
                           onClick={() => toggleAgenda(session.id)}
                           aria-pressed={inAgenda}
+                          title={inAgenda ? undefined : 'Ajouter à mon agenda et à Google Agenda'}
                           className={`inline-flex h-11 items-center gap-2 px-4 text-[13px] font-medium transition-colors duration-150 ease-expo ${
                           inAgenda ?
                           'bg-moss text-white hover:bg-ink' :
                           'border border-ink/20 text-ink hover:bg-ink hover:text-sand'}`
                           }>
-                          
+
                                 {inAgenda ?
                           <>
                                     <CalendarCheckIcon className="h-4 w-4" aria-hidden="true" />
