@@ -87,7 +87,7 @@ npm run seed:snapshot
 | `PUBLIC_URL` | base des URL d’images téléversées |
 | `CORS_ORIGINS` | origines autorisées, séparées par des virgules |
 | `JWT_SECRET` `JWT_EXPIRES_IN` | signature des jetons |
-| `MAIL_HOST` `MAIL_PORT` `MAIL_SECURE` `MAIL_USER` `MAIL_PASSWORD` `MAIL_FROM` | serveur SMTP pour l'e-mail de confirmation d'inscription (laisser `MAIL_HOST` vide pour désactiver l'envoi) |
+| `MAKE_WEBHOOK_EMAIL_URL` | webhook Make.com pour l'envoi des e-mails (laisser vide pour désactiver l'envoi) |
 | `ADMIN_EMAIL` `ADMIN_PASSWORD` `ADMIN_NAME` | compte créé au 1ᵉʳ démarrage / au seed |
 
 ## Modèle de données

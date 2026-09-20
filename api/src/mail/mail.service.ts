@@ -1,5 +1,4 @@
 import { Injectable, Logger } from '@nestjs/common';
-import * as nodemailer from 'nodemailer';
 
 export interface MailMessage {
   to: string;
@@ -9,57 +8,44 @@ export interface MailMessage {
 }
 
 /**
- * Envoi d'e-mails via SMTP (nodemailer). Configuration par variables
- * d'environnement (`MAIL_*`). Si `MAIL_HOST` n'est pas défini, le service
- * fonctionne en mode « no-op » et journalise simplement les messages.
+ * Envoi d'e-mails via le webhook Make.com (`MAKE_WEBHOOK_EMAIL_URL`). Si
+ * cette variable n'est pas définie, le service fonctionne en mode « no-op »
+ * et journalise simplement les messages.
  */
 @Injectable()
 export class MailService {
   private readonly logger = new Logger('Mail');
-  private readonly transporter: nodemailer.Transporter | null;
-  private readonly from: string;
+  private readonly webhookUrl: string | undefined;
 
   constructor() {
-    const host = process.env.MAIL_HOST;
-    this.from =
-      process.env.MAIL_FROM ??
-      (process.env.MAIL_USER ? `ICHH Yaoundé 2026 <${process.env.MAIL_USER}>` : 'no-reply@localhost');
-
-    if (!host) {
-      this.transporter = null;
-      this.logger.warn('MAIL_HOST non défini — les e-mails ne seront pas envoyés (mode simulation).');
-      return;
+    this.webhookUrl = process.env.MAKE_WEBHOOK_EMAIL_URL;
+    if (!this.webhookUrl) {
+      this.logger.warn(
+        'MAKE_WEBHOOK_EMAIL_URL non défini — les e-mails ne seront pas envoyés (mode simulation).',
+      );
     }
-
-    const port = Number(process.env.MAIL_PORT ?? 465);
-    this.transporter = nodemailer.createTransport({
-      host,
-      port,
-      secure: (process.env.MAIL_SECURE ?? 'true') === 'true',
-      auth: {
-        user: process.env.MAIL_USER,
-        pass: process.env.MAIL_PASSWORD,
-      },
-      connectionTimeout: 10_000,
-      greetingTimeout: 10_000,
-      socketTimeout: 15_000,
-    });
   }
 
-  /** Envoie un e-mail. N'échoue jamais : les erreurs sont journalisées. */
+  /** Envoie un e-mail via le webhook Make.com. N'échoue jamais : les erreurs sont journalisées. */
   async send(msg: MailMessage): Promise<boolean> {
-    if (!this.transporter) {
+    if (!this.webhookUrl) {
       this.logger.log(`[simulation] e-mail à ${msg.to} — « ${msg.subject} »`);
       return false;
     }
     try {
-      await this.transporter.sendMail({
-        from: this.from,
-        to: msg.to,
-        subject: msg.subject,
-        text: msg.text,
-        html: msg.html ?? msg.text,
+      const res = await fetch(this.webhookUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          EMAIL_PROVIDER: 'ICHH',
+          to: msg.to,
+          subject: msg.subject,
+          content: msg.html ?? msg.text,
+        }),
       });
+      if (!res.ok) {
+        throw new Error(`Webhook a répondu ${res.status}`);
+      }
       this.logger.log(`E-mail envoyé à ${msg.to} — « ${msg.subject} »`);
       return true;
     } catch (err) {
