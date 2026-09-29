@@ -49,7 +49,7 @@ export function Home() {
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
             <div>
               <img
-                src="/02737108-f365-45eb-aaa5-70bc8003a298.jpg"
+                src="/dr_matilde.jpeg"
                 alt="Dr Mathilde Mbouck, présidente de la Mahola Health Foundation"
                 className="w-full max-w-sm object-cover" />
 
