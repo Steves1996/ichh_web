@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { SectionHeading } from '../components/SectionHeading';
 import { Newsletter } from '../components/Newsletter';
 import { useSite } from '../content/SiteContentProvider';
+import { useLang, useT } from '../i18n/LanguageProvider';
 import type { Member } from '../types';
 
 function CommitteeList({ title, members, note }: {title: string;members: Member[];note: string;}) {
@@ -26,6 +27,8 @@ function CommitteeList({ title, members, note }: {title: string;members: Member[
 
 export function About() {
   const { audiences, event, objectives, organizingCommittee, outcomes, scientificCommittee } = useSite();
+  const { lang } = useLang();
+  const t = useT();
   return (
     <main>
       <section className="bg-ink text-sand">
@@ -33,8 +36,8 @@ export function About() {
           <SectionHeading
             as="h1"
             tone="light"
-            title="À propos de l’ICHH"
-            lead="Une conférence internationale portée par le Ministère de la Santé Publique du Cameroun, coordonnée par la Mahola Health Foundation et mise en œuvre avec All Access Agency, pour bâtir une santé résiliente au service des populations vulnérables d’Afrique." />
+            title={t.about.title}
+            lead={t.about.lead} />
           
         </div>
       </section>
@@ -45,61 +48,56 @@ export function About() {
           <div className="grid gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
             <div>
               <h2 className="font-display text-3xl leading-tight text-ink">
-                {event.fullNameFr}
+                {lang === 'en' ? event.fullName : event.fullNameFr}
               </h2>
-              <p className="mt-2 text-sm text-ink-muted">{event.fullName} · {event.name}</p>
+              <p className="mt-2 text-sm text-ink-muted">
+                {lang === 'en' ? event.fullNameFr : event.fullName} · {event.name}
+              </p>
               <div className="mt-6 space-y-5 text-[15px] leading-relaxed text-ink/80">
                 <p>
-                  <span className="font-medium text-ink">Contexte.</span> Après la crise du Covid-19, l’Agenda 2063 de
-                  l’Union Africaine et la Commission économique pour l’Afrique appellent à des programmes de santé
-                  alignés sur les agendas 2030 et 2063, pour renforcer la résilience des systèmes sanitaires. L’ICHH
-                  Yaoundé 2026 s’inscrit dans cette dynamique et coïncide avec les 10 ans de la Mahola Health
-                  Foundation.
+                  <span className="font-medium text-ink">{t.about.contextLabel}</span> {t.about.context}
                 </p>
                 <p>
-                  <span className="font-medium text-ink">Vision.</span> Fédérer les pouvoirs publics, les partenaires
-                  techniques et financiers, les experts et les acteurs communautaires autour d’une action concertée
-                  pour améliorer la santé des populations les plus vulnérables, en zones urbaines comme rurales.
+                  <span className="font-medium text-ink">{t.about.visionLabel}</span> {t.about.vision}
                 </p>
                 <p>
-                  <span className="font-medium text-ink">Pourquoi le Cameroun.</span> Le pays a été retenu pour son
-                  engagement en faveur de la Couverture Santé Universelle, la modernisation de ses infrastructures et
-                  la Stratégie Sectorielle de Santé 2020-2030 (SND30), qui vise un accès universel à des soins de
-                  qualité à l’horizon 2035.
+                  <span className="font-medium text-ink">{t.about.whyCameroonLabel}</span> {t.about.whyCameroon}
                 </p>
               </div>
             </div>
 
             <aside className="bg-sand-deep p-8">
-              <p className="text-[11px] uppercase tracking-[0.18em] text-ink-muted">Thème central 2026</p>
-              <p className="mt-4 font-display text-3xl leading-tight text-ink">« {event.themeEn} »</p>
-              <p className="mt-2 text-sm text-ink-muted">{event.theme}</p>
+              <p className="text-[11px] uppercase tracking-[0.18em] text-ink-muted">{t.about.theme}</p>
+              <p className="mt-4 font-display text-3xl leading-tight text-ink">
+                {lang === 'en' ? `“${event.themeEn}”` : `« ${event.themeEn} »`}
+              </p>
+              {lang !== 'en' && <p className="mt-2 text-sm text-ink-muted">{event.theme}</p>}
               <div className="ichh-rule my-7" />
               <dl className="space-y-4 text-sm">
                 <div>
-                  <dt className="text-ink-muted">Dates</dt>
+                  <dt className="text-ink-muted">{t.about.dates}</dt>
                   <dd className="font-medium text-ink">{event.dates}</dd>
                 </div>
                 <div>
-                  <dt className="text-ink-muted">Lieu</dt>
+                  <dt className="text-ink-muted">{t.about.venue}</dt>
                   <dd className="font-medium text-ink">
                     {event.venue}, {event.city}, {event.country}
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-ink-muted">Langues de travail</dt>
-                  <dd className="font-medium text-ink">Français et anglais</dd>
+                  <dt className="text-ink-muted">{t.about.languages}</dt>
+                  <dd className="font-medium text-ink">{t.about.languagesValue}</dd>
                 </div>
                 <div>
-                  <dt className="text-ink-muted">Supervision générale</dt>
-                  <dd className="font-medium text-ink">Ministère de la Santé Publique (MINSANTE)</dd>
+                  <dt className="text-ink-muted">{t.about.supervision}</dt>
+                  <dd className="font-medium text-ink">{t.about.supervisionValue}</dd>
                 </div>
                 <div>
-                  <dt className="text-ink-muted">Coordination</dt>
+                  <dt className="text-ink-muted">{t.about.coordination}</dt>
                   <dd className="font-medium text-ink">Mahola Health Foundation · Dr Mathilde Mbouck</dd>
                 </div>
                 <div>
-                  <dt className="text-ink-muted">Commissariat général</dt>
+                  <dt className="text-ink-muted">{t.about.commissioner}</dt>
                   <dd className="font-medium text-ink">All Access Agency</dd>
                 </div>
               </dl>
@@ -107,7 +105,7 @@ export function About() {
                 to="/mahola"
                 className="mt-7 inline-block text-sm font-medium text-ember transition-colors duration-150 hover:text-ink">
                 
-                Découvrir les 10 ans de Mahola →
+                {t.about.discoverMahola}
               </Link>
             </aside>
           </div>
@@ -117,7 +115,7 @@ export function About() {
       {/* Objectifs */}
       <section className="bg-ink text-sand">
         <div className="mx-auto max-w-page px-5 sm:px-8 py-20">
-          <SectionHeading as="h2" tone="light" title="Objectifs de la conférence" />
+          <SectionHeading as="h2" tone="light" title={t.about.objectivesTitle} />
           <ol className="mt-12 grid gap-x-14 gap-y-8 lg:grid-cols-2">
             {objectives.map((objective, index) =>
             <li key={objective} className="flex gap-5 border-t border-sand/20 pt-5">
@@ -136,8 +134,8 @@ export function About() {
         <div className="mx-auto max-w-page px-5 sm:px-8 py-20">
           <SectionHeading
             as="h2"
-            title="À qui s’adresse l’ICHH"
-            lead="Cinq familles d’acteurs réunies autour d’une même table, des États de la zone CEMAC-CEEAC à la société civile." />
+            title={t.about.audiencesTitle}
+            lead={t.about.audiencesLead} />
           
           <dl className="mt-12 grid gap-x-12 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
             {audiences.map((audience) =>
@@ -155,8 +153,8 @@ export function About() {
         <div className="mx-auto max-w-page px-5 sm:px-8 py-20">
           <SectionHeading
             as="h2"
-            title="Résultats attendus"
-            lead="Les travaux des huit panels alimentent le rapport final de la conférence, remis au plus tard le 30 octobre 2026." />
+            title={t.about.outcomesTitle}
+            lead={t.about.outcomesLead} />
           
           <div className="mt-12 grid gap-px bg-ink/10 sm:grid-cols-2">
             {outcomes.map((outcome) =>
@@ -172,17 +170,17 @@ export function About() {
       {/* Comités */}
       <section className="bg-sand">
         <div className="mx-auto max-w-page px-5 sm:px-8 py-20">
-          <SectionHeading as="h2" title="Qui organise" />
+          <SectionHeading as="h2" title={t.about.organisersTitle} />
           <div className="mt-12 grid gap-14 lg:grid-cols-2 lg:gap-20">
             <CommitteeList
-              title="Gouvernance et organisation"
+              title={t.about.governanceTitle}
               members={organizingCommittee}
-              note="Supervision de l’État du Cameroun, coordination de la Mahola Health Foundation et maîtrise d’œuvre d’All Access Agency, appuyées par un comité de coordination et un comité interministériel." />
+              note={t.about.governanceNote} />
 
             <CommitteeList
-              title="Comité scientifique"
+              title={t.about.scientificTitle}
               members={scientificCommittee}
-              note="Il arrête les termes de référence des huit panels, désigne les modérateurs et rapporteurs et rédige le rapport final. La composition nominative sera publiée avant la conférence." />
+              note={t.about.scientificNote} />
 
           </div>
         </div>

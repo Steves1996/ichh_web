@@ -1,5 +1,6 @@
 import React, { createContext, useCallback, useContext, useEffect, useState } from 'react';
 import { CheckIcon, LoaderIcon, XIcon } from 'lucide-react';
+import { useT } from '../i18n/LanguageProvider';
 
 const API_URL = ((import.meta as any).env?.VITE_API_URL ?? '').replace(/\/$/, '');
 
@@ -21,6 +22,7 @@ export function useRegistrationDialog(): RegistrationDialogContextValue {
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function RegistrationForm({ onClose }: { onClose: () => void }) {
+  const t = useT();
   const [form, setForm] = useState({ fullName: '', phone: '', city: '', email: '' });
   const [status, setStatus] = useState<Status>('idle');
   const [error, setError] = useState<string | null>(null);
@@ -35,11 +37,11 @@ function RegistrationForm({ onClose }: { onClose: () => void }) {
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (form.fullName.trim().length < 2) return fail('Merci d’indiquer vos nom et prénom.');
-    if (form.phone.trim().length < 4) return fail('Merci d’indiquer un numéro de téléphone.');
-    if (form.city.trim().length < 2) return fail('Merci d’indiquer votre ville de résidence.');
-    if (!EMAIL_RE.test(form.email)) return fail('Merci de saisir une adresse e-mail valide.');
-    if (!API_URL) return fail('Service momentanément indisponible. Réessayez plus tard.');
+    if (form.fullName.trim().length < 2) return fail(t.registration.errName);
+    if (form.phone.trim().length < 4) return fail(t.common.invalidPhone);
+    if (form.city.trim().length < 2) return fail(t.registration.errCity);
+    if (!EMAIL_RE.test(form.email)) return fail(t.common.invalidEmail);
+    if (!API_URL) return fail(t.common.unavailable);
 
     setStatus('loading');
     setError(null);
@@ -57,7 +59,7 @@ function RegistrationForm({ onClose }: { onClose: () => void }) {
       if (!res.ok) throw new Error(`API ${res.status}`);
       setStatus('done');
     } catch {
-      fail('L’envoi a échoué. Réessayez plus tard.');
+      fail(t.registration.failed);
     }
   };
 
@@ -74,15 +76,15 @@ function RegistrationForm({ onClose }: { onClose: () => void }) {
         </span>
         <div>
           <p className="text-sm text-ink">
-            Merci <span className="font-medium">{form.fullName.trim()}</span>. Votre pré-inscription à l’ICHH
-            Yaoundé 2026 a bien été enregistrée. L’équipe vous recontacte à l’adresse{' '}
-            <span className="font-medium">{form.email.trim()}</span> avec les modalités de participation.
+            {t.registration.thanks} <span className="font-medium">{form.fullName.trim()}</span>
+            {t.registration.doneMiddle}{' '}
+            <span className="font-medium">{form.email.trim()}</span> {t.registration.doneEnd}
           </p>
           <button
             type="button"
             onClick={onClose}
             className="mt-4 inline-flex items-center bg-ink px-5 py-2.5 text-sm font-medium text-sand transition-colors duration-150 ease-expo hover:bg-ember">
-            Fermer
+            {t.common.close}
           </button>
         </div>
       </div>
@@ -95,19 +97,19 @@ function RegistrationForm({ onClose }: { onClose: () => void }) {
   return (
     <form onSubmit={onSubmit} className="space-y-4" noValidate>
       <label className="block">
-        <span className="block text-[11px] uppercase tracking-[0.16em] text-ink-muted">Nom et prénom</span>
+        <span className="block text-[11px] uppercase tracking-[0.16em] text-ink-muted">{t.registration.fullName}</span>
         <input
           type="text"
           value={form.fullName}
           onChange={set('fullName')}
           autoComplete="name"
-          placeholder="Nom Prénom"
+          placeholder={t.registration.fullNamePlaceholder}
           className={`mt-2 ${inputCls}`}
           required />
       </label>
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="block">
-          <span className="block text-[11px] uppercase tracking-[0.16em] text-ink-muted">Téléphone</span>
+          <span className="block text-[11px] uppercase tracking-[0.16em] text-ink-muted">{t.common.phoneLabel}</span>
           <input
             type="tel"
             value={form.phone}
@@ -118,7 +120,7 @@ function RegistrationForm({ onClose }: { onClose: () => void }) {
             required />
         </label>
         <label className="block">
-          <span className="block text-[11px] uppercase tracking-[0.16em] text-ink-muted">Ville de résidence</span>
+          <span className="block text-[11px] uppercase tracking-[0.16em] text-ink-muted">{t.registration.city}</span>
           <input
             type="text"
             value={form.city}
@@ -130,13 +132,13 @@ function RegistrationForm({ onClose }: { onClose: () => void }) {
         </label>
       </div>
       <label className="block">
-        <span className="block text-[11px] uppercase tracking-[0.16em] text-ink-muted">Adresse e-mail</span>
+        <span className="block text-[11px] uppercase tracking-[0.16em] text-ink-muted">{t.common.emailLabel}</span>
         <input
           type="email"
           value={form.email}
           onChange={set('email')}
           autoComplete="email"
-          placeholder="prenom.nom@organisation.org"
+          placeholder={t.common.emailPlaceholder}
           className={`mt-2 ${inputCls}`}
           required />
       </label>
@@ -149,13 +151,13 @@ function RegistrationForm({ onClose }: { onClose: () => void }) {
           disabled={status === 'loading'}
           className="inline-flex items-center justify-center gap-2 bg-ember px-6 py-3 text-sm font-medium text-white transition-colors duration-150 ease-expo hover:bg-ink disabled:opacity-70">
           {status === 'loading' && <LoaderIcon className="h-4 w-4 animate-spin" aria-hidden="true" />}
-          {status === 'loading' ? 'Envoi…' : 'Envoyer mon inscription'}
+          {status === 'loading' ? t.common.sending : t.registration.submit}
         </button>
         <button
           type="button"
           onClick={onClose}
           className="text-sm font-medium text-ink-muted transition-colors duration-150 hover:text-ink">
-          Annuler
+          {t.common.cancel}
         </button>
       </div>
     </form>
@@ -163,6 +165,7 @@ function RegistrationForm({ onClose }: { onClose: () => void }) {
 }
 
 export function RegistrationDialogProvider({ children }: { children: React.ReactNode }) {
+  const t = useT();
   const [isOpen, setIsOpen] = useState(false);
 
   const open = useCallback(() => setIsOpen(true), []);
@@ -199,21 +202,20 @@ export function RegistrationDialogProvider({ children }: { children: React.React
               <div>
                 <p className="text-[11px] uppercase tracking-[0.18em] text-ember">ICHH Yaoundé 2026</p>
                 <h2 id="registration-dialog-title" className="mt-1 font-display text-2xl leading-tight text-ink">
-                  S’inscrire à la conférence
+                  {t.registration.title}
                 </h2>
               </div>
               <button
                 type="button"
                 onClick={close}
-                aria-label="Fermer"
+                aria-label={t.common.close}
                 className="mt-1 flex h-9 w-9 shrink-0 items-center justify-center border border-ink/15 text-ink-muted transition-colors duration-150 ease-expo hover:border-ember hover:text-ember">
                 <XIcon className="h-4 w-4" />
               </button>
             </div>
             <div className="px-6 py-6 sm:px-8">
               <p className="mb-6 text-sm leading-relaxed text-ink-muted">
-                Renseignez vos coordonnées pour pré-réserver votre place. L’équipe de la Mahola Health Foundation
-                vous recontacte avec les modalités de participation (formules, accès, programme).
+                {t.registration.intro}
               </p>
               <RegistrationForm onClose={close} />
             </div>

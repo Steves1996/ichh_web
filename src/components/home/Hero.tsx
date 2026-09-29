@@ -5,9 +5,12 @@ import { Countdown } from '../Countdown';
 import { usePartnerDialog } from '../PartnerDialog';
 import { useRegistrationDialog } from '../RegistrationDialog';
 import { useSite } from '../../content/SiteContentProvider';
+import { useLang, useT } from '../../i18n/LanguageProvider';
 
 export function Hero() {
   const { event } = useSite();
+  const { lang } = useLang();
+  const t = useT();
   const partnerDialog = usePartnerDialog();
   const registrationDialog = useRegistrationDialog();
   const [videoOpen, setVideoOpen] = useState(false);
@@ -40,7 +43,7 @@ export function Hero() {
               {event.slogan}
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-sand/75">
-              « {event.themeEn} » — {event.theme}.
+              {lang === 'en' ? `“${event.themeEn}”` : `« ${event.themeEn} » — ${event.theme}.`}
             </p>
             <p className="mt-6 text-sm text-sand/60">
               {event.dates} · {event.venue}, {event.city} — {event.country}
@@ -52,14 +55,14 @@ export function Hero() {
                 onClick={registrationDialog.open}
                 className="bg-ember px-7 py-3.5 text-sm font-medium text-white transition-colors duration-150 ease-expo hover:bg-white hover:text-ink">
 
-                S’inscrire
+                {t.common.register}
               </button>
               <button
                 type="button"
                 onClick={partnerDialog.open}
                 className="border border-sand/30 px-7 py-3.5 text-sm font-medium text-sand transition-colors duration-150 ease-expo hover:bg-sand hover:text-ink">
 
-                Devenir partenaire
+                {t.common.becomePartner}
               </button>
               <a
                 href="/brochure-ichh-yaounde-2026.pdf"
@@ -67,7 +70,7 @@ export function Hero() {
                 className="inline-flex items-center gap-2 px-2 py-3.5 text-sm font-medium text-sand/80 transition-colors duration-150 ease-expo hover:text-white">
 
                 <DownloadIcon className="h-4 w-4" aria-hidden="true" />
-                Télécharger la brochure (PDF, 7,4 Mo)
+                {t.hero.brochure}
               </a>
             </div>
           </div>
@@ -77,11 +80,11 @@ export function Hero() {
               type="button"
               onClick={() => setVideoOpen(true)}
               className="group relative block w-full overflow-hidden border border-sand/20 text-left"
-              aria-label={`Lire la vidéo de présentation de l’${event.name}`}>
+              aria-label={t.hero.videoAria(event.name)}>
               
               <img
                 src="/2960c9bf-fa00-4f3d-a98f-c41b8d2d053f.jpg"
-                alt="Équipe Mahola en campagne de terrain"
+                alt={t.hero.videoAlt}
                 className="aspect-video w-full object-cover transition-transform duration-300 ease-expo group-hover:scale-[1.03]" />
               
               <span className="absolute inset-0 bg-ink/35 transition-colors duration-150 group-hover:bg-ink/25" />
@@ -90,13 +93,13 @@ export function Hero() {
                   <PlayIcon className="h-4 w-4 translate-x-[1px]" />
                 </span>
                 <span className="text-sm font-medium text-white">
-                  Vidéo de présentation — 2 min 40
+                  {t.hero.videoLabel}
                 </span>
               </span>
             </button>
 
             <div className="border-t border-sand/20 pt-7">
-              <p className="text-[11px] uppercase tracking-[0.18em] text-sand/55">Ouverture des travaux dans</p>
+              <p className="text-[11px] uppercase tracking-[0.18em] text-sand/55">{t.hero.opensIn}</p>
               <div className="mt-4">
                 <Countdown target={event.startIso} tone="light" />
               </div>
@@ -107,7 +110,7 @@ export function Hero() {
 
       <AnimatePresence>
         {videoOpen &&
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-5" role="dialog" aria-modal="true" aria-label="Vidéo de présentation">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-5" role="dialog" aria-modal="true" aria-label={t.hero.videoDialog}>
             <motion.div
             className="absolute inset-0 bg-ink/80"
             initial={{ opacity: 0 }}
@@ -127,7 +130,7 @@ export function Hero() {
               type="button"
               onClick={() => setVideoOpen(false)}
               className="absolute -top-12 right-0 flex h-10 w-10 items-center justify-center border border-sand/30 text-sand transition-colors duration-150 hover:bg-sand hover:text-ink"
-              aria-label="Fermer la vidéo">
+              aria-label={t.hero.closeVideo}>
               
                 <XIcon className="h-4 w-4" />
               </button>
@@ -135,9 +138,9 @@ export function Hero() {
                 <span className="flex h-14 w-14 items-center justify-center rounded-full bg-sand text-ink">
                   <PlayIcon className="h-5 w-5 translate-x-[1px]" />
                 </span>
-                <p className="mt-5 font-display text-2xl text-white">Film de présentation — {event.name}</p>
+                <p className="mt-5 font-display text-2xl text-white">{t.hero.filmTitle(event.name)}</p>
                 <p className="mt-2 max-w-md text-sm text-sand/65">
-                  Le montage définitif sera intégré ici avant l’ouverture des travaux, le 12 novembre 2026.
+                  {t.hero.filmNote}
                 </p>
               </div>
             </motion.div>

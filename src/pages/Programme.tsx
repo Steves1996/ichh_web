@@ -5,20 +5,25 @@ import { Drawer } from '../components/Drawer';
 import { SessionDetail } from '../components/SessionDetail';
 import { Newsletter } from '../components/Newsletter';
 import { useSite } from '../content/SiteContentProvider';
+import { useT } from '../i18n/LanguageProvider';
 import { useScreenInit } from '../useScreenInit.js';
 import { buildGoogleCalendarUrl } from '../lib/googleCalendar';
 import type { Session } from '../types';
 
-const ALL = 'Tous';
+// Valeur sentinelle « aucun filtre » (le libellé affiché est traduit).
+const ALL = '__all__';
 
 interface ChipGroupProps {
   label: string;
   value: string;
   options: string[];
   onChange: (value: string) => void;
+  /** Libellé affiché pour une option (par défaut, la valeur elle-même). */
+  format?: (option: string) => string;
 }
 
-function ChipGroup({ label, value, options, onChange }: ChipGroupProps) {
+function ChipGroup({ label, value, options, onChange, format = (o) => o }: ChipGroupProps) {
+  const t = useT();
   return (
     <fieldset>
       <legend className="text-[11px] uppercase tracking-[0.16em] text-ink-muted">{label}</legend>
@@ -36,8 +41,8 @@ function ChipGroup({ label, value, options, onChange }: ChipGroupProps) {
               'border-ink bg-ink text-sand' :
               'border-ink/20 text-ink hover:border-ink/50'}`
               }>
-              
-              {option}
+
+              {option === ALL ? t.common.all : format(option)}
             </button>);
 
         })}
@@ -48,6 +53,7 @@ function ChipGroup({ label, value, options, onChange }: ChipGroupProps) {
 
 export function Programme() {
   const { days, rooms, sessions, sessionTypes, tracks, getSpeaker, event } = useSite();
+  const t = useT();
   const screenInit = useScreenInit();
   const [day, setDay] = useState<string>(screenInit.day ?? ALL);
   const [room, setRoom] = useState<string>(screenInit.room ?? ALL);
@@ -74,13 +80,13 @@ export function Programme() {
     sessions.
     filter(
       (session) =>
-      (day === ALL || `Jour ${session.day}` === day) && (
+      (day === ALL || days.find((d) => d.day === session.day)?.label === day) && (
       room === ALL || session.room === room) && (
       track === ALL || session.track === track) && (
       type === ALL || session.type === type)
     ).
     sort((a, b) => a.day - b.day || a.start.localeCompare(b.start)),
-    [day, room, track, type, sessions]
+    [day, room, track, type, sessions, days]
   );
 
   const hasFilters = day !== ALL || room !== ALL || track !== ALL || type !== ALL;
@@ -100,32 +106,37 @@ export function Programme() {
           <SectionHeading
             as="h1"
             tone="light"
-            title="Programme des deux jours"
-            lead="Les 12 et 13 novembre 2026 à l’Hôtel Hilton de Yaoundé : cérémonie d’ouverture, huit panels de haut niveau, Salon Expo santé, mission médicale et gala des 10 ans. Sélectionnez les sessions pour construire votre agenda."
+            title={t.programme.title}
+            lead={t.programme.lead}
             action={
             <a
               href="#"
               className="inline-flex items-center gap-2 border border-sand/30 px-6 py-3 text-sm font-medium text-sand transition-colors duration-150 ease-expo hover:bg-sand hover:text-ink">
               
                 <DownloadIcon className="h-4 w-4" aria-hidden="true" />
-                Programme PDF
+                {t.programme.pdf}
               </a>
             } />
           
         </div>
       </section>
 
-      <section className="border-b border-ink/10 bg-sand-deep" aria-label="Filtres du programme">
+      <section className="border-b border-ink/10 bg-sand-deep" aria-label={t.programme.filters}>
         <div className="mx-auto max-w-page px-5 sm:px-8 py-7">
           <div className="grid gap-6 md:grid-cols-2">
-            <ChipGroup label="Jour" value={day} options={days.map((d) => d.label)} onChange={setDay} />
-            <ChipGroup label="Type d’activité" value={type} options={sessionTypes} onChange={setType} />
-            <ChipGroup label="Thématique" value={track} options={tracks} onChange={setTrack} />
-            <ChipGroup label="Salle" value={room} options={rooms} onChange={setRoom} />
+            <ChipGroup label={t.programme.day} value={day} options={days.map((d) => d.label)} onChange={setDay} />
+            <ChipGroup
+              label={t.programme.type}
+              value={type}
+              options={sessionTypes}
+              onChange={setType}
+              format={(o) => t.sessionTypes[o] ?? o} />
+            <ChipGroup label={t.programme.track} value={track} options={tracks} onChange={setTrack} />
+            <ChipGroup label={t.programme.room} value={room} options={rooms} onChange={setRoom} />
           </div>
           <div className="mt-6 flex flex-wrap items-center gap-4">
             <p className="text-sm text-ink-muted" role="status">
-              {filtered.length} session{filtered.length > 1 ? 's' : ''} · {agenda.length} dans mon agenda
+              {t.programme.count(filtered.length, agenda.length)}
             </p>
             {hasFilters &&
             <button
@@ -134,7 +145,7 @@ export function Programme() {
               className="inline-flex items-center gap-2 text-sm font-medium text-ember transition-colors duration-150 hover:text-ink">
               
                 <XIcon className="h-4 w-4" aria-hidden="true" />
-                Réinitialiser les filtres
+                {t.common.resetFilters}
               </button>
             }
           </div>
@@ -145,17 +156,16 @@ export function Programme() {
         <div className="mx-auto max-w-page px-5 sm:px-8 py-14">
           {filtered.length === 0 ?
           <div className="border border-dashed border-ink/25 px-8 py-16 text-center">
-              <p className="font-display text-2xl text-ink">Aucune session pour cette combinaison</p>
+              <p className="font-display text-2xl text-ink">{t.programme.emptyTitle}</p>
               <p className="mx-auto mt-2 max-w-md text-sm text-ink-muted">
-                Toutes les salles n’accueillent pas tous les types d’activité. Élargissez un filtre pour voir des
-                résultats.
+                {t.programme.emptyText}
               </p>
               <button
               type="button"
               onClick={reset}
               className="mt-6 bg-ink px-6 py-3 text-sm font-medium text-sand transition-colors duration-150 ease-expo hover:bg-ember">
               
-                Réinitialiser
+                {t.common.reset}
               </button>
             </div> :
 
@@ -186,7 +196,7 @@ export function Programme() {
 
                             <div>
                               <p className="text-[12px] uppercase tracking-[0.14em] text-ember">
-                                {session.type} · {session.track}
+                                {t.sessionTypes[session.type] ?? session.type} · {session.track}
                               </p>
                               <button
                           type="button"
@@ -217,7 +227,7 @@ export function Programme() {
                           type="button"
                           onClick={() => toggleAgenda(session.id)}
                           aria-pressed={inAgenda}
-                          title={inAgenda ? undefined : 'Ajouter à mon agenda et à Google Agenda'}
+                          title={inAgenda ? undefined : t.programme.addTitle}
                           className={`inline-flex h-11 items-center gap-2 px-4 text-[13px] font-medium transition-colors duration-150 ease-expo ${
                           inAgenda ?
                           'bg-moss text-white hover:bg-ink' :
@@ -227,12 +237,12 @@ export function Programme() {
                                 {inAgenda ?
                           <>
                                     <CalendarCheckIcon className="h-4 w-4" aria-hidden="true" />
-                                    Dans mon agenda
+                                    {t.programme.inAgenda}
                                   </> :
 
                           <>
                                     <CalendarPlusIcon className="h-4 w-4" aria-hidden="true" />
-                                    Ajouter
+                                    {t.programme.add}
                                   </>
                           }
                               </button>
@@ -250,7 +260,7 @@ export function Programme() {
 
       <Newsletter />
 
-      <Drawer open={active !== null} onClose={() => setActive(null)} title="Détail de la session">
+      <Drawer open={active !== null} onClose={() => setActive(null)} title={t.programme.sessionDetail}>
         {active &&
         <SessionDetail
           session={active}

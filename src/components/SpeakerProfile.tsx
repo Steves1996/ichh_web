@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { BookOpenIcon, LinkedinIcon, MailIcon, TwitterIcon } from 'lucide-react';
 import { useSite } from '../content/SiteContentProvider';
+import { useT } from '../i18n/LanguageProvider';
 import type { Speaker } from '../types';
 
 interface SpeakerProfileProps {
@@ -10,6 +11,7 @@ interface SpeakerProfileProps {
 
 export function SpeakerProfile({ speaker }: SpeakerProfileProps) {
   const { getSessionsForSpeaker } = useSite();
+  const t = useT();
   const sessions = getSessionsForSpeaker(speaker.id);
 
   return (
@@ -31,17 +33,17 @@ export function SpeakerProfile({ speaker }: SpeakerProfileProps) {
       </div>
 
       <section className="mt-7">
-        <h3 className="text-[11px] uppercase tracking-[0.18em] text-ink-muted">Biographie</h3>
+        <h3 className="text-[11px] uppercase tracking-[0.18em] text-ink-muted">{t.profile.bio}</h3>
         <p className="mt-3 text-[15px] leading-relaxed text-ink/85">{speaker.bio}</p>
       </section>
 
       <section className="mt-7">
         <h3 className="text-[11px] uppercase tracking-[0.18em] text-ink-muted">
-          Sessions animées ({sessions.length})
+          {t.profile.sessions(sessions.length)}
         </h3>
         {sessions.length === 0 ?
         <p className="mt-3 text-sm text-ink-muted">
-            Aucune session encore confirmée pour cet intervenant. Le programme est mis à jour chaque semaine.
+            {t.profile.noSessions}
           </p> :
 
         <ul className="mt-3 divide-y divide-ink/10 border-y border-ink/10">
@@ -49,7 +51,7 @@ export function SpeakerProfile({ speaker }: SpeakerProfileProps) {
           <li key={session.id} className="py-3">
                 <p className="font-display text-lg leading-snug text-ink">{session.title}</p>
                 <p className="mt-1 text-[13px] text-ink-muted">
-                  Jour {session.day} · {session.start}–{session.end} · {session.room}
+                  {t.profile.dayLine(session.day)} · {session.start}–{session.end} · {session.room}
                 </p>
               </li>
           )}
@@ -58,7 +60,7 @@ export function SpeakerProfile({ speaker }: SpeakerProfileProps) {
       </section>
 
       <section className="mt-7">
-        <h3 className="text-[11px] uppercase tracking-[0.18em] text-ink-muted">Publications</h3>
+        <h3 className="text-[11px] uppercase tracking-[0.18em] text-ink-muted">{t.profile.publications}</h3>
         <ul className="mt-3 space-y-2.5">
           {speaker.publications.map((pub) =>
           <li key={pub} className="flex gap-3 text-[15px] leading-relaxed text-ink/85">
@@ -70,7 +72,7 @@ export function SpeakerProfile({ speaker }: SpeakerProfileProps) {
       </section>
 
       <section className="mt-7 border-t border-ink/10 pt-6">
-        <h3 className="text-[11px] uppercase tracking-[0.18em] text-ink-muted">Contact professionnel</h3>
+        <h3 className="text-[11px] uppercase tracking-[0.18em] text-ink-muted">{t.profile.contact}</h3>
         <div className="mt-3 flex flex-wrap gap-2">
           <a
             href={`mailto:${speaker.email}`}
@@ -98,7 +100,7 @@ export function SpeakerProfile({ speaker }: SpeakerProfileProps) {
           to="/programme"
           className="mt-5 inline-block text-sm font-medium text-ember hover:text-ink transition-colors duration-150">
           
-          Voir ses sessions dans le programme →
+          {t.profile.seeInProgramme}
         </Link>
       </section>
     </div>);

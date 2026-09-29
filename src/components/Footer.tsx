@@ -4,14 +4,21 @@ import { InstagramIcon, LinkedinIcon, MailIcon, MapPinIcon, PhoneIcon } from 'lu
 import { usePartnerDialog } from './PartnerDialog';
 import { useRegistrationDialog } from './RegistrationDialog';
 import { useSite } from '../content/SiteContentProvider';
+import { useLang, useT } from '../i18n/LanguageProvider';
 
 export function Footer() {
   const { event, footerLinks, maholaContact } = useSite();
+  const { lang } = useLang();
+  const t = useT();
   const partnerDialog = usePartnerDialog();
   const registrationDialog = useRegistrationDialog();
 
   const dialogFor = (label: string) =>
-    label === 'Devenir partenaire' ? partnerDialog.open : label === 'S’inscrire' ? registrationDialog.open : null;
+    label === t.common.becomePartner ?
+    partnerDialog.open :
+    label === t.common.register ?
+    registrationDialog.open :
+    null;
   return (
     <footer className="bg-ink text-sand">
       <div className="mx-auto max-w-page px-5 sm:px-8 py-14">
@@ -24,8 +31,7 @@ export function Footer() {
               <span className="font-display text-xl">{event.name}</span>
             </div>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-sand/70">
-              {event.fullNameFr} — célébration des 10 ans de la Mahola Health Foundation. Sous la supervision du
-              MINSANTE, coordonnée par la Mahola Health Foundation, avec All Access Agency.
+              {t.footer.about(lang === 'en' ? event.fullName : event.fullNameFr)}
             </p>
             <ul className="mt-6 space-y-2.5 text-sm text-sand/80">
               <li className="flex gap-3">
@@ -88,7 +94,7 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col gap-4 border-t border-sand/15 pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs text-sand/55">
-            © 2026 Mahola Health Foundation · All Access Agency. Tous droits réservés.
+            {t.footer.rights}
           </p>
           <div className="flex items-center gap-3">
             {[

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useT } from '../i18n/LanguageProvider';
 
 interface CountdownProps {
   target: string;
@@ -25,6 +26,7 @@ function computeRemaining(target: string): Remaining {
 
 export function Countdown({ target, tone = 'dark' }: CountdownProps) {
   const [remaining, setRemaining] = useState<Remaining>(() => computeRemaining(target));
+  const t = useT();
 
   useEffect(() => {
     const id = window.setInterval(() => setRemaining(computeRemaining(target)), 1000);
@@ -32,10 +34,10 @@ export function Countdown({ target, tone = 'dark' }: CountdownProps) {
   }, [target]);
 
   const units: Array<{value: number;label: string;}> = [
-  { value: remaining.days, label: 'jours' },
-  { value: remaining.hours, label: 'heures' },
-  { value: remaining.minutes, label: 'minutes' },
-  { value: remaining.seconds, label: 'secondes' }];
+  { value: remaining.days, label: t.countdown.days },
+  { value: remaining.hours, label: t.countdown.hours },
+  { value: remaining.minutes, label: t.countdown.minutes },
+  { value: remaining.seconds, label: t.countdown.seconds }];
 
 
   const valueColor = tone === 'light' ? 'text-white' : 'text-ink';
@@ -46,7 +48,7 @@ export function Countdown({ target, tone = 'dark' }: CountdownProps) {
     <div
       className="flex items-stretch"
       role="timer"
-      aria-label={`Ouverture dans ${remaining.days} jours`}>
+      aria-label={t.countdown.aria(remaining.days)}>
       
       {units.map((unit, index) =>
       <div

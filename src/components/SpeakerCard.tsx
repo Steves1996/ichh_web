@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowUpRightIcon } from 'lucide-react';
 import type { Speaker } from '../types';
+import { useT } from '../i18n/LanguageProvider';
 
 interface SpeakerCardProps {
   speaker: Speaker;
@@ -8,12 +9,13 @@ interface SpeakerCardProps {
 }
 
 export function SpeakerCard({ speaker, onOpen }: SpeakerCardProps) {
+  const t = useT();
   return (
     <button
       type="button"
       onClick={() => onOpen(speaker)}
       className="group flex h-full flex-col text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-4 focus-visible:ring-offset-sand"
-      aria-label={`Voir le profil de ${speaker.name}`}>
+      aria-label={t.speakers.viewProfile(speaker.name)}>
       
       <div className="relative overflow-hidden bg-sand-deep">
         <img
@@ -23,7 +25,7 @@ export function SpeakerCard({ speaker, onOpen }: SpeakerCardProps) {
         
         {speaker.keynote &&
         <span className="absolute left-0 top-0 bg-ink px-3 py-1.5 text-[10px] uppercase tracking-[0.16em] text-sand">
-            Keynote
+            {t.common.keynote}
           </span>
         }
       </div>

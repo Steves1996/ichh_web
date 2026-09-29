@@ -1,7 +1,8 @@
 import React, { createContext, useContext, useMemo } from 'react';
 import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query';
 import type { Session, Speaker } from '../types';
-import { defaultContent, mergeContent, SiteContent } from './defaults';
+import { defaultContent, localizeEn, mergeContent, SiteContent } from './defaults';
+import { useLang } from '../i18n/LanguageProvider';
 
 const API_URL = ((import.meta as any).env?.VITE_API_URL ?? '').replace(/\/$/, '');
 
@@ -38,22 +39,12 @@ function InnerProvider({ children }: { children: React.ReactNode }) {
     enabled: !!API_URL,
   });
 
+  const { lang } = useLang();
+
   const value = useMemo<SiteData>(() => {
     const content = mergeContent(data);
-    const uniq = (arr: string[]) => Array.from(new Set(arr.filter(Boolean)));
-    return {
-      ...content,
-      loading: isLoading,
-      rooms: uniq(content.sessions.map((s) => s.room)),
-      tracks: uniq(content.sessions.map((s) => s.track)),
-      sessionTypes: uniq(content.sessions.map((s) => s.type)),
-      speakerCountries: uniq(content.speakers.map((s) => s.country)).sort(),
-      speakerOrganizations: uniq(content.speakers.map((s) => s.organization)).sort(),
-      speakerDomains: uniq(content.speakers.map((s) => s.domain)).sort(),
-      getSpeaker: (id: string) => content.speakers.find((s) => s.id === id),
-      getSessionsForSpeaker: (id: string) => content.sessions.filter((s) => s.speakerIds?.includes(id)),
-    };
-  }, [data, isLoading]);
+    return withHelpers(lang === 'en' ? localizeEn(content) : content, isLoading);
+  }, [data, isLoading, lang]);
 
   return <SiteContentContext.Provider value={value}>{children}</SiteContentContext.Provider>;
 }
@@ -70,16 +61,20 @@ export function useSite(): SiteData {
   const ctx = useContext(SiteContentContext);
   if (ctx) return ctx;
   // repli hors provider (tests, rendu isolé)
-  const content = defaultContent;
+  return withHelpers(defaultContent, false);
+}
+
+function withHelpers(content: SiteContent, loading: boolean): SiteData {
+  const uniq = (arr: string[]) => Array.from(new Set(arr.filter(Boolean)));
   return {
     ...content,
-    loading: false,
-    rooms: Array.from(new Set(content.sessions.map((s) => s.room))),
-    tracks: Array.from(new Set(content.sessions.map((s) => s.track))),
-    sessionTypes: Array.from(new Set(content.sessions.map((s) => s.type))),
-    speakerCountries: Array.from(new Set(content.speakers.map((s) => s.country))).sort(),
-    speakerOrganizations: Array.from(new Set(content.speakers.map((s) => s.organization))).sort(),
-    speakerDomains: Array.from(new Set(content.speakers.map((s) => s.domain))).sort(),
+    loading,
+    rooms: uniq(content.sessions.map((s) => s.room)),
+    tracks: uniq(content.sessions.map((s) => s.track)),
+    sessionTypes: uniq(content.sessions.map((s) => s.type)),
+    speakerCountries: uniq(content.speakers.map((s) => s.country)).sort(),
+    speakerOrganizations: uniq(content.speakers.map((s) => s.organization)).sort(),
+    speakerDomains: uniq(content.speakers.map((s) => s.domain)).sort(),
     getSpeaker: (id: string) => content.speakers.find((s) => s.id === id),
     getSessionsForSpeaker: (id: string) => content.sessions.filter((s) => s.speakerIds?.includes(id)),
   };

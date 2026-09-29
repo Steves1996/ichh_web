@@ -6,10 +6,12 @@ import { Drawer } from '../components/Drawer';
 import { SpeakerProfile } from '../components/SpeakerProfile';
 import { Newsletter } from '../components/Newsletter';
 import { useSite } from '../content/SiteContentProvider';
+import { useT } from '../i18n/LanguageProvider';
 import { useScreenInit } from '../useScreenInit.js';
 import type { Speaker } from '../types';
 
-const ALL = 'Tous';
+// Valeur sentinelle « aucun filtre » (le libellé affiché est traduit).
+const ALL = '__all__';
 
 interface SelectFilterProps {
   label: string;
@@ -19,6 +21,7 @@ interface SelectFilterProps {
 }
 
 function SelectFilter({ label, value, options, onChange }: SelectFilterProps) {
+  const t = useT();
   return (
     <label className="flex flex-col gap-1.5">
       <span className="text-[11px] uppercase tracking-[0.16em] text-ink-muted">{label}</span>
@@ -29,7 +32,7 @@ function SelectFilter({ label, value, options, onChange }: SelectFilterProps) {
         
         {[ALL, ...options].map((option) =>
         <option key={option} value={option}>
-            {option}
+            {option === ALL ? t.common.all : option}
           </option>
         )}
       </select>
@@ -39,6 +42,7 @@ function SelectFilter({ label, value, options, onChange }: SelectFilterProps) {
 
 export function Speakers() {
   const { speakers, speakerCountries, speakerOrganizations, speakerDomains } = useSite();
+  const t = useT();
   const screenInit = useScreenInit();
   const [query, setQuery] = useState<string>(screenInit.query ?? '');
   const [country, setCountry] = useState<string>(screenInit.country ?? ALL);
@@ -80,8 +84,8 @@ export function Speakers() {
           <SectionHeading
             as="h1"
             tone="light"
-            title="Les intervenants"
-            lead="Décideurs publics, praticiens, experts et société civile mobilisés autour des huit panels. Liste pressentie : la composition définitive et les modérateurs sont arrêtés par le comité scientifique. Seule la présidente de la Mahola Health Foundation, le Dr Mathilde Mbouck, est confirmée." />
+            title={t.speakers.title}
+            lead={t.speakers.lead} />
           
         </div>
       </section>
@@ -90,7 +94,7 @@ export function Speakers() {
         <div className="mx-auto max-w-page px-5 sm:px-8 py-6">
           <div className="grid gap-4 lg:grid-cols-[1.4fr_repeat(3,1fr)_auto] lg:items-end">
             <label className="flex flex-col gap-1.5">
-              <span className="text-[11px] uppercase tracking-[0.16em] text-ink-muted">Recherche</span>
+              <span className="text-[11px] uppercase tracking-[0.16em] text-ink-muted">{t.speakers.search}</span>
               <span className="relative">
                 <SearchIcon
                   className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-muted"
@@ -100,19 +104,19 @@ export function Speakers() {
                   type="search"
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  placeholder="Nom, organisation, spécialité…"
+                  placeholder={t.speakers.searchPlaceholder}
                   className="w-full border border-ink/20 bg-sand py-2.5 pl-9 pr-3 text-sm text-ink placeholder:text-ink-muted/70 transition-colors duration-150 ease-expo focus:border-ember focus:outline-none" />
                 
               </span>
             </label>
-            <SelectFilter label="Pays" value={country} options={speakerCountries} onChange={setCountry} />
+            <SelectFilter label={t.speakers.country} value={country} options={speakerCountries} onChange={setCountry} />
             <SelectFilter
-              label="Organisation"
+              label={t.speakers.organization}
               value={organization}
               options={speakerOrganizations}
               onChange={setOrganization} />
             
-            <SelectFilter label="Domaine" value={domain} options={speakerDomains} onChange={setDomain} />
+            <SelectFilter label={t.speakers.domain} value={domain} options={speakerDomains} onChange={setDomain} />
             {hasFilters &&
             <button
               type="button"
@@ -120,7 +124,7 @@ export function Speakers() {
               className="inline-flex items-center gap-2 border border-ink/20 px-4 py-2.5 text-sm text-ink transition-colors duration-150 ease-expo hover:bg-ink hover:text-sand">
               
                 <XIcon className="h-4 w-4" aria-hidden="true" />
-                Réinitialiser
+                {t.common.reset}
               </button>
             }
           </div>
@@ -130,22 +134,21 @@ export function Speakers() {
       <section className="bg-sand">
         <div className="mx-auto max-w-page px-5 sm:px-8 py-14">
           <p className="text-sm text-ink-muted" role="status">
-            {results.length} intervenant{results.length > 1 ? 's' : ''} affiché
-            {results.length > 1 ? 's' : ''}
+            {t.speakers.count(results.length)}
           </p>
 
           {results.length === 0 ?
           <div className="mt-10 border border-dashed border-ink/25 px-8 py-16 text-center">
-              <p className="font-display text-2xl text-ink">Aucun intervenant ne correspond</p>
+              <p className="font-display text-2xl text-ink">{t.speakers.emptyTitle}</p>
               <p className="mx-auto mt-2 max-w-md text-sm text-ink-muted">
-                Essayez un autre pays ou un autre domaine — la liste s’enrichit chaque semaine jusqu’en février.
+                {t.speakers.emptyText}
               </p>
               <button
               type="button"
               onClick={reset}
               className="mt-6 bg-ink px-6 py-3 text-sm font-medium text-sand transition-colors duration-150 ease-expo hover:bg-ember">
               
-                Réinitialiser les filtres
+                {t.common.resetFilters}
               </button>
             </div> :
 
@@ -160,7 +163,7 @@ export function Speakers() {
 
       <Newsletter />
 
-      <Drawer open={active !== null} onClose={() => setActive(null)} title="Profil intervenant">
+      <Drawer open={active !== null} onClose={() => setActive(null)} title={t.home.speakerProfile}>
         {active && <SpeakerProfile speaker={active} />}
       </Drawer>
     </main>);

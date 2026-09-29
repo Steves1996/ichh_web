@@ -4,9 +4,11 @@ import { DownloadIcon, ExternalLinkIcon, PlayIcon, QuoteIcon } from 'lucide-reac
 import { SectionHeading } from '../components/SectionHeading';
 import { Newsletter } from '../components/Newsletter';
 import { useSite } from '../content/SiteContentProvider';
+import { useT } from '../i18n/LanguageProvider';
 
 export function Mahola() {
   const { gallery, maholaActions, maholaContact, maholaImpact, maholaMission, maholaTimeline, testimonials } = useSite();
+  const t = useT();
   const [selectedYear, setSelectedYear] = useState(maholaTimeline[maholaTimeline.length - 1].year);
   const selected = maholaTimeline.find((entry) => entry.year === selectedYear) ?? maholaTimeline[0];
 
@@ -19,19 +21,17 @@ export function Mahola() {
               <div className="flex items-center gap-4">
                 <img
                   src="/mahola.png"
-                  alt="Logo de la Mahola Health Foundation"
+                  alt={t.mahola.logoAlt}
                   className="h-16 w-16 shrink-0 sm:h-20 sm:w-20" />
                 <span className="text-[11px] uppercase tracking-[0.22em] text-sand/60">
                   Mahola Health Foundation
                 </span>
               </div>
               <h1 className="mt-6 font-display text-[2.6rem] sm:text-6xl leading-[1.03] text-white">
-                Dix ans de la Mahola Health Foundation
+                {t.mahola.title}
               </h1>
               <p className="mt-5 max-w-xl text-lg leading-relaxed text-sand/75">
-                Fondée en 2016 par le Dr Mathilde Mbouck, un premier dispensaire éphémère. Dix ans plus tard :
-                12 missions médicales, 8 700 consultations, 200 interventions chirurgicales et 25 accouchements
-                assistés au Cameroun et en Afrique centrale.
+                {t.mahola.lead}
               </p>
             </div>
             <div className="flex flex-col gap-3 lg:items-end lg:self-end">
@@ -42,14 +42,14 @@ export function Mahola() {
                 className="inline-flex items-center gap-3 self-start bg-ember px-6 py-4 text-sm font-medium text-white transition-colors duration-150 ease-expo hover:bg-ember-soft hover:text-ink">
 
                 <ExternalLinkIcon className="h-4 w-4" aria-hidden="true" />
-                Visiter le site de Mahola
+                {t.mahola.visitSite}
               </a>
               <a
                 href="#"
                 className="inline-flex items-center gap-3 self-start border border-sand/30 px-6 py-4 text-sm font-medium text-sand transition-colors duration-150 ease-expo hover:bg-sand hover:text-ink">
 
                 <DownloadIcon className="h-4 w-4" aria-hidden="true" />
-                Rapport d’impact 2016-2026 (PDF, 6,8 Mo)
+                {t.mahola.impactReport}
               </a>
             </div>
           </div>
@@ -61,28 +61,18 @@ export function Mahola() {
         <div className="mx-auto max-w-page px-5 sm:px-8 py-20">
           <div className="grid gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
             <div>
-              <h2 className="font-display text-3xl leading-tight text-ink">L’histoire de Mahola</h2>
+              <h2 className="font-display text-3xl leading-tight text-ink">{t.mahola.historyTitle}</h2>
               <div className="mt-6 space-y-5 text-[15px] leading-relaxed text-ink/80">
+                <p>{t.mahola.history1}</p>
+                <p>{t.mahola.history2}</p>
                 <p>
-                  Mahola naît en 2016 à l’initiative de soignants bénévoles qui font le même constat, mission après
-                  mission : au Cameroun, les patients arrivent trop tard, et presque toujours pour la même raison. La
-                  distance, puis le coût du transport, puis l’absence d’information.
-                </p>
-                <p>
-                  L’association choisit un modèle simple et mobile : des dispensaires éphémères montés le temps d’une
-                  mission, des équipes pluridisciplinaires — médecins, sages-femmes, pédiatres, ophtalmologues,
-                  kinésithérapeutes — et des médicaments collectés en amont auprès de partenaires et de donateurs.
-                  Chaque mission accompagne aussi un centre de santé local en formant ses professionnels.
-                </p>
-                <p>
-                  {maholaMission} Autour de cette mission, Mahola soutient également les orphelinats — soins,
-                  couverture santé, rénovation — et redistribue du matériel médical aux structures qui en manquent.
+                  {maholaMission} {t.mahola.history3}
                 </p>
               </div>
             </div>
 
             <div className="bg-ink-soft p-8 text-sand">
-              <p className="text-[11px] uppercase tracking-[0.18em] text-sand/55">Vidéo institutionnelle</p>
+              <p className="text-[11px] uppercase tracking-[0.18em] text-sand/55">{t.mahola.videoLabel}</p>
               <button
                 type="button"
                 className="group mt-5 flex w-full items-center gap-4 border border-sand/25 p-5 text-left transition-colors duration-150 ease-expo hover:border-ember-soft">
@@ -91,13 +81,12 @@ export function Mahola() {
                   <PlayIcon className="h-4 w-4 translate-x-[1px]" />
                 </span>
                 <span>
-                  <span className="block font-display text-xl text-white">Dix ans de missions</span>
-                  <span className="block text-sm text-sand/65">Film documentaire — 8 min 12</span>
+                  <span className="block font-display text-xl text-white">{t.mahola.videoTitle}</span>
+                  <span className="block text-sm text-sand/65">{t.mahola.videoMeta}</span>
                 </span>
               </button>
               <p className="mt-6 text-sm leading-relaxed text-sand/70">
-                Tourné pendant une mission au Cameroun, le film suit une équipe de bénévoles sur toute la durée d’un
-                dispensaire éphémère, sans commentaire ajouté.
+                {t.mahola.videoNote}
               </p>
             </div>
           </div>
@@ -109,8 +98,8 @@ export function Mahola() {
         <div className="mx-auto max-w-page px-5 sm:px-8 py-20">
           <SectionHeading
             as="h2"
-            title="Les missions de Mahola"
-            lead="Six axes d’action complémentaires, tous tournés vers l’accès aux soins de santé primaire au Cameroun." />
+            title={t.mahola.actionsTitle}
+            lead={t.mahola.actionsLead} />
 
           <div className="mt-12 grid gap-px bg-ink/10 sm:grid-cols-2 lg:grid-cols-3">
             {maholaActions.map((action) =>
@@ -129,14 +118,14 @@ export function Mahola() {
           <SectionHeading
             as="h2"
             tone="light"
-            title="Frise chronologique"
-            lead="Sélectionnez une année pour en lire le détail." />
+            title={t.mahola.timelineTitle}
+            lead={t.mahola.timelineLead} />
           
 
           <div className="mt-12">
             <div className="relative">
               <div className="absolute left-0 right-0 top-[13px] h-px bg-sand/25" aria-hidden="true" />
-              <ul className="relative flex flex-wrap gap-y-6 sm:justify-between" role="tablist" aria-label="Années">
+              <ul className="relative flex flex-wrap gap-y-6 sm:justify-between" role="tablist" aria-label={t.mahola.years}>
                 {maholaTimeline.map((entry) => {
                   const isActive = entry.year === selectedYear;
                   return (
@@ -198,7 +187,7 @@ export function Mahola() {
       {/* Chiffres d'impact */}
       <section className="border-b border-ink/10 bg-sand-deep">
         <div className="mx-auto max-w-page px-5 sm:px-8 py-16">
-          <h2 className="font-display text-3xl text-ink">Chiffres d’impact</h2>
+          <h2 className="font-display text-3xl text-ink">{t.mahola.impactTitle}</h2>
           <dl className="mt-10 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
             {maholaImpact.map((item) =>
             <div key={item.label} className="border-t-2 border-ink pt-4">
@@ -209,9 +198,7 @@ export function Mahola() {
             )}
           </dl>
           <p className="mt-8 max-w-2xl text-sm text-ink-muted">
-            Chiffres consolidés depuis 2016, à partir des rapports de mission de la Mahola Health Foundation :
-            150 professionnels de santé mobilisés et plus de 150 000 € de ressources engagées. Détail et méthodologie
-            sur demande à{' '}
+            {t.mahola.impactNote}{' '}
             <a
               href={`mailto:${maholaContact.email}`}
               className="font-medium text-ember transition-colors duration-150 hover:text-ink">
@@ -225,7 +212,7 @@ export function Mahola() {
       {/* Témoignages */}
       <section className="bg-sand">
         <div className="mx-auto max-w-page px-5 sm:px-8 py-20">
-          <SectionHeading as="h2" title="Ce qu’en disent les communautés" />
+          <SectionHeading as="h2" title={t.mahola.testimonialsTitle} />
           <div className="mt-12 grid gap-10 lg:grid-cols-3">
             {testimonials.map((testimonial) =>
             <figure key={testimonial.name} className="flex h-full flex-col">
@@ -248,8 +235,8 @@ export function Mahola() {
         <div className="mx-auto max-w-page px-5 sm:px-8 py-20">
           <SectionHeading
             as="h2"
-            title="Galerie historique"
-            lead="Photographies de terrain, 2019 — 2024. Archives Mahola." />
+            title={t.mahola.galleryTitle}
+            lead={t.mahola.galleryLead} />
           
           <div className="mt-12 grid gap-8 lg:grid-cols-3">
             {gallery.map((item) =>

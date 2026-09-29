@@ -1,6 +1,7 @@
 import React from 'react';
 import { CalendarCheckIcon, CalendarPlusIcon, ClockIcon, MapPinIcon, TagIcon } from 'lucide-react';
 import { useSite } from '../content/SiteContentProvider';
+import { useT } from '../i18n/LanguageProvider';
 import type { Session } from '../types';
 
 interface SessionDetailProps {
@@ -11,13 +12,14 @@ interface SessionDetailProps {
 
 export function SessionDetail({ session, inAgenda, onToggleAgenda }: SessionDetailProps) {
   const { days, getSpeaker } = useSite();
+  const t = useT();
   const day = days.find((d) => d.day === session.day);
   const sessionSpeakers = session.speakerIds.map(getSpeaker).filter(Boolean);
 
   return (
     <div>
       <p className="text-[13px] font-medium text-ember">
-        {session.type} · {session.track}
+        {t.sessionTypes[session.type] ?? session.type} · {session.track}
       </p>
       <h2 className="mt-2 font-display text-3xl leading-tight text-ink">{session.title}</h2>
 
@@ -25,7 +27,7 @@ export function SessionDetail({ session, inAgenda, onToggleAgenda }: SessionDeta
         <div className="flex gap-3">
           <ClockIcon className="mt-0.5 h-4 w-4 shrink-0 text-moss" aria-hidden="true" />
           <div>
-            <dt className="text-[11px] uppercase tracking-[0.16em] text-ink-muted">Horaire</dt>
+            <dt className="text-[11px] uppercase tracking-[0.16em] text-ink-muted">{t.session.schedule}</dt>
             <dd className="text-sm text-ink">
               {day?.label} — {day?.date}
               <br />
@@ -36,27 +38,27 @@ export function SessionDetail({ session, inAgenda, onToggleAgenda }: SessionDeta
         <div className="flex gap-3">
           <MapPinIcon className="mt-0.5 h-4 w-4 shrink-0 text-moss" aria-hidden="true" />
           <div>
-            <dt className="text-[11px] uppercase tracking-[0.16em] text-ink-muted">Salle</dt>
+            <dt className="text-[11px] uppercase tracking-[0.16em] text-ink-muted">{t.session.room}</dt>
             <dd className="text-sm text-ink">{session.room}</dd>
           </div>
         </div>
         <div className="flex gap-3">
           <TagIcon className="mt-0.5 h-4 w-4 shrink-0 text-moss" aria-hidden="true" />
           <div>
-            <dt className="text-[11px] uppercase tracking-[0.16em] text-ink-muted">Thématique</dt>
+            <dt className="text-[11px] uppercase tracking-[0.16em] text-ink-muted">{t.session.track}</dt>
             <dd className="text-sm text-ink">{session.track}</dd>
           </div>
         </div>
       </dl>
 
       <section className="mt-6">
-        <h3 className="text-[11px] uppercase tracking-[0.18em] text-ink-muted">Description</h3>
+        <h3 className="text-[11px] uppercase tracking-[0.18em] text-ink-muted">{t.session.description}</h3>
         <p className="mt-3 text-[15px] leading-relaxed text-ink/85">{session.description}</p>
       </section>
 
       {sessionSpeakers.length > 0 &&
       <section className="mt-7">
-          <h3 className="text-[11px] uppercase tracking-[0.18em] text-ink-muted">Intervenants</h3>
+          <h3 className="text-[11px] uppercase tracking-[0.18em] text-ink-muted">{t.session.speakers}</h3>
           <ul className="mt-3 space-y-3">
             {sessionSpeakers.map((speaker) =>
           <li key={speaker!.id} className="flex items-center gap-4">
@@ -76,7 +78,7 @@ export function SessionDetail({ session, inAgenda, onToggleAgenda }: SessionDeta
       <button
         type="button"
         onClick={() => onToggleAgenda(session.id)}
-        title={inAgenda ? undefined : 'Ajouter à mon agenda et à Google Agenda'}
+        title={inAgenda ? undefined : t.programme.addTitle}
         className={`mt-8 inline-flex w-full items-center justify-center gap-2 px-6 py-3.5 text-sm font-medium transition-colors duration-150 ease-expo ${
         inAgenda ?
         'bg-moss text-white hover:bg-ink' :
@@ -86,12 +88,12 @@ export function SessionDetail({ session, inAgenda, onToggleAgenda }: SessionDeta
         {inAgenda ?
         <>
             <CalendarCheckIcon className="h-4 w-4" aria-hidden="true" />
-            Dans mon agenda — retirer
+            {t.session.removeFromAgenda}
           </> :
 
         <>
             <CalendarPlusIcon className="h-4 w-4" aria-hidden="true" />
-            Ajouter à mon agenda
+            {t.session.addToAgenda}
           </>
         }
       </button>

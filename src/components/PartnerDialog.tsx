@@ -1,5 +1,6 @@
 import React, { createContext, useCallback, useContext, useEffect, useState } from 'react';
 import { CheckIcon, LoaderIcon, XIcon } from 'lucide-react';
+import { useT } from '../i18n/LanguageProvider';
 
 const API_URL = ((import.meta as any).env?.VITE_API_URL ?? '').replace(/\/$/, '');
 
@@ -21,6 +22,7 @@ export function usePartnerDialog(): PartnerDialogContextValue {
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function PartnerForm({ onClose }: { onClose: () => void }) {
+  const t = useT();
   const [form, setForm] = useState({ name: '', phone: '', email: '', message: '' });
   const [status, setStatus] = useState<Status>('idle');
   const [error, setError] = useState<string | null>(null);
@@ -35,12 +37,12 @@ function PartnerForm({ onClose }: { onClose: () => void }) {
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (form.name.trim().length < 2) return fail('Merci d’indiquer votre nom.');
-    if (form.phone.trim().length < 4) return fail('Merci d’indiquer un numéro de téléphone.');
-    if (!EMAIL_RE.test(form.email)) return fail('Merci de saisir une adresse e-mail valide.');
-    if (form.message.trim().length < 5) return fail('Merci de préciser la qualité de partenariat souhaitée.');
+    if (form.name.trim().length < 2) return fail(t.partner.errName);
+    if (form.phone.trim().length < 4) return fail(t.common.invalidPhone);
+    if (!EMAIL_RE.test(form.email)) return fail(t.common.invalidEmail);
+    if (form.message.trim().length < 5) return fail(t.partner.errMessage);
 
-    if (!API_URL) return fail('Service momentanément indisponible. Écrivez-nous par e-mail.');
+    if (!API_URL) return fail(t.partner.unavailable);
 
     setStatus('loading');
     setError(null);
@@ -58,7 +60,7 @@ function PartnerForm({ onClose }: { onClose: () => void }) {
       if (!res.ok) throw new Error(`API ${res.status}`);
       setStatus('done');
     } catch {
-      fail('L’envoi a échoué. Réessayez ou écrivez-nous par e-mail.');
+      fail(t.partner.failed);
     }
   };
 
@@ -75,15 +77,16 @@ function PartnerForm({ onClose }: { onClose: () => void }) {
         </span>
         <div>
           <p className="text-sm text-ink">
-            Merci <span className="font-medium">{form.name.trim()}</span>. Votre demande de partenariat a bien été
-            transmise à l’équipe de la Mahola Health Foundation. Nous revenons vers vous à l’adresse{' '}
-            <span className="font-medium">{form.email.trim()}</span>.
+            {t.partner.thanks} <span className="font-medium">{form.name.trim()}</span>
+            {t.partner.doneMiddle}{' '}
+            <span className="font-medium">{form.email.trim()}</span>
+            {t.partner.doneEnd}
           </p>
           <button
             type="button"
             onClick={onClose}
             className="mt-4 inline-flex items-center bg-ink px-5 py-2.5 text-sm font-medium text-sand transition-colors duration-150 ease-expo hover:bg-ember">
-            Fermer
+            {t.common.close}
           </button>
         </div>
       </div>
@@ -97,18 +100,18 @@ function PartnerForm({ onClose }: { onClose: () => void }) {
     <form onSubmit={onSubmit} className="space-y-4" noValidate>
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="block">
-          <span className="block text-[11px] uppercase tracking-[0.16em] text-ink-muted">Nom complet</span>
+          <span className="block text-[11px] uppercase tracking-[0.16em] text-ink-muted">{t.partner.name}</span>
           <input
             type="text"
             value={form.name}
             onChange={set('name')}
             autoComplete="name"
-            placeholder="Prénom Nom"
+            placeholder={t.partner.namePlaceholder}
             className={`mt-2 ${inputCls}`}
             required />
         </label>
         <label className="block">
-          <span className="block text-[11px] uppercase tracking-[0.16em] text-ink-muted">Téléphone</span>
+          <span className="block text-[11px] uppercase tracking-[0.16em] text-ink-muted">{t.common.phoneLabel}</span>
           <input
             type="tel"
             value={form.phone}
@@ -120,25 +123,25 @@ function PartnerForm({ onClose }: { onClose: () => void }) {
         </label>
       </div>
       <label className="block">
-        <span className="block text-[11px] uppercase tracking-[0.16em] text-ink-muted">Adresse e-mail</span>
+        <span className="block text-[11px] uppercase tracking-[0.16em] text-ink-muted">{t.common.emailLabel}</span>
         <input
           type="email"
           value={form.email}
           onChange={set('email')}
           autoComplete="email"
-          placeholder="prenom.nom@organisation.org"
+          placeholder={t.common.emailPlaceholder}
           className={`mt-2 ${inputCls}`}
           required />
       </label>
       <label className="block">
         <span className="block text-[11px] uppercase tracking-[0.16em] text-ink-muted">
-          Qualité de partenariat souhaitée
+          {t.partner.message}
         </span>
         <textarea
           value={form.message}
           onChange={set('message')}
           rows={4}
-          placeholder="Co-partenaire, sponsor (Platine / Or / Argent), stand au Salon Expo santé, table au gala… Décrivez votre organisation et le type de partenariat envisagé."
+          placeholder={t.partner.messagePlaceholder}
           className={`mt-2 resize-y ${inputCls}`}
           required />
       </label>
@@ -151,13 +154,13 @@ function PartnerForm({ onClose }: { onClose: () => void }) {
           disabled={status === 'loading'}
           className="inline-flex items-center justify-center gap-2 bg-ember px-6 py-3 text-sm font-medium text-white transition-colors duration-150 ease-expo hover:bg-ink disabled:opacity-70">
           {status === 'loading' && <LoaderIcon className="h-4 w-4 animate-spin" aria-hidden="true" />}
-          {status === 'loading' ? 'Envoi…' : 'Envoyer la demande'}
+          {status === 'loading' ? t.common.sending : t.partner.submit}
         </button>
         <button
           type="button"
           onClick={onClose}
           className="text-sm font-medium text-ink-muted transition-colors duration-150 hover:text-ink">
-          Annuler
+          {t.common.cancel}
         </button>
       </div>
     </form>
@@ -165,6 +168,7 @@ function PartnerForm({ onClose }: { onClose: () => void }) {
 }
 
 export function PartnerDialogProvider({ children }: { children: React.ReactNode }) {
+  const t = useT();
   const [isOpen, setIsOpen] = useState(false);
 
   const open = useCallback(() => setIsOpen(true), []);
@@ -201,21 +205,20 @@ export function PartnerDialogProvider({ children }: { children: React.ReactNode 
               <div>
                 <p className="text-[11px] uppercase tracking-[0.18em] text-ember">ICHH Yaoundé 2026</p>
                 <h2 id="partner-dialog-title" className="mt-1 font-display text-2xl leading-tight text-ink">
-                  Devenir partenaire
+                  {t.common.becomePartner}
                 </h2>
               </div>
               <button
                 type="button"
                 onClick={close}
-                aria-label="Fermer"
+                aria-label={t.common.close}
                 className="mt-1 flex h-9 w-9 shrink-0 items-center justify-center border border-ink/15 text-ink-muted transition-colors duration-150 ease-expo hover:border-ember hover:text-ember">
                 <XIcon className="h-4 w-4" />
               </button>
             </div>
             <div className="px-6 py-6 sm:px-8">
               <p className="mb-6 text-sm leading-relaxed text-ink-muted">
-                Laissez-nous vos coordonnées et précisez la qualité de partenariat souhaitée. L’équipe de la
-                Mahola Health Foundation vous recontacte avec le dossier d’offre de participation.
+                {t.partner.intro}
               </p>
               <PartnerForm onClose={close} />
             </div>

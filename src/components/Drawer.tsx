@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { XIcon } from 'lucide-react';
+import { useT } from '../i18n/LanguageProvider';
 
 interface DrawerProps {
   open: boolean;
@@ -10,6 +11,7 @@ interface DrawerProps {
 }
 
 export function Drawer({ open, onClose, title, children }: DrawerProps) {
+  const t = useT();
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
@@ -49,7 +51,7 @@ export function Drawer({ open, onClose, title, children }: DrawerProps) {
               type="button"
               onClick={onClose}
               className="flex h-9 w-9 items-center justify-center border border-ink/15 text-ink transition-colors duration-150 ease-expo hover:bg-ink hover:text-sand"
-              aria-label="Fermer">
+              aria-label={t.drawer.close}>
               
                 <XIcon className="h-4 w-4" />
               </button>

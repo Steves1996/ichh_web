@@ -1,6 +1,6 @@
 import type { Session } from '../types';
 
-const MONTHS_FR: Record<string, number> = {
+const MONTHS: Record<string, number> = {
   janvier: 0,
   février: 1,
   mars: 2,
@@ -13,17 +13,29 @@ const MONTHS_FR: Record<string, number> = {
   octobre: 9,
   novembre: 10,
   décembre: 11,
+  january: 0,
+  february: 1,
+  march: 2,
+  april: 3,
+  may: 4,
+  june: 5,
+  july: 6,
+  august: 7,
+  september: 8,
+  october: 9,
+  november: 10,
+  december: 11,
 };
 
 function pad(n: number): string {
   return String(n).padStart(2, '0');
 }
 
-/** Parse une date au format « 12 novembre 2026 ». */
-function parseFrenchDate(date: string): { year: number; month: number; day: number } | null {
+/** Parse une date au format « 12 novembre 2026 » ou « 12 November 2026 ». */
+function parseDayDate(date: string): { year: number; month: number; day: number } | null {
   const match = date.match(/(\d{1,2})\s+([a-zàâäéèêëïîôöùûüç]+)\s+(\d{4})/i);
   if (!match) return null;
-  const month = MONTHS_FR[match[2].toLowerCase()];
+  const month = MONTHS[match[2].toLowerCase()];
   if (month === undefined) return null;
   return { day: Number(match[1]), month, year: Number(match[3]) };
 }
@@ -43,7 +55,7 @@ export function buildGoogleCalendarUrl(
   dayInfo: { date: string },
   location?: string
 ): string | null {
-  const parsed = parseFrenchDate(dayInfo.date);
+  const parsed = parseDayDate(dayInfo.date);
   if (!parsed) return null;
 
   const start = toGoogleDateTime(parsed.year, parsed.month, parsed.day, session.start);

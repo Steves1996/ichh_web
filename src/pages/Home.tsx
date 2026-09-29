@@ -9,10 +9,12 @@ import { Drawer } from '../components/Drawer';
 import { SpeakerProfile } from '../components/SpeakerProfile';
 import { usePartnerDialog } from '../components/PartnerDialog';
 import { useSite } from '../content/SiteContentProvider';
+import { useT } from '../i18n/LanguageProvider';
 import type { Speaker } from '../types';
 
 export function Home() {
   const { keyFigures, news, reasons, sponsors, speakers, days, sessions } = useSite();
+  const t = useT();
   const partnerDialog = usePartnerDialog();
   const [active, setActive] = useState<Speaker | null>(null);
   const [featured, ...otherFigures] = keyFigures;
@@ -22,7 +24,7 @@ export function Home() {
       <Hero />
 
       {/* Chiffres clés */}
-      <section className="border-b border-ink/10 bg-sand-deep" aria-label="Chiffres clés">
+      <section className="border-b border-ink/10 bg-sand-deep" aria-label={t.home.keyFigures}>
         <div className="mx-auto max-w-page px-5 sm:px-8 py-12">
           <div className="grid gap-10 lg:grid-cols-[0.9fr_2.1fr] lg:items-center">
             <div>
@@ -50,34 +52,20 @@ export function Home() {
             <div>
               <img
                 src="/dr_matilde.jpeg"
-                alt="Dr Mathilde Mbouck, présidente de la Mahola Health Foundation"
+                alt={t.home.presidentAlt}
                 className="w-full max-w-sm object-cover" />
 
               <p className="mt-4 font-display text-xl text-ink">Dr Mathilde Mbouck</p>
-              <p className="text-sm text-ink-muted">Présidente · Mahola Health Foundation</p>
+              <p className="text-sm text-ink-muted">{t.home.presidentRole}</p>
             </div>
             <div className="lg:pt-6">
               <h2 id="welcome-title" className="font-display text-3xl sm:text-4xl leading-[1.1] text-ink">
-                « Après dix ans d’action sanitaire volontaire, nous rassemblons celles et ceux qui bâtissent une santé
-                résiliente pour les plus vulnérables. »
+                {t.home.welcomeQuote}
               </h2>
               <div className="mt-6 space-y-4 text-[15px] leading-relaxed text-ink/80">
-                <p>
-                  Depuis 2016, la Mahola Health Foundation organise des missions médicales au Cameroun et en Afrique
-                  centrale pour réduire le déficit de soins des personnes à faibles revenus. Douze missions, 8 700
-                  consultations, 200 interventions chirurgicales : dix ans d’action de terrain, aux côtés de l’effort
-                  public de Couverture Santé Universelle.
-                </p>
-                <p>
-                  L’ICHH Yaoundé 2026 prolonge cet engagement à l’échelle continentale. Sous la supervision du Ministère
-                  de la Santé Publique et avec All Access Agency, la conférence réunit États, institutions
-                  internationales, experts, société civile et secteur privé autour de huit panels de haut niveau.
-                </p>
-                <p>
-                  Deux jours à l’Hôtel Hilton de Yaoundé, 500 participants, et un objectif : poser ensemble les jalons
-                  d’une action sanitaire commune en faveur des populations à faibles revenus, en zones urbaines comme
-                  rurales.
-                </p>
+                {t.home.welcome.map((paragraph) =>
+                <p key={paragraph}>{paragraph}</p>
+                )}
               </div>
             </div>
           </div>
@@ -90,8 +78,8 @@ export function Home() {
           <SectionHeading
             as="h2"
             tone="light"
-            title="Pourquoi participer"
-            lead="Cinq raisons concrètes de rejoindre l’ICHH Yaoundé 2026." />
+            title={t.home.whyTitle}
+            lead={t.home.whyLead} />
           
           <div className="mt-12 grid gap-px bg-sand/15 sm:grid-cols-2 lg:grid-cols-3">
             {reasons.map((reason) =>
@@ -102,14 +90,13 @@ export function Home() {
             )}
             <div className="flex flex-col justify-center bg-ink p-7">
               <p className="text-sm text-sand/70">
-                Les inscriptions et les formules de participation sont ouvertes. Dossier d’offre de participation sur
-                demande.
+                {t.home.whyNote}
               </p>
               <Link
                 to="/programme"
                 className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-ember-soft transition-colors duration-150 ease-expo hover:text-white">
                 
-                Voir le programme complet
+                {t.home.fullProgramme}
                 <ArrowRightIcon className="h-4 w-4" aria-hidden="true" />
               </Link>
             </div>
@@ -122,14 +109,14 @@ export function Home() {
         <div className="mx-auto max-w-page px-5 sm:px-8 py-20">
           <SectionHeading
             as="h2"
-            title="Intervenants pressentis"
-            lead="Décideurs publics, praticiens, experts et société civile. La liste définitive est arrêtée par le comité scientifique."
+            title={t.home.speakersTitle}
+            lead={t.home.speakersLead}
             action={
             <Link
               to="/speakers"
               className="inline-flex items-center gap-2 border border-ink/20 px-6 py-3 text-sm font-medium text-ink transition-colors duration-150 ease-expo hover:bg-ink hover:text-sand">
               
-                Tous les intervenants
+                {t.home.allSpeakers}
                 <ArrowRightIcon className="h-4 w-4" aria-hidden="true" />
               </Link>
             } />
@@ -147,14 +134,14 @@ export function Home() {
         <div className="mx-auto max-w-page px-5 sm:px-8 py-20">
           <SectionHeading
             as="h2"
-            title="Le programme en bref"
-            lead="Deux jours à l’Hôtel Hilton de Yaoundé : cérémonie d’ouverture, huit panels de haut niveau, Salon Expo, mission médicale et gala des 10 ans."
+            title={t.home.programmeTitle}
+            lead={t.home.programmeLead}
             action={
             <Link
               to="/programme"
               className="inline-flex items-center gap-2 border border-ink/20 px-6 py-3 text-sm font-medium text-ink transition-colors duration-150 ease-expo hover:bg-ink hover:text-sand">
               
-                Programme détaillé
+                {t.home.detailedProgramme}
                 <ArrowRightIcon className="h-4 w-4" aria-hidden="true" />
               </Link>
             } />
@@ -177,7 +164,7 @@ export function Home() {
                     )}
                   </ul>
                   <p className="mt-4 text-[13px] text-ink-muted">
-                    {daySessions.length} sessions programmées
+                    {t.home.sessionsScheduled(daySessions.length)}
                   </p>
                 </article>);
 
@@ -191,15 +178,15 @@ export function Home() {
         <div className="mx-auto max-w-page px-5 sm:px-8 py-20">
           <SectionHeading
             as="h2"
-            title="Partenaires et institutions"
-            lead="L’ICHH Yaoundé 2026 est portée par le MINSANTE, la Mahola Health Foundation et All Access Agency, en lien avec les partenaires techniques et financiers de la sous-région." />
+            title={t.home.partnersTitle}
+            lead={t.home.partnersLead} />
           
           <div className="mt-10 grid gap-px bg-ink/10 sm:grid-cols-2 lg:grid-cols-4">
             {sponsors.map((sponsor) =>
             <div key={sponsor.name} className="flex flex-col justify-between bg-sand p-6">
                 <p className="font-display text-xl leading-snug text-ink">{sponsor.name}</p>
                 <p className="mt-6 text-[12px] uppercase tracking-[0.14em] text-ink-muted">
-                  {sponsor.tier} · {sponsor.origin}
+                  {t.sponsorTiers[sponsor.tier] ?? sponsor.tier} · {sponsor.origin}
                 </p>
               </div>
             )}
@@ -210,11 +197,10 @@ export function Home() {
               onClick={partnerDialog.open}
               className="bg-ink px-6 py-3 text-sm font-medium text-sand transition-colors duration-150 ease-expo hover:bg-ember">
 
-              Devenir partenaire
+              {t.common.becomePartner}
             </button>
             <p className="text-sm text-ink-muted">
-              Co-partenaire, sponsor, stand au Salon Expo santé ou table au gala : dossier d’offre de participation sur
-              demande.
+              {t.home.partnersNote}
             </p>
           </div>
         </div>
@@ -223,7 +209,7 @@ export function Home() {
       {/* Actualités */}
       <section className="border-t border-ink/10 bg-sand" aria-labelledby="news-title">
         <div className="mx-auto max-w-page px-5 sm:px-8 py-20">
-          <SectionHeading as="h2" title="Actualités récentes" />
+          <SectionHeading as="h2" title={t.home.newsTitle} />
           <ul className="mt-10 divide-y divide-ink/10 border-y border-ink/10">
             {news.map((item) =>
             <li key={item.id}>
@@ -250,7 +236,7 @@ export function Home() {
 
       <Newsletter />
 
-      <Drawer open={active !== null} onClose={() => setActive(null)} title="Profil intervenant">
+      <Drawer open={active !== null} onClose={() => setActive(null)} title={t.home.speakerProfile}>
         {active && <SpeakerProfile speaker={active} />}
       </Drawer>
     </main>);
