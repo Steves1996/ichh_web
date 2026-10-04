@@ -5,6 +5,7 @@ import { useRegistrationDialog } from './RegistrationDialog';
 import { useSite } from '../content/SiteContentProvider';
 import { useT } from '../i18n/LanguageProvider';
 import { LanguageSwitcher } from './LanguageSwitcher';
+import { ThemeSwitcher } from './ThemeSwitcher';
 
 export function Header() {
   const { event } = useSite();
@@ -62,6 +63,7 @@ export function Header() {
           </nav>
 
           <div className="hidden lg:flex items-center gap-4">
+            <ThemeSwitcher />
             <LanguageSwitcher />
             <button
               type="button"
@@ -73,6 +75,7 @@ export function Header() {
           </div>
 
           <div className="lg:hidden flex items-center gap-3">
+            <ThemeSwitcher />
             <LanguageSwitcher />
             <button
               type="button"

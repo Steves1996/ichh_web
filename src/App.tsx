@@ -11,6 +11,7 @@ import { Programme } from './pages/Programme';
 import { Speakers } from './pages/Speakers';
 import { SiteContentProvider } from './content/SiteContentProvider';
 import { LanguageProvider, useLang, useT } from './i18n/LanguageProvider';
+import { ThemeProvider } from './theme/ThemeProvider';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -51,6 +52,7 @@ function Layout() {
 
 export function App() {
   return (
+    <ThemeProvider>
     <LanguageProvider>
     <SiteContentProvider>
     <BrowserRouter>
@@ -61,6 +63,7 @@ export function App() {
       </PartnerDialogProvider>
     </BrowserRouter>
     </SiteContentProvider>
-    </LanguageProvider>);
+    </LanguageProvider>
+    </ThemeProvider>);
 
 }

@@ -102,7 +102,7 @@ export function Programme() {
 
   return (
     <main>
-      <section className="bg-ink text-sand">
+      <section className="palette-light bg-ink text-sand">
         <div className="mx-auto max-w-page px-5 sm:px-8 py-16 lg:py-20">
           <SectionHeading
             as="h1"

@@ -74,7 +74,7 @@ export function Home() {
       </section>
 
       {/* Pourquoi participer */}
-      <section className="bg-ink text-sand" aria-labelledby="why-title">
+      <section className="palette-light bg-ink text-sand" aria-labelledby="why-title">
         <div className="mx-auto max-w-page px-5 sm:px-8 py-20">
           <SectionHeading
             as="h2"

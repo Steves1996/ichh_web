@@ -20,7 +20,7 @@ export function Footer() {
     registrationDialog.open :
     null;
   return (
-    <footer className="bg-ink text-sand">
+    <footer className="palette-light bg-ink text-sand">
       <div className="mx-auto max-w-page px-5 sm:px-8 py-14">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_repeat(3,1fr)]">
           <div>

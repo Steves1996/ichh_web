@@ -16,7 +16,7 @@ export function Hero() {
   const [videoOpen, setVideoOpen] = useState(false);
 
   return (
-    <section className="relative bg-ink text-sand" aria-labelledby="hero-title">
+    <section className="palette-light relative bg-ink text-sand" aria-labelledby="hero-title">
       <div className="absolute inset-0">
         <img
           src="/9c6ef334-5f09-4f35-95c3-39cc504f79ea.jpg"

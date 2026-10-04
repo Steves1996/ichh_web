@@ -92,7 +92,7 @@ function RegistrationForm({ onClose }: { onClose: () => void }) {
   }
 
   const inputCls =
-    'w-full border border-ink/20 bg-white px-4 py-3 text-sm text-ink placeholder:text-ink-muted/70 transition-colors duration-150 ease-expo focus:border-ember focus:outline-none';
+    'w-full border border-ink/20 bg-surface px-4 py-3 text-sm text-ink placeholder:text-ink-muted/70 transition-colors duration-150 ease-expo focus:border-ember focus:outline-none';
 
   return (
     <form onSubmit={onSubmit} className="space-y-4" noValidate>
@@ -190,7 +190,7 @@ export function RegistrationDialogProvider({ children }: { children: React.React
       {children}
       {isOpen && (
         <div
-          className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-ink/70 px-4 py-8 sm:py-16"
+          className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-[#0A3A5A]/70 px-4 py-8 sm:py-16"
           role="dialog"
           aria-modal="true"
           aria-labelledby="registration-dialog-title"

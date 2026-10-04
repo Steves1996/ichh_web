@@ -41,7 +41,7 @@ export function Newsletter() {
   };
 
   return (
-    <section className="bg-ink-soft" aria-labelledby="newsletter-title">
+    <section className="palette-light bg-ink-soft" aria-labelledby="newsletter-title">
       <div className="mx-auto max-w-page px-5 sm:px-8 py-14">
         <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
           <div>

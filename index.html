@@ -4,6 +4,17 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      // Applique le thème avant le premier rendu (évite un flash clair en mode sombre).
+      (function () {
+        try {
+          var pref = localStorage.getItem('ichh-theme');
+          var dark = pref === 'dark' || (pref !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches);
+          if (dark) document.documentElement.classList.add('dark');
+        } catch (e) {}
+      })();
+    </script>
     <title>ICHH 2026 — International Conference on Humanitarian Health</title>
   </head>
   <body>

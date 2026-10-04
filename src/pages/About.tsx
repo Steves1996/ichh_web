@@ -32,7 +32,7 @@ export function About() {
   const t = useT();
   return (
     <main>
-      <section className="bg-ink text-sand">
+      <section className="palette-light bg-ink text-sand">
         <div className="mx-auto max-w-page px-5 sm:px-8 py-16 lg:py-20">
           <SectionHeading
             as="h1"
@@ -114,7 +114,7 @@ export function About() {
       </section>
 
       {/* Objectifs */}
-      <section className="bg-ink text-sand">
+      <section className="palette-light bg-ink text-sand">
         <div className="mx-auto max-w-page px-5 sm:px-8 py-20">
           <SectionHeading as="h2" tone="light" title={t.about.objectivesTitle} />
           <ol className="mt-12 grid gap-x-14 gap-y-8 lg:grid-cols-2">

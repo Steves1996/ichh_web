@@ -30,6 +30,13 @@ const fr = {
     label: 'Langue',
     switchTo: 'Passer en anglais'
   },
+  theme: {
+    label: 'Thème',
+    system: 'automatique',
+    light: 'clair',
+    dark: 'sombre',
+    switchTo: (mode: string) => `passer en ${mode}`
+  },
   nav: {
     home: 'Accueil',
     about: 'À propos',
@@ -308,6 +315,13 @@ const en: Dictionary = {
   lang: {
     label: 'Language',
     switchTo: 'Switch to French'
+  },
+  theme: {
+    label: 'Theme',
+    system: 'automatic',
+    light: 'light',
+    dark: 'dark',
+    switchTo: (mode: string) => `switch to ${mode}`
   },
   nav: {
     home: 'Home',

@@ -8,21 +8,55 @@
 
 /* END TAILWIND IMPORTS — ALL OTHER CSS MUST GO BELOW THIS LINE */
 
+/* Palette (canaux RGB, utilisés par tailwind.config.js). Le mode sombre s'active
+   avec la classe .dark sur <html> (cf. ThemeProvider et le script de index.html). */
+:root,
+.dark .palette-light {
+  --c-ink: 10 58 90;
+  --c-ink-soft: 15 74 112;
+  --c-ink-muted: 92 123 142;
+  --c-sand: 238 246 251;
+  --c-sand-deep: 220 235 244;
+  --c-ember: 14 124 142;
+  --c-ember-soft: 90 197 203;
+  --c-moss: 46 147 199;
+  --c-gold: 31 111 168;
+  --c-surface: 255 255 255;
+}
+:root {
+  color-scheme: light;
+}
+.dark {
+  color-scheme: dark;
+  --c-ink: 226 238 246;
+  --c-ink-soft: 191 213 227;
+  --c-ink-muted: 148 176 194;
+  --c-sand: 9 25 37;
+  --c-sand-deep: 15 37 53;
+  --c-ember: 22 147 166;
+  --c-ember-soft: 90 197 203;
+  --c-moss: 74 166 214;
+  --c-gold: 92 156 210;
+  --c-surface: 15 37 53;
+}
+/* Les sections bleu marine (hero, bandeaux, pied de page) gardent leurs couleurs
+   d'origine dans les deux thèmes : elles restent sombres sur le fond nuit. */
+
 html {
   scroll-behavior: smooth;
 }
 body {
-  background-color: #EEF6FB;
-  color: #0A3A5A;
+  background-color: rgb(var(--c-sand));
+  color: rgb(var(--c-ink));
   font-family: 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 ::selection {
-  background-color: #0E7C8E;
+  background-color: rgb(var(--c-ember));
   color: #fff;
 }
 .ichh-rule {
-  background-image: linear-gradient(to right, rgba(10, 58, 90, 0.16) 0 4px, transparent 4px 8px);
+  background-image: linear-gradient(to right, rgb(var(--c-ink) / 0.16) 0 4px, transparent 4px 8px);
   background-size: 8px 1px;
   background-repeat: repeat-x;
   height: 1px;

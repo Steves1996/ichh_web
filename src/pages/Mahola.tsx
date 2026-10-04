@@ -15,7 +15,7 @@ export function Mahola() {
 
   return (
     <main>
-      <section className="bg-ink text-sand">
+      <section className="palette-light bg-ink text-sand">
         <div className="mx-auto max-w-page px-5 sm:px-8 py-16 lg:py-20">
           <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
             <div>
@@ -72,7 +72,7 @@ export function Mahola() {
               </div>
             </div>
 
-            <div className="bg-ink-soft p-8 text-sand">
+            <div className="palette-light bg-ink-soft p-8 text-sand">
               <p className="text-[11px] uppercase tracking-[0.18em] text-sand/55">{t.mahola.videoLabel}</p>
               <button
                 type="button"
@@ -114,7 +114,7 @@ export function Mahola() {
       </section>
 
       {/* Frise chronologique interactive */}
-      <section className="bg-ink text-sand" aria-labelledby="timeline-title">
+      <section className="palette-light bg-ink text-sand" aria-labelledby="timeline-title">
         <div className="mx-auto max-w-page px-5 sm:px-8 py-20">
           <SectionHeading
             as="h2"

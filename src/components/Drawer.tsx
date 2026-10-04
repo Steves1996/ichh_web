@@ -31,7 +31,7 @@ export function Drawer({ open, onClose, title, children }: DrawerProps) {
       {open &&
       <div className="fixed inset-0 z-50" role="dialog" aria-modal="true" aria-label={title}>
           <motion.div
-          className="absolute inset-0 bg-ink/50"
+          className="absolute inset-0 bg-[#0A3A5A]/50"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
