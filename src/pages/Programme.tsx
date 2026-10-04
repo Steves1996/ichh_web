@@ -9,6 +9,7 @@ import { useT } from '../i18n/LanguageProvider';
 import { useScreenInit } from '../useScreenInit.js';
 import { buildGoogleCalendarUrl } from '../lib/googleCalendar';
 import type { Session } from '../types';
+import { RichText } from '../components/RichText';
 
 // Valeur sentinelle « aucun filtre » (le libellé affiché est traduit).
 const ALL = '__all__';
@@ -205,9 +206,7 @@ export function Programme() {
                           
                                 {session.title}
                               </button>
-                              <p className="mt-2 max-w-2xl text-sm leading-relaxed text-ink-muted">
-                                {session.description}
-                              </p>
+                              <RichText className="mt-2 max-w-2xl text-sm leading-relaxed text-ink-muted">{session.description}</RichText>
                               <p className="mt-3 text-[13px] text-ink-muted">
                                 {session.room}
                                 {session.speakerIds.length > 0 &&

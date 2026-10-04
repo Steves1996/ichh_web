@@ -4,6 +4,7 @@ import { BookOpenIcon, LinkedinIcon, MailIcon, TwitterIcon } from 'lucide-react'
 import { useSite } from '../content/SiteContentProvider';
 import { useT } from '../i18n/LanguageProvider';
 import type { Speaker } from '../types';
+import { RichText } from './RichText';
 
 interface SpeakerProfileProps {
   speaker: Speaker;
@@ -34,7 +35,7 @@ export function SpeakerProfile({ speaker }: SpeakerProfileProps) {
 
       <section className="mt-7">
         <h3 className="text-[11px] uppercase tracking-[0.18em] text-ink-muted">{t.profile.bio}</h3>
-        <p className="mt-3 text-[15px] leading-relaxed text-ink/85">{speaker.bio}</p>
+        <RichText className="mt-3 text-[15px] leading-relaxed text-ink/85">{speaker.bio}</RichText>
       </section>
 
       <section className="mt-7">

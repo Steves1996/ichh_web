@@ -5,6 +5,7 @@ import { Newsletter } from '../components/Newsletter';
 import { useSite } from '../content/SiteContentProvider';
 import { useLang, useT } from '../i18n/LanguageProvider';
 import type { Member } from '../types';
+import { RichText } from '../components/RichText';
 
 function CommitteeList({ title, members, note }: {title: string;members: Member[];note: string;}) {
   return (
@@ -141,7 +142,7 @@ export function About() {
             {audiences.map((audience) =>
             <div key={audience.title} className="border-t border-ink/15 pt-5">
                 <dt className="font-display text-xl text-ink">{audience.title}</dt>
-                <dd className="mt-2 text-sm leading-relaxed text-ink-muted">{audience.text}</dd>
+                <dd><RichText className="mt-2 text-sm leading-relaxed text-ink-muted">{audience.text}</RichText></dd>
               </div>
             )}
           </dl>
@@ -160,7 +161,7 @@ export function About() {
             {outcomes.map((outcome) =>
             <article key={outcome.label} className="bg-sand-deep p-7">
                 <h3 className="font-display text-2xl text-ink">{outcome.label}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-ink-muted">{outcome.text}</p>
+                <RichText className="mt-3 text-sm leading-relaxed text-ink-muted">{outcome.text}</RichText>
               </article>
             )}
           </div>

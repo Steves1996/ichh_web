@@ -3,6 +3,7 @@ import { CalendarCheckIcon, CalendarPlusIcon, ClockIcon, MapPinIcon, TagIcon } f
 import { useSite } from '../content/SiteContentProvider';
 import { useT } from '../i18n/LanguageProvider';
 import type { Session } from '../types';
+import { RichText } from './RichText';
 
 interface SessionDetailProps {
   session: Session;
@@ -53,7 +54,7 @@ export function SessionDetail({ session, inAgenda, onToggleAgenda }: SessionDeta
 
       <section className="mt-6">
         <h3 className="text-[11px] uppercase tracking-[0.18em] text-ink-muted">{t.session.description}</h3>
-        <p className="mt-3 text-[15px] leading-relaxed text-ink/85">{session.description}</p>
+        <RichText className="mt-3 text-[15px] leading-relaxed text-ink/85">{session.description}</RichText>
       </section>
 
       {sessionSpeakers.length > 0 &&

@@ -11,6 +11,7 @@
 export type FieldType =
   | 'text'
   | 'textarea'
+  | 'markdown'
   | 'number'
   | 'boolean'
   | 'image'
@@ -108,7 +109,7 @@ export const REGISTRY: ContentDef[] = [
     titleField: 'title',
     fields: [
       { name: 'title', label: 'Titre', type: 'text', required: true },
-      { name: 'text', label: 'Texte', type: 'textarea', required: true },
+      { name: 'text', label: 'Texte', type: 'markdown', required: true },
     ],
   },
   {
@@ -128,7 +129,7 @@ export const REGISTRY: ContentDef[] = [
     titleField: 'title',
     fields: [
       { name: 'title', label: 'Titre', type: 'text', required: true },
-      { name: 'text', label: 'Texte', type: 'textarea', required: true },
+      { name: 'text', label: 'Texte', type: 'markdown', required: true },
     ],
   },
   {
@@ -139,7 +140,7 @@ export const REGISTRY: ContentDef[] = [
     titleField: 'label',
     fields: [
       { name: 'label', label: 'Titre', type: 'text', required: true },
-      { name: 'text', label: 'Texte', type: 'textarea', required: true },
+      { name: 'text', label: 'Texte', type: 'markdown', required: true },
     ],
   },
   {
@@ -162,7 +163,7 @@ export const REGISTRY: ContentDef[] = [
     titleField: 'title',
     fields: [
       { name: 'title', label: 'Titre', type: 'text', required: true },
-      { name: 'text', label: 'Texte', type: 'textarea', required: true },
+      { name: 'text', label: 'Texte', type: 'markdown', required: true },
     ],
   },
   {
@@ -235,7 +236,7 @@ export const REGISTRY: ContentDef[] = [
       { name: 'date', label: 'Date (affichage)', type: 'text', required: true },
       { name: 'category', label: 'Catégorie', type: 'text', required: true },
       { name: 'title', label: 'Titre', type: 'text', required: true },
-      { name: 'excerpt', label: 'Résumé', type: 'textarea', required: true },
+      { name: 'excerpt', label: 'Résumé', type: 'markdown', required: true },
     ],
   },
   {
@@ -279,7 +280,7 @@ export const REGISTRY: ContentDef[] = [
       { name: 'start', label: 'Début (HH:MM)', type: 'text', required: true },
       { name: 'end', label: 'Fin (HH:MM)', type: 'text', required: true },
       { name: 'title', label: 'Titre', type: 'text', required: true },
-      { name: 'description', label: 'Description', type: 'textarea' },
+      { name: 'description', label: 'Description', type: 'markdown' },
       { name: 'room', label: 'Salle', type: 'text' },
       { name: 'track', label: 'Thématique', type: 'text' },
       { name: 'type', label: 'Type', type: 'select', options: SESSION_TYPES, required: true },
@@ -302,7 +303,7 @@ export const REGISTRY: ContentDef[] = [
       { name: 'country', label: 'Pays', type: 'text' },
       { name: 'domain', label: 'Domaine', type: 'text' },
       { name: 'image', label: 'Photo', type: 'image' },
-      { name: 'bio', label: 'Biographie', type: 'textarea' },
+      { name: 'bio', label: 'Biographie', type: 'markdown' },
       { name: 'keynote', label: 'Keynote', type: 'boolean' },
       { name: 'email', label: 'E-mail', type: 'email' },
       { name: 'linkedin', label: 'LinkedIn', type: 'text' },
@@ -342,7 +343,7 @@ export const REGISTRY: ContentDef[] = [
     titleField: 'title',
     fields: [
       { name: 'title', label: 'Titre', type: 'text', required: true },
-      { name: 'text', label: 'Texte', type: 'textarea', required: true },
+      { name: 'text', label: 'Texte', type: 'markdown', required: true },
     ],
   },
   {
@@ -354,7 +355,7 @@ export const REGISTRY: ContentDef[] = [
     fields: [
       { name: 'year', label: 'Année', type: 'text', required: true },
       { name: 'title', label: 'Titre', type: 'text', required: true },
-      { name: 'description', label: 'Description', type: 'textarea' },
+      { name: 'description', label: 'Description', type: 'markdown' },
       { name: 'metric', label: 'Métrique', type: 'text' },
     ],
   },
@@ -377,7 +378,7 @@ export const REGISTRY: ContentDef[] = [
     group: 'Mahola',
     titleField: 'name',
     fields: [
-      { name: 'quote', label: 'Citation', type: 'textarea', required: true },
+      { name: 'quote', label: 'Citation', type: 'markdown', required: true },
       { name: 'name', label: 'Nom', type: 'text', required: true },
       { name: 'role', label: 'Fonction', type: 'text' },
     ],

@@ -5,6 +5,7 @@ import { SectionHeading } from '../components/SectionHeading';
 import { Newsletter } from '../components/Newsletter';
 import { useSite } from '../content/SiteContentProvider';
 import { useT } from '../i18n/LanguageProvider';
+import { RichText } from '../components/RichText';
 
 export function Mahola() {
   const { gallery, maholaActions, maholaContact, maholaImpact, maholaMission, maholaTimeline, testimonials } = useSite();
@@ -105,7 +106,7 @@ export function Mahola() {
             {maholaActions.map((action) =>
             <article key={action.title} className="bg-sand-deep p-7">
                 <h3 className="font-display text-2xl text-ink">{action.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-ink-muted">{action.text}</p>
+                <RichText className="mt-3 text-sm leading-relaxed text-ink-muted">{action.text}</RichText>
               </article>
             )}
           </div>
@@ -177,7 +178,7 @@ export function Mahola() {
               </div>
               <div>
                 <h3 className="font-display text-3xl leading-tight text-white">{selected.title}</h3>
-                <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-sand/80">{selected.description}</p>
+                <RichText className="mt-4 max-w-2xl text-[15px] leading-relaxed text-sand/80">{selected.description}</RichText>
               </div>
             </motion.div>
           </div>
@@ -218,7 +219,7 @@ export function Mahola() {
             <figure key={testimonial.name} className="flex h-full flex-col">
                 <QuoteIcon className="h-6 w-6 text-ember" aria-hidden="true" />
                 <blockquote className="mt-4 font-display text-xl leading-snug text-ink">
-                  {testimonial.quote}
+                  <RichText>{testimonial.quote}</RichText>
                 </blockquote>
                 <figcaption className="mt-auto pt-6 text-sm">
                   <span className="block font-medium text-ink">{testimonial.name}</span>

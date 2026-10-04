@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { api, API_URL } from '../lib/api';
 import { FieldDef, MediaAsset } from '../lib/types';
+import { MarkdownField } from './MarkdownField';
 
 interface Props {
   field: FieldDef;
@@ -25,6 +26,8 @@ function FieldControl({ field, value, onChange }: Props) {
   switch (field.type) {
     case 'textarea':
       return <textarea id={field.name} value={value ?? ''} onChange={(e) => onChange(e.target.value)} />;
+    case 'markdown':
+      return <MarkdownField id={field.name} value={value ?? ''} onChange={onChange} />;
     case 'number':
       return (
         <input

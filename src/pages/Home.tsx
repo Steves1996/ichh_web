@@ -11,6 +11,7 @@ import { usePartnerDialog } from '../components/PartnerDialog';
 import { useSite } from '../content/SiteContentProvider';
 import { useT } from '../i18n/LanguageProvider';
 import type { Speaker } from '../types';
+import { RichText } from '../components/RichText';
 
 export function Home() {
   const { keyFigures, news, reasons, sponsors, speakers, days, sessions } = useSite();
@@ -85,7 +86,7 @@ export function Home() {
             {reasons.map((reason) =>
             <article key={reason.title} className="flex flex-col bg-ink p-7">
                 <h3 className="font-display text-2xl text-white">{reason.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-sand/70">{reason.text}</p>
+                <RichText className="mt-3 text-sm leading-relaxed text-sand/70">{reason.text}</RichText>
               </article>
             )}
             <div className="flex flex-col justify-center bg-ink p-7">
@@ -219,14 +220,12 @@ export function Home() {
                 
                   <span className="text-[13px] tabular-nums text-ink-muted">{item.date}</span>
                   <span className="text-[12px] uppercase tracking-[0.14em] text-ember">{item.category}</span>
-                  <span>
+                  <div>
                     <span className="block font-display text-xl leading-snug text-ink transition-colors duration-150 ease-expo group-hover:text-ember">
                       {item.title}
                     </span>
-                    <span className="mt-1.5 block max-w-2xl text-sm leading-relaxed text-ink-muted">
-                      {item.excerpt}
-                    </span>
-                  </span>
+                    <RichText className="mt-1.5 max-w-2xl text-sm leading-relaxed text-ink-muted">{item.excerpt}</RichText>
+                  </div>
                 </a>
               </li>
             )}
