@@ -160,6 +160,16 @@ const fr = {
     actionsTitle: 'Les missions de Mahola',
     actionsLead:
     'Six axes d’action complémentaires, tous tournés vers l’accès aux soins de santé primaire au Cameroun.',
+    teamTitle: 'L’équipe Mahola',
+    teamLead:
+    'Autour de sa fondatrice, le Dr Mathilde Mbouck, la Mahola Health Foundation s’appuie sur des parrains et sur un réseau de bénévoles — médecins, soignants et professionnels — répartis entre l’Afrique, l’Europe et l’Amérique du Nord.',
+    teamFounder: 'Fondatrice',
+    teamSponsors: 'Parrains',
+    teamBranches: 'Antennes',
+    teamBranchList: ['Mahola Cameroun', 'Mahola Congo', 'Mahola Europe', 'Mahola UK', 'Mahola USA'],
+    teamImageAlt:
+    'Trombinoscope de la Mahola Health Foundation : la fondatrice, le Dr Mathilde Mbouck, les parrains et les membres des antennes USA, Royaume-Uni, Europe, Cameroun et Congo.',
+    teamEnlarge: 'Agrandir l’image',
     timelineTitle: 'Frise chronologique',
     timelineLead: 'Sélectionnez une année pour en lire le détail.',
     years: 'Années',
@@ -444,6 +454,16 @@ const en: Dictionary = {
     'Filmed during a mission in Cameroon, the documentary follows a team of volunteers for the full length of a pop-up clinic, with no added commentary.',
     actionsTitle: 'What Mahola does',
     actionsLead: 'Six complementary areas of action, all focused on access to primary health care in Cameroon.',
+    teamTitle: 'The Mahola team',
+    teamLead:
+    'Around its founder, Dr Mathilde Mbouck, the Mahola Health Foundation relies on patrons and a network of volunteers — doctors, health workers and professionals — across Africa, Europe and North America.',
+    teamFounder: 'Founder',
+    teamSponsors: 'Patrons',
+    teamBranches: 'Branches',
+    teamBranchList: ['Mahola Cameroon', 'Mahola Congo', 'Mahola Europe', 'Mahola UK', 'Mahola USA'],
+    teamImageAlt:
+    'Mahola Health Foundation team board: the founder, Dr Mathilde Mbouck, the patrons and members of the USA, UK, Europe, Cameroon and Congo branches.',
+    teamEnlarge: 'Enlarge image',
     timelineTitle: 'Timeline',
     timelineLead: 'Select a year to read the details.',
     years: 'Years',

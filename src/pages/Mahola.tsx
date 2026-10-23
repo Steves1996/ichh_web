@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { DownloadIcon, ExternalLinkIcon, PlayIcon, QuoteIcon } from 'lucide-react';
+import { DownloadIcon, ExpandIcon, ExternalLinkIcon, PlayIcon, QuoteIcon } from 'lucide-react';
 import { SectionHeading } from '../components/SectionHeading';
 import { Newsletter } from '../components/Newsletter';
 import { useSite } from '../content/SiteContentProvider';
@@ -109,6 +109,54 @@ export function Mahola() {
                 <RichText className="mt-3 text-sm leading-relaxed text-ink-muted">{action.text}</RichText>
               </article>
             )}
+          </div>
+        </div>
+      </section>
+
+      {/* Équipe Mahola */}
+      <section className="bg-sand" aria-labelledby="team-title">
+        <div className="mx-auto max-w-page px-5 sm:px-8 py-20">
+          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+            <div>
+              <h2 id="team-title" className="font-display text-3xl sm:text-4xl leading-[1.1] text-ink">{t.mahola.teamTitle}</h2>
+              <p className="mt-3 text-base leading-relaxed text-ink-muted">{t.mahola.teamLead}</p>
+              <dl className="mt-10 space-y-6 text-sm">
+                <div className="border-t border-ink/15 pt-4">
+                  <dt className="text-[11px] uppercase tracking-[0.18em] text-ink-muted">{t.mahola.teamFounder}</dt>
+                  <dd className="mt-1.5 font-display text-xl text-ink">Dr Mathilde Mbouck</dd>
+                </div>
+                <div className="border-t border-ink/15 pt-4">
+                  <dt className="text-[11px] uppercase tracking-[0.18em] text-ink-muted">{t.mahola.teamSponsors}</dt>
+                  <dd className="mt-1.5 text-ink">M. Bertrand Mbouck · M. Olivier Sohaing · M. John Butt</dd>
+                </div>
+                <div className="border-t border-ink/15 pt-4">
+                  <dt className="text-[11px] uppercase tracking-[0.18em] text-ink-muted">{t.mahola.teamBranches}</dt>
+                  <dd className="mt-2 flex flex-wrap gap-2">
+                    {t.mahola.teamBranchList.map((branch) =>
+                    <span key={branch} className="border border-ink/15 px-3 py-1 text-[13px] text-ink">{branch}</span>
+                    )}
+                  </dd>
+                </div>
+              </dl>
+            </div>
+            <a
+              href="/mahola_member.jpeg"
+              target="_blank"
+              rel="noreferrer"
+              className="group relative block self-start overflow-hidden border border-ink/10 bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-4 focus-visible:ring-offset-sand"
+              aria-label={`${t.mahola.teamEnlarge} — ${t.mahola.teamTitle}`}>
+              <img
+                src="/mahola_member.jpeg"
+                alt={t.mahola.teamImageAlt}
+                loading="lazy"
+                width={752}
+                height={1080}
+                className="h-auto w-full transition-transform duration-300 ease-expo group-hover:scale-[1.02]" />
+              <span className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 bg-ink px-3 py-1.5 text-[12px] font-medium text-sand">
+                <ExpandIcon className="h-3.5 w-3.5" aria-hidden="true" />
+                {t.mahola.teamEnlarge}
+              </span>
+            </a>
           </div>
         </div>
       </section>
