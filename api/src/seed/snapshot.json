@@ -7,12 +7,12 @@
     "edition": "10 ans de la Mahola Health Foundation",
     "theme": "Bâtir une santé résiliente pour les populations vulnérables en Afrique",
     "themeEn": "Building Resilient Health for Vulnerable Populations in Africa",
-    "slogan": "Deux jours pour bâtir une santé résiliente au service des populations vulnérables d’Afrique.",
+    "slogan": "Une journée pour bâtir une santé résiliente au service des populations vulnérables d’Afrique.",
     "city": "Yaoundé",
     "country": "Cameroun",
     "venue": "Hôtel Hilton de Yaoundé",
-    "dates": "12 – 13 novembre 2026",
-    "startIso": "2026-11-12T08:30:00",
+    "dates": "13 novembre 2026",
+    "startIso": "2026-11-13T08:30:00",
     "expectedParticipants": "500"
   },
   "president": {
@@ -33,7 +33,7 @@
     {
       "value": "8",
       "label": "panels de haut niveau",
-      "detail": "Sur deux jours"
+      "detail": "En une journée"
     },
     {
       "value": "7",
@@ -132,42 +132,88 @@
     {
       "n": 1,
       "title": "Infrastructures et équipements sanitaires en Afrique",
-      "summary": "Évaluer les plateaux techniques africains face aux standards internationaux et identifier les solutions."
+      "summary": "Évaluer les plateaux techniques africains au regard des standards internationaux et identifier les solutions de mise à niveau et leur financement.",
+      "topics": [
+        "Évaluer les plateaux techniques africains au regard des standards internationaux",
+        "Identifier les solutions de mise à niveau et leur financement"
+      ],
+      "participants": "MINSANTE, MINEPAT, constructeurs, équipementiers, OMS, UNICEF, GIZ, BAD, FMI, BDEAC, CEMAC"
     },
     {
       "n": 2,
-      "title": "La médecine du volontariat dans les villes et les villages",
-      "summary": "Contribution du volontariat et de la RSE à l’accès aux soins des populations vulnérables — alternative ou complément à la CSU ?"
+      "title": "La médecine du volontariat dans les villes et villages",
+      "summary": "Contribution des missions médicales à l’accès aux soins des patients démunis, place de la RSE et pérennité des actions.",
+      "topics": [
+        "Contribution des missions médicales à l’accès aux soins des patients démunis",
+        "Actions pérennes ou transitoires : la médecine du volontariat est-elle une alternative à la CSU ?",
+        "Rétribution sociale et place de la RSE dans les entreprises et les organismes d’État"
+      ],
+      "participants": "MINSANTE, MINDEVEL, mairies, hôpitaux, centres de santé, cliniques, ONG, OMS, USAID, ambassades, CEMAC"
     },
     {
       "n": 3,
-      "title": "La Couverture Santé Universelle dans le développement des pays africains",
-      "summary": "Le cas du Cameroun, l’exemple de la CNAMGS au Gabon, le rôle des banques et des assurances, le financement du chèque santé."
+      "title": "La Couverture Santé Universelle dans les pays africains",
+      "summary": "Le cas du Cameroun et du projet CNAMGS au Gabon, les mécanismes de financement et le rôle des assurances et des banques.",
+      "topics": [
+        "Le cas du Cameroun et l’exemple du projet CNAMGS au Gabon",
+        "Rôle des assurances et des banques dans la mise en place de la CSU",
+        "Financement du chèque blanc santé ; l’assurance maladie française comme référence"
+      ],
+      "participants": "MINSANTE, CNAMGS Gabon, représentants du Gabon, de la RCA, du Congo et de la Guinée Équatoriale, banques, assurances, COBAC, DGTCFM MINFI, universités"
     },
     {
       "n": 4,
-      "title": "Médecine communautaire en milieu rural et lutte contre les déserts médicaux",
-      "summary": "Missions médicales, hôpitaux mobiles, campagnes de soins gratuits, télémédecine et digitalisation des soins primaires."
+      "title": "Médecine communautaire et lutte contre les déserts médicaux",
+      "summary": "Missions médicales en milieu rural, hôpitaux mobiles, campagnes de soins gratuits et digitalisation des soins primaires.",
+      "topics": [
+        "Rôle des missions médicales en milieu rural et promotion de la médecine de proximité",
+        "Hôpitaux mobiles et campagnes de soins gratuits",
+        "Télémédecine et digitalisation des soins de santé primaires"
+      ],
+      "participants": "MINSANTE, MINEPAT, MINDEVEL, mairies, entreprises, hôpitaux, cliniques, ONG, OMS, USAID, ambassades, GECAM"
     },
     {
       "n": 5,
-      "title": "Solutions globales face aux crises sanitaires : COVID, Ebola, VIH/SIDA",
-      "summary": "Veille sanitaire mondiale, synergie face aux menaces globales, place des solutions africaines."
+      "title": "Solutions globales et crises sanitaires mondiales",
+      "summary": "Veille sanitaire mondiale, nouvelles technologies de recherche et retours d’expérience sur le COVID-19, Ebola et le VIH/SIDA.",
+      "topics": [
+        "Veille sanitaire mondiale et mutualisation face à une menace globale",
+        "Nouvelles technologies de recherche et solutions africaines",
+        "Retours d’expérience : COVID-19, Ebola, VIH/SIDA"
+      ],
+      "participants": "MINSANTE, programmes nationaux, hôpitaux, centres de santé, experts, société civile, ONG, OMS, USAID, ambassades, GECAM"
     },
     {
       "n": 6,
       "title": "Accès aux médicaments et produits de première nécessité",
-      "summary": "Production pharmaceutique locale, entrepreneuriat, subvention et accès au médicament pour tous."
+      "summary": "Production pharmaceutique locale, subvention et accès aux médicaments pour tous.",
+      "topics": [
+        "Production locale : pallier la demande et rôle de la pharmacie industrielle",
+        "Subvention et accès au médicament pour tous",
+        "Universités et grandes écoles de formation sanitaire"
+      ],
+      "participants": "MINSANTE, MINPMEESA, MINADER, MINEPIA, MINMIDT, MINESUP, pharmaciens, corporations, ONG, OMS, UNICEF, GIZ, banques, universités, CEMAC"
     },
     {
       "n": 7,
       "title": "Intelligence artificielle et diagnostic intelligent",
-      "summary": "Télémédecine, formation à distance, mise en réseau des compétences, données numériques et souveraineté sanitaire."
+      "summary": "Télémédecine, diagnostic intelligent, formation à distance, gestion des données et souveraineté sanitaire.",
+      "topics": [
+        "Télémédecine, outils de diagnostic intelligents et formation à distance",
+        "Mise en réseau des compétences médicales et digitalisation des services",
+        "Gestion des données numériques et souveraineté sanitaire de l’État"
+      ],
+      "participants": "MINFI, MINEPAT, MINREX, DGSN, SED, ART, ambassades, ANTIC, CAMTEL, IAI, pharmaciens, universités, ENSP, chercheurs, APME, API, CEMAC"
     },
     {
       "n": 8,
       "title": "Leadership des femmes dans le secteur de la santé",
-      "summary": "Promotion du genre et des jeunes dans les politiques publiques de santé."
+      "summary": "Promotion du genre et des jeunes dans le secteur de la santé et dans les politiques publiques.",
+      "topics": [
+        "Promotion du genre dans le secteur santé et des jeunes en milieu sanitaire",
+        "Composante genre et jeunesse dans les politiques publiques de santé"
+      ],
+      "participants": "MINSANTE, MINPROFF, ONU Femmes, associations de femmes, MINESUP, MINAS, mairies, UNICEF, USAID, ambassades, ONG, universités, UA"
     }
   ],
   "conferenceFormats": [
@@ -365,6 +411,10 @@
             "to": "/programme"
           },
           {
+            "label": "Panels",
+            "to": "/panels"
+          },
+          {
             "label": "Speakers",
             "to": "/speakers"
           },
@@ -421,15 +471,9 @@
   "days": [
     {
       "day": 1,
-      "date": "12 novembre 2026",
-      "label": "Jour 1",
-      "theme": "Ouverture & premiers panels"
-    },
-    {
-      "day": 2,
       "date": "13 novembre 2026",
-      "label": "Jour 2",
-      "theme": "Panels, mission médicale & clôture"
+      "label": "Vendredi 13 novembre",
+      "theme": "Conférence, panels et gala"
     }
   ],
   "sessions": [
@@ -437,199 +481,184 @@
       "id": "s101",
       "day": 1,
       "start": "08:30",
-      "end": "10:00",
-      "title": "Accueil des délégations et remise des kits",
-      "description": "Enregistrement des participants, remise des kits de conférence et orientation dans l’Hôtel Hilton de Yaoundé. Un espace café est ouvert dans le hall principal.",
-      "room": "Hall du Hilton",
-      "track": "Logistique",
+      "end": "09:45",
+      "title": "Accueil des délégations, inscriptions et remise des kits",
+      "description": "Installation des participants et des exposants au Salon Expo numérique santé.",
+      "room": "Hôtel Hilton de Yaoundé",
+      "track": "Accueil",
       "type": "Networking",
       "speakerIds": []
     },
     {
       "id": "s102",
       "day": 1,
-      "start": "10:00",
-      "end": "12:00",
-      "title": "Cérémonie officielle d’ouverture",
-      "description": "Exécution de l’hymne national du Cameroun, mot de bienvenue du comité d’organisation, leçon inaugurale du président du comité scientifique, discours du Ministre de la Santé Publique et discours d’ouverture du représentant du gouvernement.",
-      "room": "Salle plénière",
-      "track": "Plénière",
+      "start": "09:45",
+      "end": "10:00",
+      "title": "Arrivée des officiels",
+      "description": "Accueil du représentant personnel du gouvernement et des délégations.",
+      "room": "Hôtel Hilton de Yaoundé",
+      "track": "Cérémonie",
       "type": "Cérémonie",
-      "speakerIds": [
-        "sp-mbouck"
-      ]
+      "speakerIds": []
     },
     {
       "id": "s103",
       "day": 1,
-      "start": "12:30",
-      "end": "13:30",
-      "title": "Ouverture du Salon Expo numérique santé",
-      "description": "Coupure du ruban du Salon Expo : ONG, pharmacies, start-ups santé, laboratoires, banques et assurances présentent leurs solutions. Cocktail sur invitation.",
-      "room": "Salon Expo",
-      "track": "Innovation",
-      "type": "Exposition",
-      "speakerIds": []
+      "start": "10:00",
+      "end": "11:30",
+      "title": "Cérémonie officielle d’ouverture",
+      "description": "Hymne national, mot de bienvenue du comité d’organisation, leçon inaugurale du président du comité scientifique, discours du Ministre de la Santé Publique, discours d’ouverture du représentant du gouvernement et photo de famille.",
+      "room": "Salle plénière",
+      "track": "Cérémonie",
+      "type": "Cérémonie",
+      "speakerIds": [
+        "sp-mbouck",
+        "sp-manaouda"
+      ]
     },
     {
       "id": "s104",
       "day": 1,
-      "start": "14:00",
-      "end": "15:30",
-      "title": "Panel 1 — Infrastructures et équipements sanitaires en Afrique",
-      "description": "Évaluer les plateaux techniques africains face aux standards internationaux et envisager les solutions. Avec MINSANTE, MINEPAT, constructeurs, équipementiers, OMS, UNICEF, GIZ, BAD, BDEAC et la CEMAC.",
-      "room": "Salle plénière",
-      "track": "Infrastructures & équipements",
-      "type": "Panel",
-      "speakerIds": [
-        "sp-etoa"
-      ]
+      "start": "11:30",
+      "end": "12:00",
+      "title": "Ouverture du Salon Expo numérique santé",
+      "description": "Coupure du ruban symbolique et visite des stands par les officiels.",
+      "room": "Salon Expo",
+      "track": "Exposition",
+      "type": "Exposition",
+      "speakerIds": []
+    },
+    {
+      "id": "s115",
+      "day": 1,
+      "start": "08:30",
+      "end": "23:00",
+      "title": "Salon Expo numérique santé — ouvert toute la journée",
+      "description": "ONG, associations, pharmacies, programmes nationaux, start-ups santé, fournisseurs de services, banques, assurances et structures sanitaires présentent leurs activités.",
+      "room": "Salon Expo",
+      "track": "Exposition",
+      "type": "Exposition",
+      "speakerIds": []
     },
     {
       "id": "s105",
       "day": 1,
-      "start": "16:00",
-      "end": "17:30",
-      "title": "Panel 2 — La médecine du volontariat dans les villes et villages",
-      "description": "Contribution du volontariat et de la RSE à l’accès aux soins des populations vulnérables : action pérenne ou transitoire ? Alternative ou complément à la Couverture Santé Universelle ?",
-      "room": "Salle plénière",
-      "track": "Médecine du volontariat",
-      "type": "Panel",
-      "speakerIds": [
-        "sp-mbouck",
-        "sp-nkolo"
-      ]
+      "start": "10:00",
+      "end": "17:00",
+      "title": "Mission médicale — Hôpital Général de Yaoundé",
+      "description": "Opération de soins gratuits conduite toute la journée par les équipes de la Mahola Health Foundation.",
+      "room": "Hôpital Général de Yaoundé",
+      "track": "Mission médicale",
+      "type": "Atelier",
+      "speakerIds": []
     },
     {
       "id": "s106",
       "day": 1,
-      "start": "17:45",
-      "end": "19:00",
-      "title": "Panel 3 — La Couverture Santé Universelle dans le développement des pays africains",
-      "description": "Le cas du Cameroun, l’exemple de la CNAMGS au Gabon, le rôle des banques et des assurances, le financement du chèque santé et les références internationales.",
-      "room": "Salle des panels",
-      "track": "Couverture Santé Universelle",
-      "type": "Panel",
-      "speakerIds": [
-        "sp-abena"
-      ]
-    },
-    {
-      "id": "s107",
-      "day": 1,
-      "start": "19:00",
-      "end": "21:00",
-      "title": "1re soirée B2B — réseautage et promotion des entreprises",
-      "description": "Rencontres d’affaires et de partenariat entre entreprises, institutions, bailleurs et porteurs de projets de santé, autour du Salon Expo.",
-      "room": "Jardin du Hilton",
+      "start": "12:00",
+      "end": "13:00",
+      "title": "Cocktail et pause déjeuner",
+      "description": "Cocktail sur invitation au Salon Expo et premières rencontres B2B.",
+      "room": "Salon Expo",
       "track": "Networking",
       "type": "Networking",
       "speakerIds": []
     },
     {
-      "id": "s201",
-      "day": 2,
-      "start": "09:00",
-      "end": "10:15",
-      "title": "Panel 4 — Médecine communautaire en milieu rural et déserts médicaux",
-      "description": "Rôle des missions médicales en milieu rural, promotion de la médecine de proximité et des hôpitaux mobiles, campagnes de soins gratuits, accélération de la télémédecine et de la digitalisation des soins primaires.",
-      "room": "Salle plénière",
-      "track": "Santé communautaire",
+      "id": "s107",
+      "day": 1,
+      "start": "13:00",
+      "end": "14:15",
+      "title": "Panels 1 et 2 — sessions parallèles",
+      "description": "Panel 1 : infrastructures et équipements sanitaires en Afrique. Panel 2 : médecine du volontariat dans les villes et villages.",
+      "room": "Salles des panels",
+      "track": "Panels 1 et 2",
       "type": "Panel",
-      "speakerIds": [
-        "sp-mbouck",
-        "sp-nkolo"
-      ]
+      "speakerIds": []
     },
     {
-      "id": "s202",
-      "day": 2,
-      "start": "10:30",
-      "end": "12:00",
-      "title": "Panel 5 — Solutions globales face aux crises sanitaires : COVID, Ebola, VIH/SIDA",
-      "description": "Problématique de la veille sanitaire mondiale, mutualisation face aux menaces globales, développement des nouvelles technologies de recherche et prise en compte des solutions africaines.",
-      "room": "Salle plénière",
-      "track": "Sécurité sanitaire mondiale",
-      "type": "Panel",
-      "speakerIds": [
-        "sp-abena"
-      ]
-    },
-    {
-      "id": "s203",
-      "day": 2,
-      "start": "10:00",
+      "id": "s108",
+      "day": 1,
+      "start": "13:00",
       "end": "17:00",
-      "title": "Mission médicale — Hôpital Général de Yaoundé",
-      "description": "Mission d’assistance médicale gratuite organisée pendant la conférence, dans la continuité de l’action de terrain de la Mahola Health Foundation. Consultations, chirurgie et suivi mère-enfant.",
-      "room": "Hôpital Général de Yaoundé",
-      "track": "Santé communautaire",
+      "title": "Ateliers et causeries éducatives en milieu jeune",
+      "description": "Caravane mobile de santé, formation des volontaires, fiscalité, santé préventive et diplomatie sanitaire.",
+      "room": "Hôtel Hilton de Yaoundé",
+      "track": "Ateliers et causeries",
       "type": "Atelier",
       "speakerIds": []
     },
     {
-      "id": "s204",
-      "day": 2,
-      "start": "12:00",
-      "end": "13:00",
-      "title": "Panel 6 — Accès aux médicaments et produits de première nécessité",
-      "description": "Nécessité de la production pharmaceutique locale, rôle de la pharmacie industrielle, promotion de l’entrepreneuriat, subvention et accès au médicament pour tous.",
-      "room": "Salle des panels",
-      "track": "Accès aux médicaments",
+      "id": "s109",
+      "day": 1,
+      "start": "14:15",
+      "end": "15:30",
+      "title": "Panels 3 et 4 — sessions parallèles",
+      "description": "Panel 3 : Couverture Santé Universelle dans les pays africains. Panel 4 : médecine communautaire et lutte contre les déserts médicaux.",
+      "room": "Salles des panels",
+      "track": "Panels 3 et 4",
       "type": "Panel",
       "speakerIds": []
     },
     {
-      "id": "s205",
-      "day": 2,
-      "start": "14:00",
-      "end": "15:15",
-      "title": "Panel 7 — Intelligence artificielle et diagnostic intelligent",
-      "description": "Développement de la télémédecine et des outils de diagnostic intelligents, formation à distance, mise en réseau des compétences médicales, gestion des données numériques et souveraineté sanitaire de l’État.",
-      "room": "Salle plénière",
-      "track": "Santé numérique & IA",
-      "type": "Panel",
-      "speakerIds": [
-        "sp-fotso"
-      ]
-    },
-    {
-      "id": "s206",
-      "day": 2,
+      "id": "s110",
+      "day": 1,
       "start": "15:30",
-      "end": "16:30",
-      "title": "Panel 8 — Leadership des femmes dans le secteur de la santé",
-      "description": "Promotion du genre et des jeunes dans le secteur de la santé, et prise en compte de la composante genre et jeunesse dans les politiques publiques de gestion du système de santé.",
-      "room": "Salle plénière",
-      "track": "Genre & jeunesse",
+      "end": "16:45",
+      "title": "Panels 5 et 6 — sessions parallèles",
+      "description": "Panel 5 : solutions globales et crises sanitaires mondiales. Panel 6 : accès aux médicaments et produits de première nécessité.",
+      "room": "Salles des panels",
+      "track": "Panels 5 et 6",
       "type": "Panel",
-      "speakerIds": [
-        "sp-atangana"
-      ]
+      "speakerIds": []
     },
     {
-      "id": "s207",
-      "day": 2,
+      "id": "s111",
+      "day": 1,
       "start": "16:45",
       "end": "18:00",
-      "title": "Cérémonie officielle de clôture — Déclaration de Yaoundé",
-      "description": "Lecture du rapport final de la conférence, message de remerciements aux autorités camerounaises, remise des attestations de participation et adoption de la Déclaration de Yaoundé.",
+      "title": "Panels 7 et 8 — sessions parallèles",
+      "description": "Panel 7 : intelligence artificielle et diagnostic intelligent. Panel 8 : leadership des femmes dans le secteur de la santé.",
+      "room": "Salles des panels",
+      "track": "Panels 7 et 8",
+      "type": "Panel",
+      "speakerIds": []
+    },
+    {
+      "id": "s112",
+      "day": 1,
+      "start": "18:00",
+      "end": "19:00",
+      "title": "Cérémonie officielle de clôture",
+      "description": "Lecture du rapport final, remise des attestations de participation, allocution du comité d’organisation, discours du Ministre de la Santé Publique, discours de clôture et photo de famille.",
       "room": "Salle plénière",
-      "track": "Plénière",
+      "track": "Cérémonie",
       "type": "Cérémonie",
       "speakerIds": [
-        "sp-mbouck"
+        "sp-manaouda"
       ]
     },
     {
-      "id": "s208",
-      "day": 2,
+      "id": "s113",
+      "day": 1,
       "start": "19:00",
+      "end": "19:30",
+      "title": "Point de presse de clôture",
+      "description": "Restitution aux médias nationaux et internationaux.",
+      "room": "Hôtel Hilton de Yaoundé",
+      "track": "Presse",
+      "type": "Networking",
+      "speakerIds": []
+    },
+    {
+      "id": "s114",
+      "day": 1,
+      "start": "19:30",
       "end": "23:00",
       "title": "Soirée de gala des 10 ans de la Mahola Health Foundation",
-      "description": "Prises de parole, animations artistiques, remise des Awards ICHH 2026 et des prix spéciaux du jury, et distinction des Ambassadeurs de la Mahola Health Foundation 2026.",
-      "room": "Jardin du Hilton",
-      "track": "Networking",
+      "description": "Sur invitation : prises de parole, animations artistiques, remise des Awards ICHH 2026, prix spéciaux du jury et distinctions aux ambassadeurs de la Fondation.",
+      "room": "Hôtel Hilton de Yaoundé",
+      "track": "Gala",
       "type": "Networking",
       "speakerIds": []
     }
@@ -637,46 +666,28 @@
   "speakers": [
     {
       "id": "sp-mbouck",
-      "name": "Dr Mathilde Mbouck",
+      "name": "Dr Mathilde MBOUCK",
       "role": "Présidente",
       "organization": "Mahola Health Foundation",
       "country": "Cameroun",
-      "domain": "Santé communautaire",
-      "image": "/dr_matilde.jpeg",
-      "bio": "Médecin et fondatrice de la Mahola Health Foundation en 2016, le Dr Mathilde Mbouck coordonne l’ICHH Yaoundé 2026. En dix ans, elle a conduit douze missions médicales au Cameroun et en Afrique centrale — plus de 8 700 consultations, 200 interventions chirurgicales et 25 accouchements assistés — en s’appuyant sur des équipes de bénévoles pluridisciplinaires et un modèle de dispensaire éphémère.",
+      "domain": "Santé humanitaire",
+      "image": "https://ichhyaounde2026.org/assets/img/speakers/mathilde-mbouck.jpg",
+      "bio": "Intervenante d’honneur de l’ICHH Yaoundé 2026. La page officielle la présente comme présidente de la Mahola Health Foundation.",
       "keynote": true,
-      "email": "drmathilde@mahola-health.org",
-      "linkedin": "linkedin.com/company/mahola-health",
-      "x": "@mahola_health",
-      "publications": [
-        "Dix ans de missions médicales au Cameroun : bilan et méthode (2026)",
-        "Le dispensaire éphémère comme réponse aux déserts médicaux (2024)"
-      ]
-    },
-    {
-      "id": "sp-etoa",
-      "name": "Intervenant — MINSANTE",
-      "role": "Direction des infrastructures et équipements sanitaires",
-      "organization": "Ministère de la Santé Publique (Cameroun)",
-      "country": "Cameroun",
-      "domain": "Infrastructures & équipements",
-      "image": "/8674b7e7-0d74-4cab-a7d1-18b94ed73a3b.jpg",
-      "bio": "Représentant du Ministère de la Santé Publique sur le Panel 1, consacré à l’évaluation des plateaux techniques africains face aux standards internationaux et aux solutions de modernisation des infrastructures, dans le cadre de la Stratégie Sectorielle de Santé 2020-2030.",
-      "keynote": false,
-      "email": "contact@minsante.cm",
+      "email": "",
       "linkedin": "",
       "x": "",
       "publications": []
     },
     {
-      "id": "sp-nkolo",
-      "name": "Intervenant — Médecine communautaire",
-      "role": "Coordination des missions médicales en milieu rural",
-      "organization": "Réseau des acteurs de santé communautaire",
+      "id": "sp-manaouda",
+      "name": "Dr MANAOUDA Malachie",
+      "role": "Ministre de la Santé Publique",
+      "organization": "Gouvernement du Cameroun",
       "country": "Cameroun",
-      "domain": "Santé communautaire",
-      "image": "/041648e7-b1b8-478c-8c50-4e268238a909.jpg",
-      "bio": "Praticien de la médecine de proximité, cet intervenant partagera un retour d’expérience sur les hôpitaux mobiles, les campagnes de soins gratuits et la digitalisation des soins de santé primaire en zone rurale (Panels 2 et 4).",
+      "domain": "Politiques de santé",
+      "image": "https://ichhyaounde2026.org/assets/img/speakers/manaouda-malachie.jpg",
+      "bio": "Intervenant d’honneur présenté sur le site officiel comme Ministre de la Santé Publique du Cameroun.",
       "keynote": false,
       "email": "",
       "linkedin": "",
@@ -684,14 +695,44 @@
       "publications": []
     },
     {
-      "id": "sp-abena",
-      "name": "Intervenant — Couverture Santé Universelle",
-      "role": "Financement de la santé et assurance maladie",
-      "organization": "Institutions financières et assurances (zone CEMAC)",
+      "id": "sp-kingsley",
+      "name": "Pr Kelly Mua KINGSLEY",
+      "role": "Expert invité",
+      "organization": "Organisation non précisée",
+      "country": "À préciser",
+      "domain": "Expertise",
+      "image": "https://ichhyaounde2026.org/assets/img/speakers/kelly-mua-kingsley.jpg",
+      "bio": "La page officielle des intervenants le présente comme expert invité.",
+      "keynote": false,
+      "email": "",
+      "linkedin": "",
+      "x": "",
+      "publications": []
+    },
+    {
+      "id": "sp-sobgui",
+      "name": "Pr Eugène SOBGUI",
+      "role": "Expert médical",
+      "organization": "Organisation non précisée",
+      "country": "À préciser",
+      "domain": "Expertise médicale",
+      "image": "https://ichhyaounde2026.org/assets/img/speakers/eugene-sobgui.jpg",
+      "bio": "La page officielle des intervenants le présente comme expert médical.",
+      "keynote": false,
+      "email": "",
+      "linkedin": "",
+      "x": "",
+      "publications": []
+    },
+    {
+      "id": "sp-oms",
+      "name": "Représentation OMS",
+      "role": "Bureau Afrique centrale",
+      "organization": "Organisation mondiale de la Santé",
       "country": "Afrique centrale",
-      "domain": "Couverture Santé Universelle",
-      "image": "/f4dab6ee-92e3-447c-bf42-052774b951f9.jpg",
-      "bio": "Spécialiste du financement de la santé, cet intervenant traitera de la mise en place de la CSU dans les pays africains : le cas du Cameroun, l’exemple de la CNAMGS au Gabon, le rôle des banques et des assurances et le financement du chèque santé (Panels 3 et 5).",
+      "domain": "Santé publique",
+      "image": "https://ichhyaounde2026.org/assets/img/speakers/oms-representante.jpg",
+      "bio": "La page officielle des intervenants mentionne la représentation de l’OMS, Bureau Afrique centrale.",
       "keynote": false,
       "email": "",
       "linkedin": "",
@@ -699,14 +740,14 @@
       "publications": []
     },
     {
-      "id": "sp-fotso",
-      "name": "Intervenant — Santé numérique",
-      "role": "Intelligence artificielle et diagnostic intelligent",
-      "organization": "Écosystème santé numérique (ANTIC, universités, start-ups)",
+      "id": "sp-essomba",
+      "name": "Pr Noël ESSOMBA",
+      "role": "Directeur général",
+      "organization": "Hôpital Général de Yaoundé",
       "country": "Cameroun",
-      "domain": "Santé numérique & IA",
-      "image": "/5133f875-89d0-4f1c-afb4-4cd0469a884a.jpg",
-      "bio": "Cet intervenant abordera le rôle de l’intelligence artificielle et des outils de diagnostic intelligents dans le développement des services de santé prioritaire : télémédecine, formation à distance, mise en réseau des compétences et souveraineté des données sanitaires (Panel 7).",
+      "domain": "Administration hospitalière",
+      "image": "https://ichhyaounde2026.org/assets/img/speakers/noel-essomba.jpg",
+      "bio": "La page officielle des intervenants le présente comme directeur général de l’Hôpital Général de Yaoundé.",
       "keynote": false,
       "email": "",
       "linkedin": "",
@@ -714,14 +755,29 @@
       "publications": []
     },
     {
-      "id": "sp-atangana",
-      "name": "Intervenante — Leadership et genre",
-      "role": "Promotion du leadership des femmes en santé",
-      "organization": "MINPROFF · ONU Femmes · associations de femmes",
-      "country": "Cameroun",
-      "domain": "Genre & jeunesse",
-      "image": "/cfbcf2b4-17b2-4be0-bb00-fd42d0bcdbe3.jpg",
-      "bio": "Cette intervenante portera le Panel 8 sur la promotion et le développement du leadership des femmes dans le secteur de la santé, et la prise en compte du genre et de la jeunesse dans les politiques publiques de santé.",
+      "id": "sp-tonye",
+      "name": "Pr Alphonse TONYE",
+      "role": "Expert invité",
+      "organization": "Organisation non précisée",
+      "country": "À préciser",
+      "domain": "Expertise",
+      "image": "https://ichhyaounde2026.org/assets/img/speakers/alphonse-tonye.jpg",
+      "bio": "La page officielle des intervenants le présente comme expert invité.",
+      "keynote": false,
+      "email": "",
+      "linkedin": "",
+      "x": "",
+      "publications": []
+    },
+    {
+      "id": "sp-nelle",
+      "name": "Jean-Jacques NELLE MOUKOURI",
+      "role": "Diplomate",
+      "organization": "Organisation non précisée",
+      "country": "À préciser",
+      "domain": "Diplomatie",
+      "image": "https://ichhyaounde2026.org/assets/img/speakers/nelle-moukouri.jpg",
+      "bio": "La page officielle des intervenants le présente comme diplomate.",
       "keynote": false,
       "email": "",
       "linkedin": "",

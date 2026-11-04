@@ -42,6 +42,7 @@ const fr = {
     about: 'À propos',
     mahola: '10 ans de Mahola',
     programme: 'Programme',
+    panels: 'Panels',
     speakers: 'Speakers',
     main: 'Navigation principale',
     mobile: 'Navigation mobile',
@@ -65,7 +66,7 @@ const fr = {
     videoDialog: 'Vidéo de présentation',
     closeVideo: 'Fermer la vidéo',
     filmTitle: (name: string) => `Film de présentation — ${name}`,
-    filmNote: 'Le montage définitif sera intégré ici avant l’ouverture des travaux, le 12 novembre 2026.'
+    filmNote: 'Le montage définitif sera intégré ici avant l’ouverture des travaux, le 13 novembre 2026.'
   },
   home: {
     keyFigures: 'Chiffres clés',
@@ -76,7 +77,7 @@ const fr = {
     welcome: [
     'Depuis 2016, la Mahola Health Foundation organise des missions médicales au Cameroun et en Afrique centrale pour réduire le déficit de soins des personnes à faibles revenus. Douze missions, 8 700 consultations, 200 interventions chirurgicales : dix ans d’action de terrain, aux côtés de l’effort public de Couverture Santé Universelle.',
     'L’ICHH Yaoundé 2026 prolonge cet engagement à l’échelle continentale. Sous la supervision du Ministère de la Santé Publique et avec All Access Agency, la conférence réunit États, institutions internationales, experts, société civile et secteur privé autour de huit panels de haut niveau.',
-    'Deux jours à l’Hôtel Hilton de Yaoundé, 500 participants, et un objectif : poser ensemble les jalons d’une action sanitaire commune en faveur des populations à faibles revenus, en zones urbaines comme rurales.'],
+    'Une journée à l’Hôtel Hilton de Yaoundé, 500 participants, et un objectif : poser ensemble les jalons d’une action sanitaire commune en faveur des populations à faibles revenus, en zones urbaines comme rurales.'],
 
     whyTitle: 'Pourquoi participer',
     whyLead: 'Cinq raisons concrètes de rejoindre l’ICHH Yaoundé 2026.',
@@ -89,7 +90,7 @@ const fr = {
     allSpeakers: 'Tous les intervenants',
     programmeTitle: 'Le programme en bref',
     programmeLead:
-    'Deux jours à l’Hôtel Hilton de Yaoundé : cérémonie d’ouverture, huit panels de haut niveau, Salon Expo, mission médicale et gala des 10 ans.',
+    'Le 13 novembre à l’Hôtel Hilton de Yaoundé : cérémonie d’ouverture, huit panels de haut niveau, Salon Expo, mission médicale et gala des 10 ans.',
     detailedProgramme: 'Programme détaillé',
     sessionsScheduled: (n: number) => `${n} ${plural(n, 'session programmée', 'sessions programmées')}`,
     partnersTitle: 'Partenaires et institutions',
@@ -129,7 +130,7 @@ const fr = {
     'Cinq familles d’acteurs réunies autour d’une même table, des États de la zone CEMAC-CEEAC à la société civile.',
     outcomesTitle: 'Résultats attendus',
     outcomesLead:
-    'Les travaux des huit panels alimentent le rapport final de la conférence, remis au plus tard le 30 octobre 2026.',
+    'Les travaux des huit panels alimentent le rapport final de la conférence, remis au plus tard le 30 décembre 2026.',
     organisersTitle: 'Qui organise',
     governanceTitle: 'Gouvernance et organisation',
     governanceNote:
@@ -181,9 +182,9 @@ const fr = {
     galleryLead: 'Photographies de terrain, 2019 — 2024. Archives Mahola.'
   },
   programme: {
-    title: 'Programme des deux jours',
+    title: 'Programme du 13 novembre',
     lead:
-    'Les 12 et 13 novembre 2026 à l’Hôtel Hilton de Yaoundé : cérémonie d’ouverture, huit panels de haut niveau, Salon Expo santé, mission médicale et gala des 10 ans. Sélectionnez les sessions pour construire votre agenda.',
+    'Vendredi 13 novembre 2026 à l’Hôtel Hilton de Yaoundé : cérémonie d’ouverture, huit panels en sessions parallèles, Salon Expo santé, mission médicale et gala des 10 ans. Le pré-programme est susceptible d’évoluer.',
     pdf: 'Programme PDF',
     filters: 'Filtres du programme',
     day: 'Jour',
@@ -199,6 +200,24 @@ const fr = {
     add: 'Ajouter',
     sessionDetail: 'Détail de la session'
   },
+  panels: {
+    title: 'Les huit panels',
+    lead: 'Huit panels réunissent ministères, institutions internationales, hôpitaux, assureurs, chercheurs et société civile autour des sous-thèmes définis par le comité scientifique.',
+    topics: 'Sous-thèmes',
+    participants: 'Autour de la table',
+    method: 'Comment se déroule un panel',
+    terms: 'Termes de référence',
+    termsText: 'Le comité scientifique rédige les termes de référence de chaque thématique et précise les résultats attendus.',
+    moderators: 'Président, modérateur et rapporteur',
+    moderatorsText: 'Un président, un modérateur et un rapporteur sont désignés pour chaque panel avec le comité local du MINSANTE.',
+    duration: 'Quatre-vingt-dix minutes',
+    durationText: 'Les intervenants viennent des ministères, des institutions, des hôpitaux, des entreprises, de l’université et de la société civile.',
+    report: 'Versé au rapport',
+    reportText: 'Les recommandations de chaque panel alimentent le rapport final remis aux autorités après la conférence.',
+    speak: 'Vous souhaitez intervenir dans un panel ?',
+    speakText: 'Les propositions d’intervention et de communication sont examinées par le comité scientifique. Écrivez-nous en précisant le panel visé et votre organisation.',
+    contact: 'Écrire au comité'
+  },
   session: {
     schedule: 'Horaire',
     room: 'Salle',
@@ -211,7 +230,7 @@ const fr = {
   speakers: {
     title: 'Les intervenants',
     lead:
-    'Décideurs publics, praticiens, experts et société civile mobilisés autour des huit panels. Liste pressentie : la composition définitive et les modérateurs sont arrêtés par le comité scientifique. Seule la présidente de la Mahola Health Foundation, le Dr Mathilde Mbouck, est confirmée.',
+    'La page officielle présente des intervenants confirmés et pressentis : personnalités publiques, experts médicaux, responsables institutionnels et diplomates. La liste évolue au fil des désignations du comité scientifique et du comité local du MINSANTE.',
     search: 'Recherche',
     searchPlaceholder: 'Nom, organisation, spécialité…',
     country: 'Pays',
@@ -338,6 +357,7 @@ const en: Dictionary = {
     about: 'About',
     mahola: 'Mahola at 10',
     programme: 'Programme',
+    panels: 'Panels',
     speakers: 'Speakers',
     main: 'Main navigation',
     mobile: 'Mobile navigation',
@@ -361,7 +381,7 @@ const en: Dictionary = {
     videoDialog: 'Presentation video',
     closeVideo: 'Close video',
     filmTitle: (name: string) => `Presentation film — ${name}`,
-    filmNote: 'The final cut will be available here before proceedings open on 12 November 2026.'
+    filmNote: 'The final cut will be available here before proceedings open on 13 November 2026.'
   },
   home: {
     keyFigures: 'Key figures',
@@ -372,7 +392,7 @@ const en: Dictionary = {
     welcome: [
     'Since 2016, the Mahola Health Foundation has run medical missions in Cameroon and Central Africa to close the care gap for low-income people. Twelve missions, 8,700 consultations, 200 surgical procedures: ten years of work on the ground, alongside the public drive for Universal Health Coverage.',
     'ICHH Yaoundé 2026 extends this commitment to the continental scale. Under the supervision of the Ministry of Public Health and with All Access Agency, the conference brings together governments, international institutions, experts, civil society and the private sector around eight high-level panels.',
-    'Two days at the Hilton Yaoundé, 500 participants and one goal: to lay the foundations, together, for joint health action for low-income populations in urban and rural areas alike.'],
+    'One day at the Hilton Yaoundé, 500 participants and one goal: to lay the foundations, together, for joint health action for low-income populations in urban and rural areas alike.'],
 
     whyTitle: 'Why attend',
     whyLead: 'Five concrete reasons to join ICHH Yaoundé 2026.',
@@ -384,7 +404,7 @@ const en: Dictionary = {
     allSpeakers: 'All speakers',
     programmeTitle: 'The programme at a glance',
     programmeLead:
-    'Two days at the Hilton Yaoundé: opening ceremony, eight high-level panels, Health Expo, medical mission and 10th-anniversary gala.',
+    'On 13 November at the Hilton Yaoundé: opening ceremony, eight high-level panels, Health Expo, medical mission and 10th-anniversary gala.',
     detailedProgramme: 'Detailed programme',
     sessionsScheduled: (n: number) => `${n} ${plural(n, 'session scheduled', 'sessions scheduled')}`,
     partnersTitle: 'Partners and institutions',
@@ -424,7 +444,7 @@ const en: Dictionary = {
     'Five groups of stakeholders around one table, from CEMAC-ECCAS governments to civil society.',
     outcomesTitle: 'Expected outcomes',
     outcomesLead:
-    'The work of the eight panels feeds into the conference’s final report, due no later than 30 October 2026.',
+    'The work of the eight panels feeds into the conference’s final report, due no later than 30 December 2026.',
     organisersTitle: 'Who is organising',
     governanceTitle: 'Governance and organisation',
     governanceNote:
@@ -475,9 +495,9 @@ const en: Dictionary = {
     galleryLead: 'Field photographs, 2019 — 2024. Mahola archives.'
   },
   programme: {
-    title: 'Two-day programme',
+    title: 'Programme for 13 November',
     lead:
-    '12 and 13 November 2026 at the Hilton Yaoundé: opening ceremony, eight high-level panels, Health Expo, medical mission and 10th-anniversary gala. Select sessions to build your agenda.',
+    'Friday, 13 November 2026 at the Hilton Yaoundé: opening ceremony, eight parallel panels, Health Expo, medical mission and 10th-anniversary gala. This draft programme may change.',
     pdf: 'Programme PDF',
     filters: 'Programme filters',
     day: 'Day',
@@ -492,6 +512,24 @@ const en: Dictionary = {
     add: 'Add',
     sessionDetail: 'Session details'
   },
+  panels: {
+    title: 'The eight panels',
+    lead: 'Each panel brings together ministries, international institutions, hospitals, insurers, researchers and civil society around sub-topics set by the scientific committee.',
+    topics: 'Topics',
+    participants: 'At the table',
+    method: 'How a panel works',
+    terms: 'Terms of reference',
+    termsText: 'The scientific committee prepares terms of reference for each theme and defines its expected outcomes.',
+    moderators: 'Chair, moderator and rapporteur',
+    moderatorsText: 'A chair, moderator and rapporteur are appointed for each panel with the MINSANTE local committee.',
+    duration: 'Ninety minutes',
+    durationText: 'Speakers come from ministries, institutions, hospitals, businesses, universities and civil society.',
+    report: 'Recommendations in the report',
+    reportText: 'Recommendations from each panel contribute to the final report submitted to the authorities after the conference.',
+    speak: 'Would you like to speak on a panel?',
+    speakText: 'The scientific committee reviews proposals for presentations and contributions. Email us with the panel and your organisation.',
+    contact: 'Contact the committee'
+  },
   session: {
     schedule: 'Time',
     room: 'Room',
@@ -504,7 +542,7 @@ const en: Dictionary = {
   speakers: {
     title: 'Speakers',
     lead:
-    'Policymakers, practitioners, experts and civil society mobilised around the eight panels. Provisional list: final line-up and moderators are set by the scientific committee. Only the President of the Mahola Health Foundation, Dr Mathilde Mbouck, is confirmed.',
+    'The official page lists confirmed and prospective guests: public figures, medical experts, institutional leaders and diplomats. The scientific committee and MINSANTE local committee continue to update the list.',
     search: 'Search',
     searchPlaceholder: 'Name, organisation, specialty…',
     country: 'Country',
@@ -512,7 +550,7 @@ const en: Dictionary = {
     domain: 'Field',
     count: (n: number) => `${n} ${plural(n, 'speaker shown', 'speakers shown')}`,
     emptyTitle: 'No speakers match',
-    emptyText: 'Try another country or field — the list grows every week until February.',
+    emptyText: 'Try another country or field.',
     viewProfile: (name: string) => `View ${name}’s profile`
   },
   profile: {

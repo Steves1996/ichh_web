@@ -8,10 +8,10 @@ import type * as fr from '../site';
 export const eventText: Partial<typeof fr.event> = {
   edition: '10 years of the Mahola Health Foundation',
   theme: 'Building Resilient Health for Vulnerable Populations in Africa',
-  slogan: 'Two days to build resilient health for Africa’s vulnerable populations.',
+  slogan: 'One day to build resilient health for Africa’s vulnerable populations.',
   country: 'Cameroon',
   venue: 'Hilton Yaoundé',
-  dates: '12 – 13 November 2026'
+  dates: '13 November 2026'
 };
 
 export const organizers: typeof fr.organizers = [
@@ -28,7 +28,7 @@ export const president: typeof fr.president = {
 export const keyFigures: typeof fr.keyFigures = [
 { value: '10', label: 'years of solidarity', detail: 'Mahola Health Foundation, since 2016' },
 { value: '500', label: 'expected participants', detail: 'Policymakers, experts, civil society' },
-{ value: '8', label: 'high-level panels', detail: 'Over two days' },
+{ value: '8', label: 'high-level panels', detail: 'In one day' },
 { value: '7', label: 'Central African countries', detail: 'CEMAC-ECCAS region' },
 { value: '12', label: 'Mahola medical missions', detail: '8,700 consultations' }];
 
@@ -81,14 +81,14 @@ export const outcomes: typeof fr.outcomes = [
 
 
 export const panels: typeof fr.panels = [
-{ n: 1, title: 'Health infrastructure and equipment in Africa', summary: 'Assessing African medical facilities against international standards and identifying solutions.' },
-{ n: 2, title: 'Volunteer medicine in towns and villages', summary: 'How volunteering and CSR contribute to care for vulnerable populations — an alternative or a complement to UHC?' },
-{ n: 3, title: 'Universal Health Coverage in the development of African countries', summary: 'The case of Cameroon, the example of CNAMGS in Gabon, the role of banks and insurers, funding the health voucher.' },
-{ n: 4, title: 'Community medicine in rural areas and tackling medical deserts', summary: 'Medical missions, mobile hospitals, free care campaigns, telemedicine and digitising primary care.' },
-{ n: 5, title: 'Global responses to health crises: COVID, Ebola, HIV/AIDS', summary: 'Global health surveillance, joint action against global threats, the place of African solutions.' },
-{ n: 6, title: 'Access to medicines and essential products', summary: 'Local pharmaceutical production, entrepreneurship, subsidies and access to medicines for all.' },
-{ n: 7, title: 'Artificial intelligence and smart diagnostics', summary: 'Telemedicine, distance learning, networking expertise, digital data and health sovereignty.' },
-{ n: 8, title: 'Women’s leadership in the health sector', summary: 'Promoting gender and youth in public health policy.' }];
+{ n: 1, title: 'Health infrastructure and equipment in Africa', summary: 'Assessing African medical facilities against international standards and identifying ways to upgrade and fund them.', topics: ['Assessing African medical facilities against international standards', 'Identifying upgrade solutions and their financing'], participants: 'MINSANTE, MINEPAT, builders, equipment suppliers, WHO, UNICEF, GIZ, AfDB, IMF, BDEAC, CEMAC' },
+{ n: 2, title: 'Volunteer medicine in towns and villages', summary: 'How medical missions improve access to care for people in need, and the role of CSR and sustainable action.', topics: ['How medical missions improve access to care for patients in need', 'Sustainable or temporary action: is volunteer medicine an alternative to UHC?', 'Social contribution and the role of CSR in businesses and government bodies'], participants: 'MINSANTE, MINDEVEL, town councils, hospitals, health centres, clinics, NGOs, WHO, USAID, embassies, CEMAC' },
+{ n: 3, title: 'Universal Health Coverage in African countries', summary: 'Cameroon and Gabon’s CNAMGS project, funding mechanisms, and the role of insurers and banks.', topics: ['Cameroon and Gabon’s CNAMGS project', 'The role of insurers and banks in implementing UHC', 'Funding the health voucher; the French health insurance system as a reference'], participants: 'MINSANTE, CNAMGS Gabon, representatives of Gabon, CAR, Congo and Equatorial Guinea, banks, insurers, COBAC, DGTCFM MINFI, universities' },
+{ n: 4, title: 'Community medicine and tackling medical deserts', summary: 'Rural medical missions, mobile hospitals, free care campaigns and digital primary healthcare.', topics: ['Rural medical missions and promoting local healthcare', 'Mobile hospitals and free care campaigns', 'Telemedicine and digitising primary healthcare'], participants: 'MINSANTE, MINEPAT, MINDEVEL, town councils, companies, hospitals, clinics, NGOs, WHO, USAID, embassies, GECAM' },
+{ n: 5, title: 'Global responses to health crises', summary: 'Global health surveillance, new research technologies and lessons from COVID-19, Ebola and HIV/AIDS.', topics: ['Global health surveillance and joint action against global threats', 'New research technologies and African solutions', 'Lessons from COVID-19, Ebola and HIV/AIDS'], participants: 'MINSANTE, national programmes, hospitals, health centres, experts, civil society, NGOs, WHO, USAID, embassies, GECAM' },
+{ n: 6, title: 'Access to medicines and essential products', summary: 'Local pharmaceutical production, subsidies and access to medicines for all.', topics: ['Local production to meet demand and the role of industrial pharmacy', 'Subsidies and access to medicines for all', 'Universities and health training institutions'], participants: 'MINSANTE, MINPMEESA, MINADER, MINEPIA, MINMIDT, MINESUP, pharmacists, professional bodies, NGOs, WHO, UNICEF, GIZ, banks, universities, CEMAC' },
+{ n: 7, title: 'Artificial intelligence and smart diagnostics', summary: 'Telemedicine, smart diagnostics, distance learning, data management and health sovereignty.', topics: ['Telemedicine, smart diagnostic tools and distance learning', 'Connecting medical expertise and digitising services', 'Digital data management and state health sovereignty'], participants: 'MINFI, MINEPAT, MINREX, DGSN, SED, ART, embassies, ANTIC, CAMTEL, IAI, pharmacists, universities, ENSP, researchers, APME, API, CEMAC' },
+{ n: 8, title: 'Women’s leadership in the health sector', summary: 'Promoting gender equality and youth in healthcare and public policy.', topics: ['Promoting gender equality in healthcare and supporting young people in the sector', 'Including gender and youth in public health policy'], participants: 'MINSANTE, MINPROFF, UN Women, women’s associations, MINESUP, MINAS, town councils, UNICEF, USAID, embassies, NGOs, universities, AU' }];
 
 
 export const conferenceFormats: typeof fr.conferenceFormats = [
@@ -244,7 +244,7 @@ export const news: NewsItem[] = [
   category: 'Programme',
   title: 'The eight high-level panels are announced',
   excerpt:
-  'Health infrastructure, universal health coverage, community medicine, artificial intelligence, women’s leadership: the programme for the two days at the Hilton Yaoundé is online.'
+  'Health infrastructure, universal health coverage, community medicine, artificial intelligence, women’s leadership: the programme for 13 November at the Hilton Yaoundé is online.'
 },
 {
   id: 'n2',
@@ -278,6 +278,7 @@ export const footerLinks: typeof fr.footerLinks = [
   links: [
   { label: 'About', to: '/a-propos' },
   { label: 'Programme', to: '/programme' },
+  { label: 'Panels', to: '/panels' },
   { label: 'Speakers', to: '/speakers' },
   { label: 'Mahola at 10', to: '/mahola' }]
 

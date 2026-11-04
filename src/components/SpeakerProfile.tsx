@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { BookOpenIcon, LinkedinIcon, MailIcon, TwitterIcon } from 'lucide-react';
 import { useSite } from '../content/SiteContentProvider';
@@ -14,6 +13,7 @@ export function SpeakerProfile({ speaker }: SpeakerProfileProps) {
   const { getSessionsForSpeaker } = useSite();
   const t = useT();
   const sessions = getSessionsForSpeaker(speaker.id);
+  const hasContact = speaker.email || speaker.linkedin || speaker.x;
 
   return (
     <div>
@@ -60,6 +60,7 @@ export function SpeakerProfile({ speaker }: SpeakerProfileProps) {
         }
       </section>
 
+      {speaker.publications.length > 0 &&
       <section className="mt-7">
         <h3 className="text-[11px] uppercase tracking-[0.18em] text-ink-muted">{t.profile.publications}</h3>
         <ul className="mt-3 space-y-2.5">
@@ -71,31 +72,36 @@ export function SpeakerProfile({ speaker }: SpeakerProfileProps) {
           )}
         </ul>
       </section>
+      }
 
+      {hasContact &&
       <section className="mt-7 border-t border-ink/10 pt-6">
         <h3 className="text-[11px] uppercase tracking-[0.18em] text-ink-muted">{t.profile.contact}</h3>
         <div className="mt-3 flex flex-wrap gap-2">
+          {speaker.email &&
           <a
             href={`mailto:${speaker.email}`}
             className="inline-flex items-center gap-2 border border-ink/15 px-4 py-2.5 text-sm text-ink transition-colors duration-150 ease-expo hover:bg-ink hover:text-sand">
-            
             <MailIcon className="h-4 w-4" aria-hidden="true" />
             {speaker.email}
           </a>
+          }
+          {speaker.linkedin &&
           <a
             href={`https://${speaker.linkedin}`}
             className="inline-flex items-center gap-2 border border-ink/15 px-4 py-2.5 text-sm text-ink transition-colors duration-150 ease-expo hover:bg-ink hover:text-sand">
-            
             <LinkedinIcon className="h-4 w-4" aria-hidden="true" />
             LinkedIn
           </a>
+          }
+          {speaker.x &&
           <a
-            href="#"
+            href={`https://x.com/${speaker.x.replace(/^@/, '')}`}
             className="inline-flex items-center gap-2 border border-ink/15 px-4 py-2.5 text-sm text-ink transition-colors duration-150 ease-expo hover:bg-ink hover:text-sand">
-            
             <TwitterIcon className="h-4 w-4" aria-hidden="true" />
             {speaker.x}
           </a>
+          }
         </div>
         <Link
           to="/programme"
@@ -104,6 +110,7 @@ export function SpeakerProfile({ speaker }: SpeakerProfileProps) {
           {t.profile.seeInProgramme}
         </Link>
       </section>
+      }
     </div>);
 
 }

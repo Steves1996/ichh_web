@@ -31,7 +31,7 @@ function pad(n: number): string {
   return String(n).padStart(2, '0');
 }
 
-/** Parse une date au format « 12 novembre 2026 » ou « 12 November 2026 ». */
+/** Parse une date au format « 13 novembre 2026 » ou « 13 November 2026 ». */
 function parseDayDate(date: string): { year: number; month: number; day: number } | null {
   const match = date.match(/(\d{1,2})\s+([a-zàâäéèêëïîôöùûüç]+)\s+(\d{4})/i);
   if (!match) return null;

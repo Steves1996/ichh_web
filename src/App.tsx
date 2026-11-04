@@ -8,6 +8,7 @@ import { Home } from './pages/Home';
 import { About } from './pages/About';
 import { Mahola } from './pages/Mahola';
 import { Programme } from './pages/Programme';
+import { Panels } from './pages/Panels';
 import { Speakers } from './pages/Speakers';
 import { SiteContentProvider } from './content/SiteContentProvider';
 import { LanguageProvider, useLang, useT } from './i18n/LanguageProvider';
@@ -41,6 +42,7 @@ function Layout() {
           <Route path="/a-propos" element={<About />} />
           <Route path="/mahola" element={<Mahola />} />
           <Route path="/programme" element={<Programme />} />
+          <Route path="/panels" element={<Panels />} />
           <Route path="/speakers" element={<Speakers />} />
           <Route path="*" element={<Home />} />
         </Routes>

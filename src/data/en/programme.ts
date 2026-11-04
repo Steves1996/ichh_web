@@ -1,120 +1,102 @@
 import type { Session } from '../../types';
 import type * as fr from '../programme';
 
-// Version anglaise du programme (../programme.ts). Les horaires, salles de référence,
-// types et intervenants viennent de la version française ; seuls les textes sont traduits.
-
+// English copy for the one-day French programme.
 export const days: typeof fr.days = [
-{ day: 1 as const, date: '12 November 2026', label: 'Day 1', theme: 'Opening & first panels' },
-{ day: 2 as const, date: '13 November 2026', label: 'Day 2', theme: 'Panels, medical mission & closing' }];
-
+  { day: 1 as const, date: '13 November 2026', label: 'Friday, 13 November', theme: 'Conference, panels and gala' },
+];
 
 type SessionText = Pick<Session, 'title' | 'description' | 'room' | 'track'>;
 
 export const sessionTexts: Record<string, SessionText> = {
   s101: {
-    title: 'Delegation welcome and kit collection',
-    description:
-    'Participant registration, conference kit collection and orientation at the Hilton Yaoundé. A coffee area is open in the main lobby.',
-    room: 'Hilton lobby',
-    track: 'Logistics'
+    title: 'Delegation welcome, registration and conference kits',
+    description: 'Participant and exhibitor arrival at the Digital Health Expo.',
+    room: 'Hilton Yaoundé',
+    track: 'Welcome',
   },
   s102: {
-    title: 'Official opening ceremony',
-    description:
-    'Cameroon national anthem, welcome address by the organising committee, inaugural lecture by the chair of the scientific committee, speech by the Minister of Public Health and opening address by the government representative.',
-    room: 'Plenary hall',
-    track: 'Plenary'
+    title: 'Arrival of officials',
+    description: 'Welcome for the government representative and delegations.',
+    room: 'Hilton Yaoundé',
+    track: 'Ceremony',
   },
   s103: {
-    title: 'Opening of the Digital Health Expo',
-    description:
-    'Ribbon-cutting at the Expo: NGOs, pharmacies, health start-ups, laboratories, banks and insurers present their solutions. Cocktail by invitation.',
-    room: 'Health Expo',
-    track: 'Innovation'
+    title: 'Official opening ceremony',
+    description: 'National anthem, welcome from the organising committee, inaugural address by the chair of the scientific committee, speeches by the Minister of Public Health and the government representative, and group photo.',
+    room: 'Plenary hall',
+    track: 'Ceremony',
   },
   s104: {
-    title: 'Panel 1 — Health infrastructure and equipment in Africa',
-    description:
-    'Assessing African medical facilities against international standards and exploring solutions. With MINSANTE, MINEPAT, builders, equipment suppliers, WHO, UNICEF, GIZ, AfDB, BDEAC and CEMAC.',
-    room: 'Plenary hall',
-    track: 'Infrastructure & equipment'
+    title: 'Opening of the Digital Health Expo',
+    description: 'Ribbon-cutting and official tour of the stands.',
+    room: 'Health Expo',
+    track: 'Exhibition',
+  },
+  s115: {
+    title: 'Digital Health Expo — open all day',
+    description: 'NGOs, associations, pharmacies, national programmes, health start-ups, service providers, banks, insurers and health facilities showcase their work.',
+    room: 'Health Expo',
+    track: 'Exhibition',
   },
   s105: {
-    title: 'Panel 2 — Volunteer medicine in towns and villages',
-    description:
-    'How volunteering and CSR contribute to care for vulnerable populations: lasting or temporary action? An alternative or a complement to Universal Health Coverage?',
-    room: 'Plenary hall',
-    track: 'Volunteer medicine'
+    title: 'Medical mission — Yaoundé General Hospital',
+    description: 'A day-long free-care operation led by the Mahola Health Foundation teams.',
+    room: 'Yaoundé General Hospital',
+    track: 'Medical mission',
   },
   s106: {
-    title: 'Panel 3 — Universal Health Coverage in the development of African countries',
-    description:
-    'The case of Cameroon, the example of CNAMGS in Gabon, the role of banks and insurers, funding the health voucher and international benchmarks.',
-    room: 'Panel room',
-    track: 'Universal Health Coverage'
+    title: 'Cocktail and lunch break',
+    description: 'Invitation-only cocktail at the Health Expo and first B2B meetings.',
+    room: 'Health Expo',
+    track: 'Networking',
   },
   s107: {
-    title: 'First B2B evening — networking and business showcase',
-    description:
-    'Business and partnership meetings between companies, institutions, funders and health project leaders, around the Health Expo.',
-    room: 'Hilton garden',
-    track: 'Networking'
+    title: 'Panels 1 and 2 — parallel sessions',
+    description: 'Panel 1: health infrastructure and equipment in Africa. Panel 2: volunteer medicine in towns and villages.',
+    room: 'Panel rooms',
+    track: 'Panels 1 and 2',
   },
-  s201: {
-    title: 'Panel 4 — Community medicine in rural areas and medical deserts',
-    description:
-    'The role of medical missions in rural areas, promoting local medicine and mobile hospitals, free care campaigns, accelerating telemedicine and digitising primary care.',
+  s108: {
+    title: 'Workshops and educational talks for young people',
+    description: 'Mobile health caravan, volunteer training, taxation, preventive health and health diplomacy.',
+    room: 'Hilton Yaoundé',
+    track: 'Workshops and talks',
+  },
+  s109: {
+    title: 'Panels 3 and 4 — parallel sessions',
+    description: 'Panel 3: Universal Health Coverage in African countries. Panel 4: community medicine and tackling medical deserts.',
+    room: 'Panel rooms',
+    track: 'Panels 3 and 4',
+  },
+  s110: {
+    title: 'Panels 5 and 6 — parallel sessions',
+    description: 'Panel 5: global responses to health crises. Panel 6: access to medicines and essential products.',
+    room: 'Panel rooms',
+    track: 'Panels 5 and 6',
+  },
+  s111: {
+    title: 'Panels 7 and 8 — parallel sessions',
+    description: 'Panel 7: artificial intelligence and smart diagnostics. Panel 8: women’s leadership in the health sector.',
+    room: 'Panel rooms',
+    track: 'Panels 7 and 8',
+  },
+  s112: {
+    title: 'Official closing ceremony',
+    description: 'Reading of the final report, presentation of participation certificates, remarks from the organising committee and Minister of Public Health, closing address and group photo.',
     room: 'Plenary hall',
-    track: 'Community health'
+    track: 'Ceremony',
   },
-  s202: {
-    title: 'Panel 5 — Global responses to health crises: COVID, Ebola, HIV/AIDS',
-    description:
-    'Global health surveillance, pooling efforts against global threats, developing new research technologies and taking African solutions into account.',
-    room: 'Plenary hall',
-    track: 'Global health security'
+  s113: {
+    title: 'Closing press conference',
+    description: 'Updates for national and international media.',
+    room: 'Hilton Yaoundé',
+    track: 'Press',
   },
-  s203: {
-    title: 'Medical mission — Yaoundé General Hospital',
-    description:
-    'A free medical assistance mission held during the conference, continuing the Mahola Health Foundation’s work on the ground. Consultations, surgery and mother-and-child care.',
-    room: 'Yaoundé General Hospital',
-    track: 'Community health'
-  },
-  s204: {
-    title: 'Panel 6 — Access to medicines and essential products',
-    description:
-    'The need for local pharmaceutical production, the role of industrial pharmacy, promoting entrepreneurship, subsidies and access to medicines for all.',
-    room: 'Panel room',
-    track: 'Access to medicines'
-  },
-  s205: {
-    title: 'Panel 7 — Artificial intelligence and smart diagnostics',
-    description:
-    'Developing telemedicine and smart diagnostic tools, distance learning, networking medical expertise, managing digital data and the state’s health sovereignty.',
-    room: 'Plenary hall',
-    track: 'Digital health & AI'
-  },
-  s206: {
-    title: 'Panel 8 — Women’s leadership in the health sector',
-    description:
-    'Promoting gender and youth in the health sector, and taking gender and youth into account in public health system policy.',
-    room: 'Plenary hall',
-    track: 'Gender & youth'
-  },
-  s207: {
-    title: 'Official closing ceremony — Yaoundé Declaration',
-    description:
-    'Reading of the conference’s final report, words of thanks to the Cameroonian authorities, presentation of participation certificates and adoption of the Yaoundé Declaration.',
-    room: 'Plenary hall',
-    track: 'Plenary'
-  },
-  s208: {
+  s114: {
     title: 'Mahola Health Foundation 10th-anniversary gala',
-    description:
-    'Speeches, artistic performances, presentation of the ICHH 2026 Awards and special jury prizes, and recognition of the 2026 Mahola Health Foundation Ambassadors.',
-    room: 'Hilton garden',
-    track: 'Networking'
-  }
+    description: 'Invitation-only: speeches, artistic performances, ICHH 2026 Awards, special jury prizes and recognition of the Foundation’s ambassadors.',
+    room: 'Hilton Yaoundé',
+    track: 'Gala',
+  },
 };

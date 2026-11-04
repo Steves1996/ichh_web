@@ -2,7 +2,7 @@ import type { Member, NewsItem, Sponsor, TimelineEntry } from '../types';
 
 // Source : « Dossier d'offre de participation — ICHH Yaoundé 2026 » (Mahola Health
 // Foundation & All Access Agency, 2025-2026). La conférence officielle se tient à
-// l'Hôtel Hilton de Yaoundé ; les dates affichées ici (12-13 novembre 2026) sont
+// l'Hôtel Hilton de Yaoundé ; la date affichée ici (13 novembre 2026) est
 // celles retenues par le client pour ce site.
 export const event = {
   name: 'ICHH Yaoundé 2026',
@@ -12,12 +12,12 @@ export const event = {
   edition: '10 ans de la Mahola Health Foundation',
   theme: "Bâtir une santé résiliente pour les populations vulnérables en Afrique",
   themeEn: "Building Resilient Health for Vulnerable Populations in Africa",
-  slogan: "Deux jours pour bâtir une santé résiliente au service des populations vulnérables d’Afrique.",
+  slogan: "Une journée pour bâtir une santé résiliente au service des populations vulnérables d’Afrique.",
   city: 'Yaoundé',
   country: 'Cameroun',
   venue: 'Hôtel Hilton de Yaoundé',
-  dates: '12 – 13 novembre 2026',
-  startIso: '2026-11-12T08:30:00',
+  dates: '13 novembre 2026',
+  startIso: '2026-11-13T08:30:00',
   expectedParticipants: '500'
 };
 
@@ -35,7 +35,7 @@ export const president = {
 export const keyFigures = [
 { value: '10', label: 'ans de solidarité', detail: 'Mahola Health Foundation, depuis 2016' },
 { value: '500', label: 'participants attendus', detail: 'Décideurs, experts, société civile' },
-{ value: '8', label: 'panels de haut niveau', detail: 'Sur deux jours' },
+{ value: '8', label: 'panels de haut niveau', detail: 'En une journée' },
 { value: '7', label: 'pays d’Afrique centrale', detail: 'Zone CEMAC-CEEAC' },
 { value: '12', label: 'missions médicales Mahola', detail: '8 700 consultations' }];
 
@@ -89,14 +89,14 @@ export const outcomes = [
 
 // Les huit panels de haut niveau retenus par le comité scientifique (brochure ICHH Yaoundé 2026).
 export const panels = [
-{ n: 1, title: 'Infrastructures et équipements sanitaires en Afrique', summary: "Évaluer les plateaux techniques africains face aux standards internationaux et identifier les solutions." },
-{ n: 2, title: 'La médecine du volontariat dans les villes et les villages', summary: "Contribution du volontariat et de la RSE à l’accès aux soins des populations vulnérables — alternative ou complément à la CSU ?" },
-{ n: 3, title: 'La Couverture Santé Universelle dans le développement des pays africains', summary: "Le cas du Cameroun, l’exemple de la CNAMGS au Gabon, le rôle des banques et des assurances, le financement du chèque santé." },
-{ n: 4, title: 'Médecine communautaire en milieu rural et lutte contre les déserts médicaux', summary: "Missions médicales, hôpitaux mobiles, campagnes de soins gratuits, télémédecine et digitalisation des soins primaires." },
-{ n: 5, title: 'Solutions globales face aux crises sanitaires : COVID, Ebola, VIH/SIDA', summary: "Veille sanitaire mondiale, synergie face aux menaces globales, place des solutions africaines." },
-{ n: 6, title: 'Accès aux médicaments et produits de première nécessité', summary: "Production pharmaceutique locale, entrepreneuriat, subvention et accès au médicament pour tous." },
-{ n: 7, title: 'Intelligence artificielle et diagnostic intelligent', summary: "Télémédecine, formation à distance, mise en réseau des compétences, données numériques et souveraineté sanitaire." },
-{ n: 8, title: 'Leadership des femmes dans le secteur de la santé', summary: "Promotion du genre et des jeunes dans les politiques publiques de santé." }];
+{ n: 1, title: 'Infrastructures et équipements sanitaires en Afrique', summary: "Évaluer les plateaux techniques africains au regard des standards internationaux et identifier les solutions de mise à niveau et leur financement.", topics: ['Évaluer les plateaux techniques africains au regard des standards internationaux', 'Identifier les solutions de mise à niveau et leur financement'], participants: 'MINSANTE, MINEPAT, constructeurs, équipementiers, OMS, UNICEF, GIZ, BAD, FMI, BDEAC, CEMAC' },
+{ n: 2, title: 'La médecine du volontariat dans les villes et villages', summary: "Contribution des missions médicales à l’accès aux soins des patients démunis, place de la RSE et pérennité des actions.", topics: ['Contribution des missions médicales à l’accès aux soins des patients démunis', 'Actions pérennes ou transitoires : la médecine du volontariat est-elle une alternative à la CSU ?', 'Rétribution sociale et place de la RSE dans les entreprises et les organismes d’État'], participants: 'MINSANTE, MINDEVEL, mairies, hôpitaux, centres de santé, cliniques, ONG, OMS, USAID, ambassades, CEMAC' },
+{ n: 3, title: 'La Couverture Santé Universelle dans les pays africains', summary: "Le cas du Cameroun et du projet CNAMGS au Gabon, les mécanismes de financement et le rôle des assurances et des banques.", topics: ['Le cas du Cameroun et l’exemple du projet CNAMGS au Gabon', 'Rôle des assurances et des banques dans la mise en place de la CSU', 'Financement du chèque blanc santé ; l’assurance maladie française comme référence'], participants: 'MINSANTE, CNAMGS Gabon, représentants du Gabon, de la RCA, du Congo et de la Guinée Équatoriale, banques, assurances, COBAC, DGTCFM MINFI, universités' },
+{ n: 4, title: 'Médecine communautaire et lutte contre les déserts médicaux', summary: "Missions médicales en milieu rural, hôpitaux mobiles, campagnes de soins gratuits et digitalisation des soins primaires.", topics: ['Rôle des missions médicales en milieu rural et promotion de la médecine de proximité', 'Hôpitaux mobiles et campagnes de soins gratuits', 'Télémédecine et digitalisation des soins de santé primaires'], participants: 'MINSANTE, MINEPAT, MINDEVEL, mairies, entreprises, hôpitaux, cliniques, ONG, OMS, USAID, ambassades, GECAM' },
+{ n: 5, title: 'Solutions globales et crises sanitaires mondiales', summary: "Veille sanitaire mondiale, nouvelles technologies de recherche et retours d’expérience sur le COVID-19, Ebola et le VIH/SIDA.", topics: ['Veille sanitaire mondiale et mutualisation face à une menace globale', 'Nouvelles technologies de recherche et solutions africaines', 'Retours d’expérience : COVID-19, Ebola, VIH/SIDA'], participants: 'MINSANTE, programmes nationaux, hôpitaux, centres de santé, experts, société civile, ONG, OMS, USAID, ambassades, GECAM' },
+{ n: 6, title: 'Accès aux médicaments et produits de première nécessité', summary: "Production pharmaceutique locale, subvention et accès aux médicaments pour tous.", topics: ['Production locale : pallier la demande et rôle de la pharmacie industrielle', 'Subvention et accès au médicament pour tous', 'Universités et grandes écoles de formation sanitaire'], participants: 'MINSANTE, MINPMEESA, MINADER, MINEPIA, MINMIDT, MINESUP, pharmaciens, corporations, ONG, OMS, UNICEF, GIZ, banques, universités, CEMAC' },
+{ n: 7, title: 'Intelligence artificielle et diagnostic intelligent', summary: "Télémédecine, diagnostic intelligent, formation à distance, gestion des données et souveraineté sanitaire.", topics: ['Télémédecine, outils de diagnostic intelligents et formation à distance', 'Mise en réseau des compétences médicales et digitalisation des services', 'Gestion des données numériques et souveraineté sanitaire de l’État'], participants: 'MINFI, MINEPAT, MINREX, DGSN, SED, ART, ambassades, ANTIC, CAMTEL, IAI, pharmaciens, universités, ENSP, chercheurs, APME, API, CEMAC' },
+{ n: 8, title: 'Leadership des femmes dans le secteur de la santé', summary: "Promotion du genre et des jeunes dans le secteur de la santé et dans les politiques publiques.", topics: ['Promotion du genre dans le secteur santé et des jeunes en milieu sanitaire', 'Composante genre et jeunesse dans les politiques publiques de santé'], participants: 'MINSANTE, MINPROFF, ONU Femmes, associations de femmes, MINESUP, MINAS, mairies, UNICEF, USAID, ambassades, ONG, universités, UA' }];
 
 
 export const conferenceFormats = [
@@ -302,6 +302,7 @@ export const footerLinks = [
   links: [
   { label: 'À propos', to: '/a-propos' },
   { label: 'Programme', to: '/programme' },
+  { label: 'Panels', to: '/panels' },
   { label: 'Speakers', to: '/speakers' },
   { label: 'Les 10 ans de Mahola', to: '/mahola' }]
 

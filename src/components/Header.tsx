@@ -15,6 +15,7 @@ export function Header() {
   { label: t.nav.about, to: '/a-propos' },
   { label: t.nav.mahola, to: '/mahola' },
   { label: t.nav.programme, to: '/programme' },
+  { label: t.nav.panels, to: '/panels' },
   { label: t.nav.speakers, to: '/speakers' }];
 
   const registrationDialog = useRegistrationDialog();
@@ -39,7 +40,7 @@ export function Header() {
             </span>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-7" aria-label={t.nav.main}>
+          <nav className="hidden lg:flex items-center gap-4 xl:gap-7" aria-label={t.nav.main}>
             {navItems.map((item) =>
             <NavLink
               key={item.to}

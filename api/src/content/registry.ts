@@ -75,7 +75,7 @@ export const REGISTRY: ContentDef[] = [
       { name: 'country', label: 'Pays', type: 'text' },
       { name: 'venue', label: 'Lieu', type: 'text' },
       { name: 'dates', label: 'Dates (affichage)', type: 'text' },
-      { name: 'startIso', label: 'Date/heure de début (ISO)', type: 'text', required: true, help: 'ex. 2026-11-12T08:30:00 — pilote le compte à rebours' },
+      { name: 'startIso', label: 'Date/heure de début (ISO)', type: 'text', required: true, help: 'ex. 2026-11-13T08:30:00 — pilote le compte à rebours' },
       { name: 'expectedParticipants', label: 'Participants attendus', type: 'text' },
     ],
   },
@@ -153,6 +153,8 @@ export const REGISTRY: ContentDef[] = [
       { name: 'n', label: 'Numéro', type: 'number', required: true },
       { name: 'title', label: 'Titre', type: 'text', required: true },
       { name: 'summary', label: 'Résumé', type: 'textarea' },
+      { name: 'topics', label: 'Sous-thèmes', type: 'string-list' },
+      { name: 'participants', label: 'Organisations invitées', type: 'textarea' },
     ],
   },
   {
