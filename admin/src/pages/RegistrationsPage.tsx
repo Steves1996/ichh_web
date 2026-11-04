@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import * as XLSX from 'xlsx';
 import { api } from '../lib/api';
 import { Registration, RegistrationStatus } from '../lib/types';
 
@@ -75,6 +76,39 @@ export function RegistrationsPage() {
     flash(`${filtered.length} e-mail(s) copié(s)`);
   };
 
+  const exportExcel = () => {
+    try {
+      const worksheet = XLSX.utils.aoa_to_sheet([
+        ['Nom complet', 'E-mail', 'Téléphone', 'Ville', 'Statut', 'Date d’inscription'],
+        ...filtered.map((registration) => [
+          registration.fullName,
+          registration.email,
+          registration.phone,
+          registration.city,
+          STATUS_LABEL[registration.status],
+          fmtDate(registration.createdAt),
+        ]),
+      ]);
+      worksheet['!cols'] = [
+        { wch: 30 },
+        { wch: 32 },
+        { wch: 20 },
+        { wch: 24 },
+        { wch: 16 },
+        { wch: 24 },
+      ];
+      worksheet['!autofilter'] = { ref: `A1:F${filtered.length + 1}` };
+
+      const workbook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(workbook, worksheet, 'Inscriptions');
+      XLSX.writeFile(workbook, `inscriptions-ichh-${new Date().toISOString().slice(0, 10)}.xlsx`);
+      flash(`${filtered.length} inscription(s) exportée(s)`);
+    } catch (error) {
+      console.error('Échec de l’export Excel des inscriptions', error);
+      flash('Échec de la création du fichier Excel.');
+    }
+  };
+
   return (
     <div>
       <h1>Inscriptions à la conférence</h1>
@@ -93,9 +127,13 @@ export function RegistrationsPage() {
         <button className="secondary" onClick={copyEmails} disabled={filtered.length === 0}>
           Copier les e-mails
         </button>
+        <button onClick={exportExcel} disabled={filtered.length === 0 || query.isLoading}>
+          Exporter Excel (.xlsx)
+        </button>
       </div>
 
       {query.isLoading && <p>Chargement…</p>}
+      {query.isError && <p role="alert" style={{ color: 'var(--danger)' }}>Impossible de charger les inscriptions : {query.error.message}</p>}
       {!query.isLoading && rows.length === 0 && (
         <div className="card"><p className="muted">Aucune inscription pour le moment.</p></div>
       )}
