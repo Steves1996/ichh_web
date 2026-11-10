@@ -1,7 +1,6 @@
 import type { Speaker } from '../types';
 
-const speakerImage = (filename: string) =>
-  `https://ichhyaounde2026.org/assets/img/speakers/${filename}`;
+const speakerImage = (filename: string) => `/${filename}`;
 
 export const speakers: Speaker[] = [
   {
