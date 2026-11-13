@@ -5,6 +5,7 @@ import { useT } from '../i18n/LanguageProvider';
 const API_URL = ((import.meta as any).env?.VITE_API_URL ?? '').replace(/\/$/, '');
 
 type Status = 'idle' | 'loading' | 'done' | 'error';
+type Availability = 'loading' | 'open' | 'closed' | 'error';
 
 interface RegistrationDialogContextValue {
   open: () => void;
@@ -21,11 +22,27 @@ export function useRegistrationDialog(): RegistrationDialogContextValue {
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-function RegistrationForm({ onClose }: { onClose: () => void }) {
+function RegistrationForm({
+  onClose,
+  availability,
+}: {
+  onClose: () => void;
+  availability: Availability;
+}) {
   const t = useT();
   const [form, setForm] = useState({ fullName: '', phone: '', city: '', email: '' });
   const [status, setStatus] = useState<Status>('idle');
   const [error, setError] = useState<string | null>(null);
+
+  if (availability !== 'open') {
+    const message =
+      availability === 'closed'
+        ? t.registration.closedMessage
+        : availability === 'loading'
+          ? t.registration.availabilityLoading
+          : t.registration.availabilityUnavailable;
+    return <p role="status" className="text-sm leading-relaxed text-ink-muted">{message}</p>;
+  }
 
   const set = (key: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm((f) => ({ ...f, [key]: e.target.value }));
@@ -56,6 +73,7 @@ function RegistrationForm({ onClose }: { onClose: () => void }) {
           email: form.email.trim(),
         }),
       });
+      if (res.status === 409) return fail(t.registration.closedMessage);
       if (!res.ok) throw new Error(`API ${res.status}`);
       setStatus('done');
     } catch {
@@ -167,9 +185,45 @@ function RegistrationForm({ onClose }: { onClose: () => void }) {
 export function RegistrationDialogProvider({ children }: { children: React.ReactNode }) {
   const t = useT();
   const [isOpen, setIsOpen] = useState(false);
+  const [availability, setAvailability] = useState<Availability>('loading');
 
   const open = useCallback(() => setIsOpen(true), []);
   const close = useCallback(() => setIsOpen(false), []);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    if (!API_URL) {
+      setAvailability('error');
+      return;
+    }
+
+    const controller = new AbortController();
+    setAvailability('loading');
+    fetch(`${API_URL}/api/registrations/status`, { signal: controller.signal })
+      .then(async (res) => {
+        if (!res.ok) throw new Error(`API ${res.status}`);
+        const data: unknown = await res.json();
+        if (
+          typeof data !== 'object' ||
+          data === null ||
+          !('isOpen' in data) ||
+          typeof data.isOpen !== 'boolean'
+        ) {
+          throw new Error('Réponse de disponibilité invalide');
+        }
+        return data.isOpen;
+      })
+      .then((registrationsOpen) => {
+        setAvailability(registrationsOpen ? 'open' : 'closed');
+      })
+      .catch((error: unknown) => {
+        if (error instanceof DOMException && error.name === 'AbortError') return;
+        console.error('Impossible de vérifier la disponibilité des inscriptions', error);
+        setAvailability('error');
+      });
+
+    return () => controller.abort();
+  }, [isOpen]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -217,7 +271,7 @@ export function RegistrationDialogProvider({ children }: { children: React.React
               <p className="mb-6 text-sm leading-relaxed text-ink-muted">
                 {t.registration.intro}
               </p>
-              <RegistrationForm onClose={close} />
+              <RegistrationForm onClose={close} availability={availability} />
             </div>
           </div>
         </div>

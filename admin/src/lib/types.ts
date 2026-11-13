@@ -64,6 +64,10 @@ export interface Registration {
   updatedAt: string;
 }
 
+export interface RegistrationSettings {
+  isOpen: boolean;
+}
+
 export interface Subscriber {
   id: string;
   email: string;

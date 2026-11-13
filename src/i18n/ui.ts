@@ -263,6 +263,9 @@ const fr = {
     title: 'S’inscrire à la conférence',
     intro:
     'Renseignez vos coordonnées pour pré-réserver votre place. L’équipe de la Mahola Health Foundation vous recontacte avec les modalités de participation (formules, accès, programme).',
+    closedMessage: 'Les inscriptions sont actuellement fermées.',
+    availabilityLoading: 'Vérification de la disponibilité des inscriptions…',
+    availabilityUnavailable: 'Impossible de vérifier la disponibilité. Réessayez plus tard.',
     fullName: 'Nom et prénom',
     fullNamePlaceholder: 'Nom Prénom',
     city: 'Ville de résidence',
@@ -575,6 +578,9 @@ const en: Dictionary = {
     title: 'Register for the conference',
     intro:
     'Enter your details to pre-book your place. The Mahola Health Foundation team will get back to you with participation details (packages, access, programme).',
+    closedMessage: 'Registrations are currently closed.',
+    availabilityLoading: 'Checking registration availability…',
+    availabilityUnavailable: 'Registration availability could not be checked. Please try again later.',
     fullName: 'Full name',
     fullNamePlaceholder: 'First name Last name',
     city: 'City of residence',

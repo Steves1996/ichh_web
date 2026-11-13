@@ -1,5 +1,10 @@
-import { IsEmail, IsIn, IsOptional, IsString, Length } from 'class-validator';
+import { IsBoolean, IsEmail, IsIn, IsOptional, IsString, Length } from 'class-validator';
 import { RegistrationStatus } from './registration.entity';
+
+export class UpdateRegistrationSettingsDto {
+  @IsBoolean()
+  isOpen: boolean;
+}
 
 export class CreateRegistrationDto {
   @IsString()

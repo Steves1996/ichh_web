@@ -10,7 +10,7 @@ import {
 } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
-import { CreateRegistrationDto, UpdateRegistrationDto } from './dto';
+import { CreateRegistrationDto, UpdateRegistrationDto, UpdateRegistrationSettingsDto } from './dto';
 import { RegistrationsService } from './registrations.service';
 
 @ApiTags('registrations')
@@ -24,7 +24,19 @@ export class RegistrationsController {
     return this.registrations.create(dto);
   }
 
+  @Get('registrations/status')
+  getSettings() {
+    return this.registrations.getSettings();
+  }
+
   // --------------------------------------------------------------- Admin
+  @ApiBearerAuth()
+  @UseGuards(JwtAuthGuard)
+  @Put('admin/registrations/settings')
+  updateSettings(@Body() dto: UpdateRegistrationSettingsDto) {
+    return this.registrations.updateSettings(dto);
+  }
+
   @ApiBearerAuth()
   @UseGuards(JwtAuthGuard)
   @Get('admin/registrations')

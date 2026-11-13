@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import * as XLSX from 'xlsx';
 import { api } from '../lib/api';
-import { Registration, RegistrationStatus } from '../lib/types';
+import { Registration, RegistrationSettings, RegistrationStatus } from '../lib/types';
 
 const STATUS_LABEL: Record<RegistrationStatus, string> = {
   nouveau: 'Nouveau',
@@ -44,6 +44,21 @@ export function RegistrationsPage() {
   const query = useQuery({
     queryKey: ['registrations'],
     queryFn: () => api.get<Registration[]>('/admin/registrations'),
+  });
+
+  const settingsQuery = useQuery({
+    queryKey: ['registration-settings'],
+    queryFn: () => api.get<RegistrationSettings>('/registrations/status'),
+  });
+
+  const updateSettings = useMutation({
+    mutationFn: (isOpen: boolean) =>
+      api.put<RegistrationSettings>('/admin/registrations/settings', { isOpen }),
+    onSuccess: (settings) => {
+      qc.setQueryData(['registration-settings'], settings);
+      flash(settings.isOpen ? 'Inscriptions ouvertes' : 'Inscriptions fermées');
+    },
+    onError: (error) => flash(`Impossible de modifier les inscriptions : ${error.message}`),
   });
 
   const setStatus = useMutation({
@@ -116,6 +131,39 @@ export function RegistrationsPage() {
         Envoyées depuis le bouton « S’inscrire » du site vitrine.
         {rows.length > 0 && ` ${rows.length} inscription(s), dont ${newCount} nouvelle(s).`}
       </p>
+
+      <div className="card">
+        <div className="spread">
+          <div>
+            <div className="title">Inscriptions en ligne</div>
+            <div className="muted">
+              {settingsQuery.data
+                ? settingsQuery.data.isOpen
+                  ? 'Les visiteurs peuvent envoyer une inscription.'
+                  : 'Le formulaire est fermé aux visiteurs.'
+                : settingsQuery.isLoading
+                  ? 'Chargement du réglage…'
+                  : 'État des inscriptions indisponible.'}
+            </div>
+          </div>
+          <button
+            className={settingsQuery.data?.isOpen ? 'danger' : 'secondary'}
+            onClick={() => updateSettings.mutate(!settingsQuery.data?.isOpen)}
+            disabled={!settingsQuery.data || updateSettings.isPending}
+          >
+            {updateSettings.isPending
+              ? 'Enregistrement…'
+              : settingsQuery.data?.isOpen
+                ? 'Fermer les inscriptions'
+                : 'Ouvrir les inscriptions'}
+          </button>
+        </div>
+        {settingsQuery.isError && (
+          <p role="alert" style={{ color: 'var(--danger)', marginTop: '0.75rem' }}>
+            Impossible de charger le réglage : {settingsQuery.error.message}
+          </p>
+        )}
+      </div>
 
       <div className="toolbar">
         <input
